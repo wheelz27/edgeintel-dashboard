@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-02T11:32:57.035310",
+  "updated": "2026-03-02T11:58:41.118803",
   "date": "March 02, 2026",
   "daily_code": "EDGE0302",
   "discord_invite": "https://discord.gg/z5xKNuGWW7",
@@ -113,41 +113,6 @@
     },
     {
       "id": 4,
-      "sport": "NHL",
-      "game": "Detroit Red Wings @ Nashville Predators",
-      "time": "2026-03-02T19:00:00Z",
-      "confidence": 60,
-      "best_bet": {
-        "pick": "Over 5.5",
-        "odds": "-128",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Over 5.5"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model spread direction"
-      },
-      "model_vs_market": {
-        "model_spread": 0.3,
-        "market_spread": 5.5,
-        "edge": 0.7,
-        "model_total": 6.2,
-        "home_proj": 3.1,
-        "away_proj": 3.1
-      },
-      "why": "Model projects 3 + 3 = 6.2 total. Market total: 5.5. Edge: 0.7 points toward Over.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Over 5.5 up to 6.5. Standard sizing."
-    },
-    {
-      "id": 5,
       "sport": "NHL",
       "game": "Dallas Stars @ Vancouver Canucks",
       "time": "2026-03-03T03:00:00Z",
