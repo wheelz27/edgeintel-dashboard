@@ -40,6 +40,7 @@ export default function App() {
   const [lastRefresh, setLastRefresh] = useState(new Date());
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const chatEndRef = useRef(null);
 
   // ── LOAD DATA FROM JSON ───────────────────────────────────────
@@ -72,6 +73,11 @@ export default function App() {
     const t = setInterval(fetchData, REFRESH_INTERVAL);
     return () => clearInterval(t);
   }, [fetchData]);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => { chatEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [chatMessages]);
 
@@ -225,7 +231,7 @@ Rules: Max 150 words. Use bullets. Say "the model projects" not "I think". End e
         {/* ═══ RESULTS TAB ═══ */}
         {activeTab === "results" && (
           <div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10, marginBottom: 20 }}>
+            <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2,1fr)" : "repeat(4,1fr)", gap: 10, marginBottom: 20 }}>
               {[
                 { label: "Win Rate", value: rec.wins && rec.losses ? `${((rec.wins / (rec.wins + rec.losses)) * 100).toFixed(1)}%` : "—", color: T.teal },
                 { label: "Record", value: `${rec.wins || 0}W-${rec.losses || 0}L`, color: T.text },
@@ -238,19 +244,19 @@ Rules: Max 150 words. Use bullets. Say "the model projects" not "I think". End e
                 </div>
               ))}
             </div>
-            <div style={{ borderRadius: 12, overflow: "hidden", border: `1px solid ${T.border}`, background: T.surface }}>
-              <div style={{ display: "grid", gridTemplateColumns: "65px 1fr 1fr 55px 55px 70px", padding: "8px 12px", fontSize: 9.5, fontWeight: 800, color: T.textMuted, textTransform: "uppercase", letterSpacing: "0.5px", borderBottom: `1px solid ${T.border}` }}>
-                <div>Date</div><div>Game</div><div>Pick</div><div>Result</div><div>CLV</div><div>P&L</div>
+            <div style={{ borderRadius: 12, overflow: "hidden", border: `1px solid ${T.border}`, background: T.surface, overflowX: "auto" }}>
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "50px 1fr 40px 55px" : "65px 1fr 1fr 55px 55px 70px", padding: "8px 12px", fontSize: 9.5, fontWeight: 800, color: T.textMuted, textTransform: "uppercase", letterSpacing: "0.5px", borderBottom: `1px solid ${T.border}`, minWidth: isMobile ? "auto" : "auto" }}>
+                <div>Date</div>{!isMobile && <div>Game</div>}<div>Pick</div><div>Result</div>{!isMobile && <div>CLV</div>}<div>P&L</div>
               </div>
               {allResults.map((r, i) => {
                 const locked = !unlocked && i > 3;
                 return (
-                  <div key={i} style={{ display: "grid", gridTemplateColumns: "65px 1fr 1fr 55px 55px 70px", padding: "9px 12px", fontSize: 12, borderBottom: i < allResults.length - 1 ? `1px solid ${T.border}` : "none", filter: locked ? "blur(5px)" : "none", userSelect: locked ? "none" : "auto" }}>
+                  <div key={i} style={{ display: "grid", gridTemplateColumns: isMobile ? "50px 1fr 40px 55px" : "65px 1fr 1fr 55px 55px 70px", padding: "9px 12px", fontSize: isMobile ? 11 : 12, borderBottom: i < allResults.length - 1 ? `1px solid ${T.border}` : "none", filter: locked ? "blur(5px)" : "none", userSelect: locked ? "none" : "auto" }}>
                     <div style={{ color: T.textMuted }}>{r.date}</div>
-                    <div style={{ fontWeight: 700 }}>{r.game}</div>
+                    {!isMobile && <div style={{ fontWeight: 700 }}>{r.game}</div>}
                     <div style={{ color: T.teal, fontWeight: 700 }}>{r.pick}</div>
                     <div style={{ fontWeight: 900, color: r.result === "W" ? T.green : T.red }}>{r.result}</div>
-                    <div style={{ color: T.teal, fontWeight: 700 }}>{r.clv || "—"}</div>
+                    {!isMobile && <div style={{ color: T.teal, fontWeight: 700 }}>{r.clv || "—"}</div>}
                     <div style={{ fontWeight: 800, color: parseFloat(r.profit) > 0 ? T.green : T.red }}>{parseFloat(r.profit) > 0 ? "+" : ""}{r.profit}u</div>
                   </div>
                 );
@@ -266,7 +272,113 @@ Rules: Max 150 words. Use bullets. Say "the model projects" not "I think". End e
 
         {/* ═══ PICKS TAB ═══ */}
         {activeTab === "picks" && (
-          <div style={{ display: "grid", gridTemplateColumns: selectedGame && unlocked ? "1fr 1fr" : "1fr", gap: 20 }}>
+          <>
+            {/* MOBILE: show analytics full-screen when game selected */}
+            {isMobile && selectedGame && unlocked ? (
+              <div style={{ background: T.surface, borderRadius: 14, border: `1px solid ${T.border}`, overflow: "hidden" }}>
+                {/* Back button */}
+                <div style={{ padding: "10px 16px", borderBottom: `1px solid ${T.border}`, display: "flex", alignItems: "center", gap: 8 }}>
+                  <button onClick={() => setSelectedGame(null)} style={{ padding: "6px 14px", borderRadius: 8, fontSize: 11, fontWeight: 800, background: T.accentGlow, border: `1px solid rgba(77,142,255,0.2)`, color: T.accent, cursor: "pointer" }}>← Back to Slate</button>
+                </div>
+                {/* Header */}
+                <div style={{ padding: "14px 16px", borderBottom: `1px solid ${T.border}`, background: "linear-gradient(135deg,rgba(77,142,255,0.05),transparent)" }}>
+                  <div style={{ fontSize: 10, color: T.textMuted, fontWeight: 700, marginBottom: 3 }}>🧠 GAME INTELLIGENCE</div>
+                  <div style={{ fontSize: 15, fontWeight: 900 }}>{selectedGame.icon} {selectedGame.matchup}</div>
+                  <div style={{ display: "flex", gap: 6, marginTop: 5, flexWrap: "wrap" }}>
+                    <span style={{ padding: "2px 8px", borderRadius: 999, fontSize: 9.5, fontWeight: 800, background: T.accentGlow, border: "1px solid rgba(77,142,255,0.2)", color: T.accent }}>{selectedGame.sport}</span>
+                    <span style={{ fontSize: 11, color: T.textMuted }}>{selectedGame.time}</span>
+                  </div>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 10 }}>
+                    <div style={{ padding: "8px 10px", borderRadius: 8, background: "rgba(255,255,255,0.02)", border: `1px solid ${T.border}`, fontSize: 11 }}>
+                      <div style={{ fontSize: 9, color: T.textMuted, fontWeight: 700, marginBottom: 4 }}>MARKET</div>
+                      <div>Spread: <strong>{selectedGame.market?.spread}</strong></div>
+                      <div>Total: <strong>{selectedGame.market?.total}</strong></div>
+                    </div>
+                    <div style={{ padding: "8px 10px", borderRadius: 8, background: "rgba(0,229,195,0.03)", border: "1px solid rgba(0,229,195,0.1)", fontSize: 11 }}>
+                      <div style={{ fontSize: 9, color: T.teal, fontWeight: 700, marginBottom: 4 }}>MODEL</div>
+                      <div>Spread: <strong style={{ color: T.teal }}>{selectedGame.model?.proj_spread}</strong></div>
+                      <div>Total: <strong style={{ color: T.teal }}>{selectedGame.model?.proj_total}</strong></div>
+                    </div>
+                  </div>
+                </div>
+                {/* Tabs */}
+                <div style={{ display: "flex", borderBottom: `1px solid ${T.border}` }}>
+                  {[{ key: "analysis", label: "Analysis" }, { key: "scotty", label: "Ask Scotty 🤖" }].map(t => (
+                    <button key={t.key} onClick={() => setDossierTab(t.key)} style={{ flex: 1, padding: "9px", fontSize: 11, fontWeight: 700, background: "transparent", border: "none", cursor: "pointer", color: dossierTab === t.key ? T.accent : T.textMuted, borderBottom: dossierTab === t.key ? `2px solid ${T.accent}` : "2px solid transparent" }}>{t.label}</button>
+                  ))}
+                </div>
+                {/* Analysis */}
+                <div style={{ padding: "14px 16px" }}>
+                  {dossierTab === "analysis" && (
+                    <div>
+                      {selectedGame.bestBet && (
+                        <div style={{ marginBottom: 16 }}>
+                          <div style={{ fontSize: 10.5, fontWeight: 800, color: T.teal, marginBottom: 6 }}>🎯 BEST BET</div>
+                          <div style={{ padding: "10px 12px", borderRadius: 10, background: "rgba(0,229,195,0.04)", border: "1px solid rgba(0,229,195,0.12)", marginBottom: 8 }}>
+                            <div style={{ fontSize: 14, fontWeight: 900, color: T.teal }}>{selectedGame.bestBet.pick} <span style={{ color: T.text, fontWeight: 700, fontSize: 12 }}>{selectedGame.bestBet.odds}</span></div>
+                            <div style={{ fontSize: 11, color: T.textMuted, marginTop: 3 }}>{selectedGame.bestBet.book} • {selectedGame.bestBet.confidence}% conf • {selectedGame.bestBet.units}u</div>
+                          </div>
+                          <Section title="WHY" icon="✅" color={T.teal} items={selectedGame.bestBet.why || []} />
+                          <Section title="RISK" icon="⚠️" color={T.red} items={selectedGame.bestBet.risk || []} />
+                          {selectedGame.bestBet.execution && (
+                            <div style={{ marginTop: 8 }}>
+                              <div style={{ fontSize: 10.5, fontWeight: 800, color: T.gold, marginBottom: 5 }}>⚡ EXECUTION</div>
+                              <div style={{ padding: "8px 12px", borderRadius: 10, background: "rgba(245,166,35,0.04)", border: "1px solid rgba(245,166,35,0.12)", fontSize: 12, lineHeight: 1.6 }}>{selectedGame.bestBet.execution}</div>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                      {selectedGame.bestProp && (
+                        <div style={{ marginBottom: 16 }}>
+                          <div style={{ fontSize: 10.5, fontWeight: 800, color: T.accent, marginBottom: 6 }}>📌 BEST PROP</div>
+                          <div style={{ padding: "10px 12px", borderRadius: 10, background: T.accentGlow, border: "1px solid rgba(77,142,255,0.12)" }}>
+                            <div style={{ fontSize: 13, fontWeight: 800 }}>{selectedGame.bestProp.pick} <span style={{ color: T.textMuted, fontSize: 11 }}>{selectedGame.bestProp.odds} • {selectedGame.bestProp.confidence}%</span></div>
+                            {selectedGame.bestProp.why && selectedGame.bestProp.why.map((w, i) => (
+                              <div key={i} style={{ fontSize: 11, color: T.textMuted, marginTop: 3 }}>• {w}</div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      {selectedGame.bestParlay && (
+                        <div style={{ marginBottom: 16 }}>
+                          <div style={{ fontSize: 10.5, fontWeight: 800, color: T.gold, marginBottom: 6 }}>🧩 BEST PARLAY</div>
+                          <div style={{ padding: "10px 12px", borderRadius: 10, background: "rgba(245,166,35,0.04)", border: "1px solid rgba(245,166,35,0.12)" }}>
+                            <div style={{ fontSize: 12, fontWeight: 800, marginBottom: 4 }}>{(selectedGame.bestParlay.legs || []).join(" + ")} <span style={{ color: T.gold }}>{selectedGame.bestParlay.odds}</span></div>
+                            <div style={{ fontSize: 11, color: T.textMuted }}>Correlation: {selectedGame.bestParlay.correlation}</div>
+                            <div style={{ fontSize: 11, color: T.textMuted }}>Confidence: {selectedGame.bestParlay.confidence}%</div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  {dossierTab === "scotty" && (
+                    <div>
+                      <div style={{ display: "flex", gap: 5, marginBottom: 10, flexWrap: "wrap" }}>
+                        {[{ key: "edge", label: "Core edge" }, { key: "risk", label: "Kill factors" }, { key: "sizing", label: "Size + timing" }, { key: "prop", label: "Prop" }, { key: "parlay", label: "Parlay" }].map(q => (
+                          <button key={q.key} onClick={() => quickAsk(q.key)} disabled={scottyLoading} style={{ padding: "5px 11px", borderRadius: 7, fontSize: 10.5, fontWeight: 700, background: T.accentGlow, border: "1px solid rgba(77,142,255,0.18)", color: T.accent, cursor: scottyLoading ? "wait" : "pointer", opacity: scottyLoading ? 0.5 : 1 }}>{q.label}</button>
+                        ))}
+                      </div>
+                      <div style={{ marginBottom: 10 }}>
+                        {chatMessages.length === 0 && <div style={{ textAlign: "center", padding: "20px 16px", color: T.textMuted, fontSize: 12 }}><div style={{ fontSize: 24, marginBottom: 8 }}>🤖</div>Ask Scotty anything about this game.</div>}
+                        {chatMessages.map((msg, i) => (
+                          <div key={i} style={{ marginBottom: 8, display: "flex", justifyContent: msg.role === "user" ? "flex-end" : "flex-start" }}>
+                            <div style={{ maxWidth: "88%", padding: "9px 13px", borderRadius: 11, fontSize: 12, lineHeight: 1.6, whiteSpace: "pre-wrap", background: msg.role === "user" ? T.accentGlow : "rgba(255,255,255,0.025)", border: `1px solid ${msg.role === "user" ? "rgba(77,142,255,0.18)" : T.border}` }}>{msg.text}</div>
+                          </div>
+                        ))}
+                        {scottyLoading && <div style={{ padding: "10px 16px", borderRadius: 11, background: "rgba(255,255,255,0.025)", border: `1px solid ${T.border}`, fontSize: 12, color: T.textMuted, display: "inline-block" }}>Scotty analyzing...</div>}
+                        <div ref={chatEndRef} />
+                      </div>
+                      <div style={{ display: "flex", gap: 6 }}>
+                        <input value={chatInput} onChange={e => setChatInput(e.target.value)} onKeyDown={e => { if (e.key === "Enter" && !scottyLoading && chatInput.trim()) { askScotty(selectedGame, chatInput); setChatInput(""); }}} placeholder="Ask Scotty..." disabled={scottyLoading} style={{ flex: 1, padding: "9px 12px", borderRadius: 9, fontSize: 12, background: T.bg, border: `1px solid ${T.border}`, color: T.text, outline: "none" }} />
+                        <button onClick={() => { if (chatInput.trim()) { askScotty(selectedGame, chatInput); setChatInput(""); }}} disabled={scottyLoading || !chatInput.trim()} style={{ padding: "9px 16px", borderRadius: 9, fontSize: 11, fontWeight: 800, background: T.accent, border: "none", color: "#fff", cursor: "pointer", opacity: scottyLoading || !chatInput.trim() ? 0.4 : 1 }}>SEND</button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ) : (
+            /* DESKTOP + GAME LIST */
+            <div style={{ display: "grid", gridTemplateColumns: selectedGame && unlocked && !isMobile ? "1fr 1fr" : "1fr", gap: 20 }}>
             <div>
               {/* Top 3 */}
               <div style={{ marginBottom: 22 }}>
@@ -295,7 +407,7 @@ Rules: Max 150 words. Use bullets. Say "the model projects" not "I think". End e
 
             {/* ── ANALYTICS PANEL ── */}
             {selectedGame && unlocked ? (
-              <div style={{ borderRadius: 14, border: `1px solid ${T.border}`, background: T.surface, overflow: "hidden", position: "sticky", top: 16, maxHeight: "calc(100vh - 160px)", display: "flex", flexDirection: "column" }}>
+              <div style={{ borderRadius: isMobile ? 0 : 14, border: isMobile ? "none" : `1px solid ${T.border}`, background: T.surface, overflow: "hidden", position: isMobile ? "fixed" : "sticky", top: isMobile ? 0 : 16, left: isMobile ? 0 : "auto", right: isMobile ? 0 : "auto", bottom: isMobile ? 0 : "auto", maxHeight: isMobile ? "100vh" : "calc(100vh - 160px)", height: isMobile ? "100vh" : "auto", display: "flex", flexDirection: "column", zIndex: isMobile ? 999 : "auto" }}>
                 {/* Header */}
                 <div style={{ padding: "14px 16px", borderBottom: `1px solid ${T.border}`, background: "linear-gradient(135deg,rgba(77,142,255,0.05),transparent)" }}>
                   <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -404,7 +516,7 @@ Rules: Max 150 words. Use bullets. Say "the model projects" not "I think". End e
                   )}
                 </div>
               </div>
-            ) : activeTab === "picks" && (
+            ) : activeTab === "picks" && !isMobile && (
               <div style={{ borderRadius: 14, border: `1px solid ${T.border}`, background: T.surface, padding: 36, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", minHeight: 280 }}>
                 {unlocked ? (
                   <><div style={{ fontSize: 32, marginBottom: 10 }}>🧠</div><div style={{ fontSize: 13, fontWeight: 800, marginBottom: 5 }}>Game Intelligence</div><div style={{ fontSize: 12, color: T.textMuted }}>Click any game for full analytics + Scotty AI</div></>
@@ -419,6 +531,8 @@ Rules: Max 150 words. Use bullets. Say "the model projects" not "I think". End e
               </div>
             )}
           </div>
+          )}
+          </>
         )}
       </div>
 
