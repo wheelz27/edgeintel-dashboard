@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-02T10:39:13.495331",
+  "updated": "2026-03-02T10:46:30.128351",
   "date": "March 02, 2026",
   "daily_code": "EDGE0302",
   "discord_invite": "https://discord.gg/z5xKNuGWW7",
@@ -78,41 +78,6 @@
     },
     {
       "id": 3,
-      "sport": "NBA",
-      "game": "Boston Celtics @ Milwaukee Bucks",
-      "time": "7:30 pm ET",
-      "confidence": 65,
-      "best_bet": {
-        "pick": "Under 218.5",
-        "odds": "-114",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Under 218.5"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model spread direction"
-      },
-      "model_vs_market": {
-        "model_spread": 5.1,
-        "market_spread": 218.5,
-        "edge": 2.9,
-        "model_total": 215.6,
-        "home_proj": 107.4,
-        "away_proj": 108.2
-      },
-      "why": "Model projects 107 + 108 = 215.6 total. Market total: 218.5. Edge: 2.9 points toward Under.",
-      "risk": "Boston Celtics may be due for regression (40-20).",
-      "execution": "Play Under 218.5 up to 217.5. Standard sizing."
-    },
-    {
-      "id": 4,
       "sport": "NHL",
       "game": "Carolina Hurricanes @ Seattle Kraken",
       "time": "2026-03-03T03:00:00Z",
@@ -147,7 +112,7 @@
       "execution": "Play at -1.5 or better. Kill if line moves past -1.0. Size: 0.5 units."
     },
     {
-      "id": 5,
+      "id": 4,
       "sport": "NHL",
       "game": "Dallas Stars @ Vancouver Canucks",
       "time": "2026-03-03T03:00:00Z",
