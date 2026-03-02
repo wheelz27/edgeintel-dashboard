@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-02T10:59:57.757302",
+  "updated": "2026-03-02T11:07:12.437128",
   "date": "March 02, 2026",
   "daily_code": "EDGE0302",
   "discord_invite": "https://discord.gg/z5xKNuGWW7",
@@ -11,9 +11,9 @@
       "sport": "NBA",
       "game": "Boston Celtics @ Milwaukee Bucks",
       "time": "7:30 pm ET",
-      "confidence": 93,
+      "confidence": 87,
       "best_bet": {
-        "pick": "Milwaukee Bucks -4.0",
+        "pick": "Milwaukee Bucks -1.5",
         "odds": "-110",
         "book": "FanDuel"
       },
@@ -24,22 +24,22 @@
       },
       "best_parlay": {
         "legs": [
-          "Milwaukee Bucks -4.0"
+          "Milwaukee Bucks -1.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model spread direction"
       },
       "model_vs_market": {
         "model_spread": 5.1,
-        "market_spread": -4.0,
-        "edge": 9.1,
+        "market_spread": -1.5,
+        "edge": 6.6,
         "model_total": 215.6,
         "home_proj": 107.4,
         "away_proj": 108.2
       },
-      "why": "Model projects Milwaukee Bucks 107 - Boston Celtics 108. Model spread: +5.1 vs market -4.0 = 9.1pt edge. Milwaukee Bucks is 26-33 on the season.",
+      "why": "Model projects Milwaukee Bucks 107 - Boston Celtics 108. Model spread: +5.1 vs market -1.5 = 6.6pt edge. Milwaukee Bucks is 26-33 on the season.",
       "risk": "Boston Celtics may be due for regression (40-20).",
-      "execution": "Play at -4.0 or better. Kill if line moves past -3.0. Size: 1.5 units."
+      "execution": "Play at -1.5 or better. Kill if line moves past -0.5. Size: 1.5 units."
     },
     {
       "id": 2,
@@ -84,7 +84,7 @@
       "confidence": 65,
       "best_bet": {
         "pick": "Seattle Kraken -1.5",
-        "odds": "+128",
+        "odds": "+132",
         "book": "FanDuel"
       },
       "best_prop": {
