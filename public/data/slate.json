@@ -52,7 +52,10 @@
         ]
       },
       "bestParlay": {
-        "legs": ["Under 228.5", "Celtics ML"],
+        "legs": [
+          "Under 228.5",
+          "Celtics ML"
+        ],
         "odds": "+175",
         "confidence": 72,
         "correlation": "Lower tempo favors Boston control — they win low-scoring games"
@@ -108,7 +111,10 @@
         ]
       },
       "bestParlay": {
-        "legs": ["Over 231.5", "Durant 25+ PTS"],
+        "legs": [
+          "Over 231.5",
+          "Durant 25+ PTS"
+        ],
         "odds": "+160",
         "confidence": 70,
         "correlation": "If total clears, KD scoring is elevated — correlated"
@@ -164,7 +170,10 @@
         ]
       },
       "bestParlay": {
-        "legs": ["VGK ML", "Eichel 1+ Points"],
+        "legs": [
+          "VGK ML",
+          "Eichel 1+ Points"
+        ],
         "odds": "+130",
         "confidence": 68,
         "correlation": "If VGK wins they're scoring — Eichel involved in most goals"
@@ -220,7 +229,10 @@
         ]
       },
       "bestParlay": {
-        "legs": ["Over 2.5 Rounds", "Favorite by Decision"],
+        "legs": [
+          "Over 2.5 Rounds",
+          "Favorite by Decision"
+        ],
         "odds": "+180",
         "confidence": 58,
         "correlation": "If fight goes long, favorite's cardio edge wins scorecards"
@@ -277,7 +289,10 @@
         ]
       },
       "bestParlay": {
-        "legs": ["Duke -3.5", "Under 151.5"],
+        "legs": [
+          "Duke -3.5",
+          "Under 151.5"
+        ],
         "odds": "+250",
         "confidence": 65,
         "correlation": "Duke controls tempo → fewer possessions → lower total + Duke covers in grind"
@@ -334,7 +349,10 @@
         ]
       },
       "bestParlay": {
-        "legs": ["Under 137.5", "Houston ML"],
+        "legs": [
+          "Under 137.5",
+          "Houston ML"
+        ],
         "odds": "+190",
         "confidence": 70,
         "correlation": "Low-scoring game is Houston's identity — they win ugly"
@@ -391,7 +409,10 @@
         ]
       },
       "bestParlay": {
-        "legs": ["Auburn -1.5", "Under 143.5"],
+        "legs": [
+          "Auburn -1.5",
+          "Under 143.5"
+        ],
         "odds": "+260",
         "confidence": 62,
         "correlation": "Grind game in hostile environment — Auburn wins close and low"
@@ -448,7 +469,10 @@
         ]
       },
       "bestParlay": {
-        "legs": ["Over 148.5", "Illinois ML"],
+        "legs": [
+          "Over 148.5",
+          "Illinois ML"
+        ],
         "odds": "+155",
         "confidence": 66,
         "correlation": "High-scoring game at home — Illinois offense fires and they win comfortably"
@@ -505,7 +529,10 @@
         ]
       },
       "bestParlay": {
-        "legs": ["Gonzaga -5.5", "Under 139.5"],
+        "legs": [
+          "Gonzaga -5.5",
+          "Under 139.5"
+        ],
         "odds": "+260",
         "confidence": 63,
         "correlation": "Zags suffocate SMC offense → low total + comfortable cover"
