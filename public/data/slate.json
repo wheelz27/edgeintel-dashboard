@@ -1,542 +1,185 @@
 {
-  "updated": "2026-03-01",
-  "daily_code": "EDGE0301",
+  "updated": "2026-03-02T10:28:57.627981",
+  "date": "March 02, 2026",
+  "daily_code": "EDGE0302",
+  "discord_invite": "https://discord.gg/YOUR_INVITE",
+  "paypal_link": "https://paypal.me/Wheelz27",
+  "price": "$29/month",
   "games": [
     {
-      "id": "lal-bos-0301",
+      "id": 1,
       "sport": "NBA",
-      "icon": "🏀",
-      "matchup": "Lakers @ Celtics",
-      "time": "7:30 PM ET",
-      "status": "upcoming",
-      "market": {
-        "spread": "BOS -4.5",
-        "total": 228.5,
-        "ml_home": -180,
-        "ml_away": 150
+      "game": "Boston Celtics @ Milwaukee Bucks",
+      "time": "7:30 pm ET",
+      "confidence": 93,
+      "best_bet": {
+        "pick": "Milwaukee Bucks -3.5",
+        "odds": "-106",
+        "book": "FanDuel"
       },
-      "model": {
-        "proj_spread": -7,
-        "proj_total": 222,
-        "edge_spread": 2.5,
-        "edge_total": 6.5
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
       },
-      "bestBet": {
-        "pick": "Under 228.5",
-        "odds": "-110",
-        "book": "FanDuel",
-        "confidence": 84,
-        "units": 2,
-        "why": [
-          "Boston top 3 defensive rating last 10 games",
-          "Lakers road pace drops 4 possessions per game",
-          "Both teams bottom 10 in 4Q scoring this month",
-          "Model projects 222 total — 6.5 pts below market"
-        ],
-        "risk": [
-          "If total drops under 224 the edge thins",
-          "Late injury news could shift tempo projection"
-        ],
-        "execution": "Take Under 228.5 at -110 or better. Pass if line drops to 225 or below."
-      },
-      "bestProp": {
-        "pick": "Tatum Under 29.5 PTS",
-        "odds": "-115",
-        "book": "DraftKings",
-        "confidence": 78,
-        "units": 1,
-        "why": [
-          "Lakers double-team high-usage wings aggressively",
-          "Tatum under in 5 of last 7 vs LAL matchups",
-          "Projected lower-scoring environment reduces ceiling"
-        ]
-      },
-      "bestParlay": {
+      "best_parlay": {
         "legs": [
-          "Under 228.5",
-          "Celtics ML"
+          "Milwaukee Bucks -3.5"
         ],
-        "odds": "+175",
-        "confidence": 72,
-        "correlation": "Lower tempo favors Boston control — they win low-scoring games"
-      }
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model spread direction"
+      },
+      "model_vs_market": {
+        "model_spread": 5.1,
+        "market_spread": -3.5,
+        "edge": 8.6,
+        "model_total": 215.6,
+        "home_proj": 107.4,
+        "away_proj": 108.2
+      },
+      "why": "Model projects Milwaukee Bucks 107 - Boston Celtics 108. Model spread: +5.1 vs market -3.5 = 8.6pt edge. Milwaukee Bucks is 26-33 on the season.",
+      "risk": "Boston Celtics may be due for regression (40-20).",
+      "execution": "Play at -3.5 or better. Kill if line moves past -2.5. Size: 1.5 units."
     },
     {
-      "id": "den-phx-0301",
+      "id": 2,
       "sport": "NBA",
-      "icon": "🏀",
-      "matchup": "Nuggets @ Suns",
-      "time": "10:00 PM ET",
-      "status": "upcoming",
-      "market": {
-        "spread": "PHX -2.5",
-        "total": 231.5,
-        "ml_home": -135,
-        "ml_away": 115
-      },
-      "model": {
-        "proj_spread": -1,
-        "proj_total": 237,
-        "edge_spread": -1.5,
-        "edge_total": 5.5
-      },
-      "bestBet": {
-        "pick": "Over 231.5",
+      "game": "Houston Rockets @ Washington Wizards",
+      "time": "7:00 pm ET",
+      "confidence": 78,
+      "best_bet": {
+        "pick": "Under 225.5",
         "odds": "-110",
-        "book": "FanDuel",
-        "confidence": 81,
-        "units": 2,
-        "why": [
-          "Both teams top 5 in half-court offensive efficiency",
-          "High projected pace at 101.2 possessions",
-          "Weak rim protection matchup on both sides",
-          "Model projects 237 total — 5.5 pts above market"
-        ],
-        "risk": [
-          "If spread moves past -4 pace could slow",
-          "Blowout risk reduces competitive 4Q minutes"
-        ],
-        "execution": "Take Over 231.5 at -110. Pass if total moves to 235+."
+        "book": "FanDuel"
       },
-      "bestProp": {
-        "pick": "Durant Over 28.5 PTS",
-        "odds": "-120",
-        "book": "BetMGM",
-        "confidence": 76,
-        "units": 1,
-        "why": [
-          "Denver allows high mid-range volume",
-          "KD usage spikes in close-spread games",
-          "Projected shootout script boosts scoring"
-        ]
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
       },
-      "bestParlay": {
+      "best_parlay": {
         "legs": [
-          "Over 231.5",
-          "Durant 25+ PTS"
+          "Under 225.5"
         ],
-        "odds": "+160",
-        "confidence": 70,
-        "correlation": "If total clears, KD scoring is elevated — correlated"
-      }
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model spread direction"
+      },
+      "model_vs_market": {
+        "model_spread": 5.0,
+        "market_spread": 225.5,
+        "edge": 4.3,
+        "model_total": 221.2,
+        "home_proj": 110.1,
+        "away_proj": 111.0
+      },
+      "why": "Model projects 110 + 111 = 221.2 total. Market total: 225.5. Edge: 4.3 points toward Under.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Under 225.5 up to 224.5. Standard sizing."
     },
     {
-      "id": "vgk-pit-0301",
+      "id": 3,
+      "sport": "NBA",
+      "game": "Boston Celtics @ Milwaukee Bucks",
+      "time": "7:30 pm ET",
+      "confidence": 65,
+      "best_bet": {
+        "pick": "Under 218.5",
+        "odds": "-114",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 218.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model spread direction"
+      },
+      "model_vs_market": {
+        "model_spread": 5.1,
+        "market_spread": 218.5,
+        "edge": 2.9,
+        "model_total": 215.6,
+        "home_proj": 107.4,
+        "away_proj": 108.2
+      },
+      "why": "Model projects 107 + 108 = 215.6 total. Market total: 218.5. Edge: 2.9 points toward Under.",
+      "risk": "Boston Celtics may be due for regression (40-20).",
+      "execution": "Play Under 218.5 up to 217.5. Standard sizing."
+    },
+    {
+      "id": 4,
       "sport": "NHL",
-      "icon": "🏒",
-      "matchup": "Knights @ Penguins",
-      "time": "7:00 PM ET",
-      "status": "upcoming",
-      "market": {
-        "spread": "VGK -1.5",
-        "total": 6.5,
-        "ml_home": 140,
-        "ml_away": -165
+      "game": "Carolina Hurricanes @ Seattle Kraken",
+      "time": "2026-03-03T03:00:00Z",
+      "confidence": 65,
+      "best_bet": {
+        "pick": "Seattle Kraken -1.5",
+        "odds": "+128",
+        "book": "FanDuel"
       },
-      "model": {
-        "proj_spread": -2,
-        "proj_total": 5.8,
-        "edge_spread": 0.5,
-        "edge_total": 0.7
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
       },
-      "bestBet": {
-        "pick": "Eichel Over 3.5 SOG",
-        "odds": "-120",
-        "book": "DraftKings",
-        "confidence": 80,
-        "units": 1.5,
-        "why": [
-          "Eichel averaging 4.1 SOG/game over last 15",
-          "PIT allowing 34.2 shots against per game — bottom 5",
-          "VGK power play projects heavy o-zone time",
-          "Eichel quarterbacking PP1 generates volume"
-        ],
-        "risk": [
-          "Early lead causes Knights to turtle and dump pucks",
-          "PIT goalie heater suppresses rebound opportunities"
-        ],
-        "execution": "Take -120 to -135. Hard pass at -150+. Size: 1.5u."
-      },
-      "bestProp": {
-        "pick": "Eichel 1+ Points",
-        "odds": "-160",
-        "book": "FanDuel",
-        "confidence": 82,
-        "units": 1,
-        "why": [
-          "Point streak at 6 games running",
-          "PP1 exposure with assist upside",
-          "PIT PK unit struggling at 76%"
-        ]
-      },
-      "bestParlay": {
+      "best_parlay": {
         "legs": [
-          "VGK ML",
-          "Eichel 1+ Points"
+          "Seattle Kraken -1.5"
         ],
-        "odds": "+130",
-        "confidence": 68,
-        "correlation": "If VGK wins they're scoring — Eichel involved in most goals"
-      }
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model spread direction"
+      },
+      "model_vs_market": {
+        "model_spread": 0.6,
+        "market_spread": -1.5,
+        "edge": 2.1,
+        "model_total": 6.1,
+        "home_proj": 2.9,
+        "away_proj": 3.2
+      },
+      "why": "Model projects Seattle Kraken 3 - Carolina Hurricanes 3. Model spread: +0.6 vs market -1.5 = 2.1pt edge. Seattle Kraken is 28-31 on the season.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play at -1.5 or better. Kill if line moves past -1.0. Size: 0.5 units."
     },
     {
-      "id": "ufc312-main",
-      "sport": "MMA",
-      "icon": "🥊",
-      "matchup": "UFC 312 Main Event",
-      "time": "12:00 AM ET",
-      "status": "upcoming",
-      "market": {
-        "spread": "N/A",
-        "total": 2.5,
-        "ml_home": -200,
-        "ml_away": 170
+      "id": 5,
+      "sport": "NHL",
+      "game": "Dallas Stars @ Vancouver Canucks",
+      "time": "2026-03-03T03:00:00Z",
+      "confidence": 60,
+      "best_bet": {
+        "pick": "Over 5.5",
+        "odds": "-130",
+        "book": "FanDuel"
       },
-      "model": {
-        "proj_spread": 0,
-        "proj_total": 3.2,
-        "edge_spread": 0,
-        "edge_total": 0.7
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
       },
-      "bestBet": {
-        "pick": "Over 2.5 Rounds",
-        "odds": "-140",
-        "book": "BetMGM",
-        "confidence": 72,
-        "units": 1,
-        "why": [
-          "Grappling-heavy matchup projects extended clinch time",
-          "Neither fighter has a sub finish in last 4 bouts",
-          "Total clinch time projection: 8+ minutes across fight",
-          "Judging tendencies favor going to cards"
-        ],
-        "risk": [
-          "One-shot KO variance is always non-zero in MMA",
-          "Referee standup patterns change grappling control"
-        ],
-        "execution": "Take -140 to -155. Pass at -180+. Size: 1u."
-      },
-      "bestProp": {
-        "pick": "Fight goes to Decision",
-        "odds": "+120",
-        "book": "DraftKings",
-        "confidence": 65,
-        "units": 0.5,
-        "why": [
-          "Grappling negates KO power for both",
-          "Cardio profiles suggest full fight",
-          "5-round fights favor distance fighters"
-        ]
-      },
-      "bestParlay": {
+      "best_parlay": {
         "legs": [
-          "Over 2.5 Rounds",
-          "Favorite by Decision"
+          "Over 5.5"
         ],
-        "odds": "+180",
-        "confidence": 58,
-        "correlation": "If fight goes long, favorite's cardio edge wins scorecards"
-      }
-    },
-    {
-      "id": "duke-unc-0301",
-      "sport": "NCAAB",
-      "icon": "🏀",
-      "matchup": "#7 Duke @ #12 UNC",
-      "time": "6:00 PM ET",
-      "status": "upcoming",
-      "market": {
-        "spread": "DUKE -3.5",
-        "total": 151.5,
-        "ml_home": 140,
-        "ml_away": -165
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model spread direction"
       },
-      "model": {
-        "proj_spread": -5.5,
-        "proj_total": 148,
-        "edge_spread": 2.0,
-        "edge_total": 3.5
+      "model_vs_market": {
+        "model_spread": 1.6,
+        "market_spread": 5.5,
+        "edge": 0.7,
+        "model_total": 6.2,
+        "home_proj": 2.7,
+        "away_proj": 3.5
       },
-      "bestBet": {
-        "pick": "Duke -3.5",
-        "odds": "-110",
-        "book": "FanDuel",
-        "confidence": 79,
-        "units": 2,
-        "why": [
-          "Duke KenPom AdjO 122.4 vs UNC AdjD 101.8 — 20.6pt gap",
-          "Duke 8-2 ATS in true road games this season",
-          "UNC turnover rate 19.2% last 5 — Duke forces 21% on road",
-          "Tempo mismatch favors Duke half-court execution"
-        ],
-        "risk": [
-          "Rivalry game variance — Dean Dome crowd worth 2-3 pts",
-          "UNC shot 41% from 3 in last home game — regression unknown",
-          "Foul trouble to Duke bigs changes paint dynamics"
-        ],
-        "execution": "Take -3.5 to -4.5. Pass at -5.5+. Full 2u size."
-      },
-      "bestProp": {
-        "pick": "Cooper Flagg O 18.5 PTS",
-        "odds": "-115",
-        "book": "DraftKings",
-        "confidence": 77,
-        "units": 1,
-        "why": [
-          "Flagg usage rate 29.4% — highest on Duke",
-          "UNC rim protection ranks 68th nationally",
-          "Flagg averaging 21.3 PPG in rivalry/ranked games"
-        ]
-      },
-      "bestParlay": {
-        "legs": [
-          "Duke -3.5",
-          "Under 151.5"
-        ],
-        "odds": "+250",
-        "confidence": 65,
-        "correlation": "Duke controls tempo → fewer possessions → lower total + Duke covers in grind"
-      }
-    },
-    {
-      "id": "hou-kan-0301",
-      "sport": "NCAAB",
-      "icon": "🏀",
-      "matchup": "#1 Houston @ #15 Kansas",
-      "time": "4:00 PM ET",
-      "status": "upcoming",
-      "market": {
-        "spread": "HOU -2.5",
-        "total": 137.5,
-        "ml_home": 120,
-        "ml_away": -140
-      },
-      "model": {
-        "proj_spread": -4,
-        "proj_total": 133,
-        "edge_spread": 1.5,
-        "edge_total": 4.5
-      },
-      "bestBet": {
-        "pick": "Under 137.5",
-        "odds": "-110",
-        "book": "BetMGM",
-        "confidence": 83,
-        "units": 2,
-        "why": [
-          "Houston KenPom AdjD #1 at 88.4 — best in country",
-          "Kansas pace ranks 297th nationally — snail tempo",
-          "H2H averages 131 combined last 3 meetings",
-          "Model projects 133 total — 4.5 pts of edge"
-        ],
-        "risk": [
-          "Phog Allen crowd pushes transition opportunities",
-          "Kansas 3PT shooting in home games 2% above road split",
-          "Foul trouble opens free throw volume"
-        ],
-        "execution": "Take Under 137.5 at -110. Still play at 136. Pass below 134."
-      },
-      "bestProp": {
-        "pick": "Kansas Team Total Under 65.5",
-        "odds": "-120",
-        "book": "DraftKings",
-        "confidence": 80,
-        "units": 1.5,
-        "why": [
-          "Houston holding opponents to 58.7 PPG last 10",
-          "Kansas averaging 63.1 in games vs top-25 AdjD",
-          "Pace suppression limits shot attempts to ~60"
-        ]
-      },
-      "bestParlay": {
-        "legs": [
-          "Under 137.5",
-          "Houston ML"
-        ],
-        "odds": "+190",
-        "confidence": 70,
-        "correlation": "Low-scoring game is Houston's identity — they win ugly"
-      }
-    },
-    {
-      "id": "aub-tenn-0301",
-      "sport": "NCAAB",
-      "icon": "🏀",
-      "matchup": "#4 Auburn @ #9 Tennessee",
-      "time": "2:00 PM ET",
-      "status": "upcoming",
-      "market": {
-        "spread": "AUB -1.5",
-        "total": 143.5,
-        "ml_home": 110,
-        "ml_away": -130
-      },
-      "model": {
-        "proj_spread": -3,
-        "proj_total": 140,
-        "edge_spread": 1.5,
-        "edge_total": 3.5
-      },
-      "bestBet": {
-        "pick": "Auburn -1.5",
-        "odds": "-110",
-        "book": "FanDuel",
-        "confidence": 74,
-        "units": 1.5,
-        "why": [
-          "Auburn AdjO 121.8 — 3rd nationally, elite half-court offense",
-          "Tennessee turning it over 15.8% — Auburn forces 18% on road",
-          "Rebounding edge +4.2 differential favors Auburn",
-          "Auburn 6-1 ATS as road favorite this season"
-        ],
-        "risk": [
-          "Thompson-Boling crowd worth 2+ pts historically",
-          "Tennessee AdjD 91.2 — elite rim protection at home",
-          "Auburn foul rate spikes in hostile environments"
-        ],
-        "execution": "Take -1.5 to -2.5. Pass at -3.5+. Size: 1.5u."
-      },
-      "bestProp": {
-        "pick": "Johni Broome O 16.5 PTS",
-        "odds": "-105",
-        "book": "BetMGM",
-        "confidence": 72,
-        "units": 1,
-        "why": [
-          "Broome averaging 18.1 PPG vs top-25 opponents",
-          "Tennessee struggles with elite post players",
-          "Usage projects 27%+ in this matchup"
-        ]
-      },
-      "bestParlay": {
-        "legs": [
-          "Auburn -1.5",
-          "Under 143.5"
-        ],
-        "odds": "+260",
-        "confidence": 62,
-        "correlation": "Grind game in hostile environment — Auburn wins close and low"
-      }
-    },
-    {
-      "id": "pur-ill-0301",
-      "sport": "NCAAB",
-      "icon": "🏀",
-      "matchup": "#20 Purdue @ #11 Illinois",
-      "time": "12:00 PM ET",
-      "status": "upcoming",
-      "market": {
-        "spread": "ILL -4.5",
-        "total": 148.5,
-        "ml_home": -190,
-        "ml_away": 160
-      },
-      "model": {
-        "proj_spread": -3,
-        "proj_total": 152,
-        "edge_spread": -1.5,
-        "edge_total": 3.5
-      },
-      "bestBet": {
-        "pick": "Over 148.5",
-        "odds": "-110",
-        "book": "DraftKings",
-        "confidence": 76,
-        "units": 1.5,
-        "why": [
-          "Both teams top-30 in AdjO — combined 240+ efficiency",
-          "Purdue pace pushes 70+ possessions on the road",
-          "Illinois home games averaging 154.3 combined this season",
-          "Model projects 152 — 3.5 pts above market"
-        ],
-        "risk": [
-          "Purdue could slow tempo with Edey-replacement post play",
-          "Illinois defense tightens in B1G home games",
-          "Foul trouble reduces offensive efficiency"
-        ],
-        "execution": "Take Over 148.5 at -110. Still play at 150. Pass at 153+."
-      },
-      "bestProp": {
-        "pick": "Terrence Shannon Jr O 19.5 PTS",
-        "odds": "+100",
-        "book": "FanDuel",
-        "confidence": 71,
-        "units": 1,
-        "why": [
-          "Shannon usage 28.6% at home — highest on Illinois",
-          "Purdue perimeter D ranks 85th in guard scoring allowed",
-          "Projected high-possession game creates volume"
-        ]
-      },
-      "bestParlay": {
-        "legs": [
-          "Over 148.5",
-          "Illinois ML"
-        ],
-        "odds": "+155",
-        "confidence": 66,
-        "correlation": "High-scoring game at home — Illinois offense fires and they win comfortably"
-      }
-    },
-    {
-      "id": "gon-smc-0301",
-      "sport": "NCAAB",
-      "icon": "🏀",
-      "matchup": "#6 Gonzaga @ Saint Mary's",
-      "time": "10:00 PM ET",
-      "status": "upcoming",
-      "market": {
-        "spread": "GON -5.5",
-        "total": 139.5,
-        "ml_home": 190,
-        "ml_away": -230
-      },
-      "model": {
-        "proj_spread": -7,
-        "proj_total": 136,
-        "edge_spread": 1.5,
-        "edge_total": 3.5
-      },
-      "bestBet": {
-        "pick": "Under 139.5",
-        "odds": "-110",
-        "book": "BetMGM",
-        "confidence": 78,
-        "units": 1.5,
-        "why": [
-          "Saint Mary's plays slowest tempo in WCC — 64.1 possessions/game",
-          "Gonzaga road games average 135.2 combined this year",
-          "WCC rivalry games historically 6pts below total",
-          "Model projects 136 — 3.5 pts of edge"
-        ],
-        "risk": [
-          "Gonzaga transition game can spike scoring in spurts",
-          "Saint Mary's 3PT shooting at home 37% — hot shooting breaks model",
-          "Late game fouling inflates total"
-        ],
-        "execution": "Take Under 139.5 at -110. Play to 138. Pass below 136."
-      },
-      "bestProp": {
-        "pick": "Gonzaga Team Total Over 72.5",
-        "odds": "-110",
-        "book": "FanDuel",
-        "confidence": 73,
-        "units": 1,
-        "why": [
-          "Gonzaga AdjO 122.1 — elite efficiency regardless of pace",
-          "SMC defense allows 71.8 to top-50 teams",
-          "Zags half-court offense creates high-quality looks"
-        ]
-      },
-      "bestParlay": {
-        "legs": [
-          "Gonzaga -5.5",
-          "Under 139.5"
-        ],
-        "odds": "+260",
-        "confidence": 63,
-        "correlation": "Zags suffocate SMC offense → low total + comfortable cover"
-      }
+      "why": "Model projects 3 + 4 = 6.2 total. Market total: 5.5. Edge: 0.7 points toward Over.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Over 5.5 up to 6.5. Standard sizing."
     }
   ]
 }
