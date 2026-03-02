@@ -1,0 +1,24 @@
+{
+  "updated": "2026-03-01",
+  "record": {
+    "wins": 28,
+    "losses": 17,
+    "pushes": 2,
+    "units": 14.6,
+    "roi": 12.8
+  },
+  "results": [
+    { "date": "Feb 28", "game": "BOS @ MIA", "pick": "BOS -6.5", "odds": "-110", "result": "W", "clv": "+1.5", "profit": "+1.00" },
+    { "date": "Feb 28", "game": "DEN @ DAL", "pick": "Jokic O 11.5 REB", "odds": "-115", "result": "W", "clv": "+0.8", "profit": "+0.87" },
+    { "date": "Feb 27", "game": "NYR @ TBL", "pick": "Over 6.5", "odds": "+100", "result": "L", "clv": "+0.5", "profit": "-1.00" },
+    { "date": "Feb 27", "game": "GSW @ LAC", "pick": "Curry O 28.5 PTS", "odds": "-110", "result": "W", "clv": "+2.1", "profit": "+1.00" },
+    { "date": "Feb 26", "game": "UFC FN Main", "pick": "Over 1.5 Rds", "odds": "-130", "result": "W", "clv": "+1.0", "profit": "+0.77" },
+    { "date": "Feb 26", "game": "VGK @ SEA", "pick": "Eichel O 2.5 SOG", "odds": "-125", "result": "W", "clv": "+0.5", "profit": "+0.80" },
+    { "date": "Feb 25", "game": "PHI @ CLE", "pick": "CLE -7", "odds": "-110", "result": "W", "clv": "+1.8", "profit": "+1.00" },
+    { "date": "Feb 25", "game": "MIN @ OKC", "pick": "SGA O 31.5 PTS", "odds": "-105", "result": "L", "clv": "+0.3", "profit": "-1.00" },
+    { "date": "Feb 24", "game": "LAL @ PHX", "pick": "PHX -4.5", "odds": "-110", "result": "W", "clv": "+1.2", "profit": "+1.00" },
+    { "date": "Feb 24", "game": "FLA @ CAR", "pick": "Under 5.5", "odds": "-115", "result": "W", "clv": "+0.9", "profit": "+0.87" },
+    { "date": "Feb 23", "game": "UFC 311 Main", "pick": "Fav by Sub", "odds": "+175", "result": "W", "clv": "+3.2", "profit": "+1.75" },
+    { "date": "Feb 23", "game": "BOS @ NYK", "pick": "BOS -3", "odds": "-110", "result": "L", "clv": "+0.7", "profit": "-1.00" }
+  ]
+}
