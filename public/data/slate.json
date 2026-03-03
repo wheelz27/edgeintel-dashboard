@@ -1,7 +1,7 @@
 {
-  "updated": "2026-03-02T17:18:55.403052",
-  "date": "March 02, 2026",
-  "daily_code": "EDGE0302",
+  "updated": "2026-03-03T04:17:34.322588",
+  "date": "March 03, 2026",
+  "daily_code": "EDGE0303",
   "discord_invite": "",
   "paypal_link": "https://paypal.me/Wheelz27",
   "price": "$29/month",
@@ -9,11 +9,11 @@
     {
       "id": 1,
       "sport": "NBA",
-      "game": "Denver Nuggets @ Utah Jazz",
-      "time": "9:00 pm ET",
+      "game": "Dallas Mavericks @ Charlotte Hornets",
+      "time": "7:00 pm ET",
       "confidence": 93,
       "best_bet": {
-        "pick": "Under 241.5",
+        "pick": "Under 231.5",
         "odds": "-110",
         "book": "FanDuel"
       },
@@ -24,34 +24,34 @@
       },
       "best_parlay": {
         "legs": [
-          "Under 241.5"
+          "Under 231.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": 6.6,
-        "market_spread": 241.5,
-        "model_total": 230.1,
-        "market_total": 241.5,
-        "edge": 11.4,
-        "edge_signed": -11.4,
-        "home_proj": 114.2,
-        "away_proj": 115.9
+        "model_spread": -10.0,
+        "market_spread": 231.5,
+        "model_total": 223.1,
+        "market_total": 231.5,
+        "edge": 8.4,
+        "edge_signed": -8.4,
+        "home_proj": 114.9,
+        "away_proj": 108.2
       },
-      "why": "Model projects 114 + 116 = 230.1 total. Market total: 241.5. Edge: 11.4 points toward Under.",
+      "why": "Model projects 115 + 108 = 223.1 total. Market total: 231.5. Edge: 8.4 points toward Under.",
       "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Under 241.5 up to 240.5. Standard sizing."
+      "execution": "Play Under 231.5 up to 230.5. Standard sizing."
     },
     {
       "id": 2,
       "sport": "NBA",
-      "game": "Houston Rockets @ Washington Wizards",
-      "time": "1st Qtr             ",
-      "confidence": 87,
+      "game": "San Antonio Spurs @ Philadelphia 76ers",
+      "time": "8:00 pm ET",
+      "confidence": 93,
       "best_bet": {
-        "pick": "Under 227.5",
-        "odds": "-104",
+        "pick": "Under 232.5",
+        "odds": "-110",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -61,34 +61,34 @@
       },
       "best_parlay": {
         "legs": [
-          "Under 227.5"
+          "Under 232.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": 5.0,
-        "market_spread": 227.5,
-        "model_total": 221.2,
-        "market_total": 227.5,
-        "edge": 6.3,
-        "edge_signed": -6.3,
-        "home_proj": 110.1,
-        "away_proj": 111.0
+        "model_spread": 1.7,
+        "market_spread": 232.5,
+        "model_total": 224.2,
+        "market_total": 232.5,
+        "edge": 8.3,
+        "edge_signed": -8.3,
+        "home_proj": 112.5,
+        "away_proj": 111.7
       },
-      "why": "Model projects 110 + 111 = 221.2 total. Market total: 227.5. Edge: 6.3 points toward Under.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Under 227.5 up to 226.5. Standard sizing."
+      "why": "Model projects 112 + 112 = 224.2 total. Market total: 232.5. Edge: 8.3 points toward Under.",
+      "risk": "San Antonio Spurs may be due for regression (43-17).",
+      "execution": "Play Under 232.5 up to 231.5. Standard sizing."
     },
     {
       "id": 3,
       "sport": "NBA",
-      "game": "Boston Celtics @ Milwaukee Bucks",
-      "time": "7:30 pm ET",
-      "confidence": 87,
+      "game": "San Antonio Spurs @ Philadelphia 76ers",
+      "time": "8:00 pm ET",
+      "confidence": 93,
       "best_bet": {
-        "pick": "Over 209.5",
-        "odds": "-138",
+        "pick": "Under 232.5",
+        "odds": "-110",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -98,34 +98,34 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 209.5"
+          "Under 232.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": 5.1,
-        "market_spread": 209.5,
-        "model_total": 215.6,
-        "market_total": 209.5,
-        "edge": 6.1,
-        "edge_signed": 6.1,
-        "home_proj": 107.4,
-        "away_proj": 108.2
+        "model_spread": 1.7,
+        "market_spread": 232.5,
+        "model_total": 224.2,
+        "market_total": 232.5,
+        "edge": 8.3,
+        "edge_signed": -8.3,
+        "home_proj": 112.5,
+        "away_proj": 111.7
       },
-      "why": "Model projects 107 + 108 = 215.6 total. Market total: 209.5. Edge: 6.1 points toward Over. Milwaukee Bucks offense rating (111.0) is elite.",
-      "risk": "Boston Celtics may be due for regression (40-20).",
-      "execution": "Play Over 209.5 up to 210.5. Standard sizing."
+      "why": "Model projects 112 + 112 = 224.2 total. Market total: 232.5. Edge: 8.3 points toward Under.",
+      "risk": "San Antonio Spurs may be due for regression (43-17).",
+      "execution": "Play Under 232.5 up to 231.5. Standard sizing."
     },
     {
       "id": 4,
-      "sport": "NHL",
-      "game": "Carolina Hurricanes @ Seattle Kraken",
-      "time": "2026-03-03T03:00:00Z",
-      "confidence": 65,
+      "sport": "NBA",
+      "game": "Memphis Grizzlies @ Minnesota Timberwolves",
+      "time": "8:00 pm ET",
+      "confidence": 93,
       "best_bet": {
-        "pick": "Seattle Kraken -1.5",
-        "odds": "+138",
+        "pick": "Under 238.5",
+        "odds": "-110",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -135,33 +135,34 @@
       },
       "best_parlay": {
         "legs": [
-          "Seattle Kraken -1.5"
+          "Under 238.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": 0.6,
-        "market_spread": -1.5,
-        "model_total": 6.1,
-        "edge": 2.1,
-        "edge_signed": 2.1,
-        "home_proj": 2.9,
-        "away_proj": 3.2
+        "model_spread": -6.0,
+        "market_spread": 238.5,
+        "model_total": 227.9,
+        "market_total": 238.5,
+        "edge": 10.6,
+        "edge_signed": -10.6,
+        "home_proj": 116.3,
+        "away_proj": 111.7
       },
-      "why": "Model projects Seattle Kraken 3 - Carolina Hurricanes 3. Model spread: +0.6 vs market -1.5 = 2.1pt edge. Seattle Kraken is 28-31 on the season.",
+      "why": "Model projects 116 + 112 = 227.9 total. Market total: 238.5. Edge: 10.6 points toward Under. Minnesota Timberwolves defense is stout (def rating 107.4).",
       "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play at -1.5 or better. Kill if line moves past -1.0. Size: 0.5 units."
+      "execution": "Play Under 238.5 up to 237.5. Standard sizing."
     },
     {
       "id": 5,
-      "sport": "NHL",
-      "game": "Philadelphia Flyers @ Toronto Maple Leafs",
-      "time": "2026-03-03T00:30:00Z",
-      "confidence": 60,
+      "sport": "NBA",
+      "game": "Phoenix Suns @ Sacramento Kings",
+      "time": "11:00 pm ET",
+      "confidence": 93,
       "best_bet": {
-        "pick": "Over 5.5",
-        "odds": "-120",
+        "pick": "Sacramento Kings -10.5",
+        "odds": "-110",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -171,34 +172,33 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 5.5"
+          "Sacramento Kings -10.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": -0.1,
-        "market_spread": 5.5,
-        "model_total": 6.4,
-        "market_total": 5.5,
-        "edge": 0.9,
-        "edge_signed": 0.9,
-        "home_proj": 3.3,
-        "away_proj": 3.1
+        "model_spread": 0.7,
+        "market_spread": -10.5,
+        "model_total": 217.8,
+        "edge": 11.2,
+        "edge_signed": 11.2,
+        "home_proj": 109.5,
+        "away_proj": 108.3
       },
-      "why": "Model projects 3 + 3 = 6.4 total. Market total: 5.5. Edge: 0.9 points toward Over.",
+      "why": "Model projects Sacramento Kings 110 - Phoenix Suns 108. Model spread: +0.7 vs market -10.5 = 11.2pt edge. Sacramento Kings is 14-48 on the season.",
       "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Over 5.5 up to 6.5. Standard sizing."
+      "execution": "Play at -10.5 or better. Kill if line moves past -9.5. Size: 1.5 units."
     },
     {
       "id": 6,
-      "sport": "NHL",
-      "game": "Dallas Stars @ Vancouver Canucks",
-      "time": "2026-03-03T03:00:00Z",
-      "confidence": 60,
+      "sport": "NBA",
+      "game": "Phoenix Suns @ Sacramento Kings",
+      "time": "11:00 pm ET",
+      "confidence": 93,
       "best_bet": {
-        "pick": "Over 5.5",
-        "odds": "-132",
+        "pick": "Sacramento Kings -10.5",
+        "odds": "-110",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -208,24 +208,168 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 5.5"
+          "Sacramento Kings -10.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": 1.6,
-        "market_spread": 5.5,
-        "model_total": 6.2,
-        "market_total": 5.5,
-        "edge": 0.7,
-        "edge_signed": 0.7,
-        "home_proj": 2.7,
-        "away_proj": 3.5
+        "model_spread": 0.7,
+        "market_spread": -10.5,
+        "model_total": 217.8,
+        "edge": 11.2,
+        "edge_signed": 11.2,
+        "home_proj": 109.5,
+        "away_proj": 108.3
       },
-      "why": "Model projects 3 + 4 = 6.2 total. Market total: 5.5. Edge: 0.7 points toward Over.",
+      "why": "Model projects Sacramento Kings 110 - Phoenix Suns 108. Model spread: +0.7 vs market -10.5 = 11.2pt edge. Sacramento Kings is 14-48 on the season.",
       "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Over 5.5 up to 6.5. Standard sizing."
+      "execution": "Play at -10.5 or better. Kill if line moves past -9.5. Size: 1.5 units."
+    },
+    {
+      "id": 7,
+      "sport": "NBA",
+      "game": "Washington Wizards @ Orlando Magic",
+      "time": "7:00 pm ET",
+      "confidence": 90,
+      "best_bet": {
+        "pick": "Orlando Magic -15.5",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Orlando Magic -15.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": -8.1,
+        "market_spread": -15.5,
+        "model_total": 223.5,
+        "edge": 7.4,
+        "edge_signed": 7.4,
+        "home_proj": 114.6,
+        "away_proj": 108.9
+      },
+      "why": "Model projects Orlando Magic 115 - Washington Wizards 109. Model spread: -8.1 vs market -15.5 = 7.4pt edge. Orlando Magic weighted net rating (+3.4) significantly outperforms Washington Wizards (-1.6). Orlando Magic is 31-28 on the season.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play at -15.5 or better. Kill if line moves past -14.5. Size: 1.5 units."
+    },
+    {
+      "id": 8,
+      "sport": "NBA",
+      "game": "San Antonio Spurs @ Philadelphia 76ers",
+      "time": "8:00 pm ET",
+      "confidence": 87,
+      "best_bet": {
+        "pick": "San Antonio Spurs -8.0",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "San Antonio Spurs -8.0"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": 1.7,
+        "market_spread": 8.0,
+        "model_total": 224.2,
+        "edge": 6.3,
+        "edge_signed": -6.3,
+        "home_proj": 112.5,
+        "away_proj": 111.7
+      },
+      "why": "Model projects Philadelphia 76ers 112 - San Antonio Spurs 112. Model spread: +1.7 vs market +8.0 = 6.3pt edge. San Antonio Spurs weighted net rating (+10.6) significantly outperforms Philadelphia 76ers (+5.8). San Antonio Spurs is 43-17 on the season.",
+      "risk": "San Antonio Spurs may be due for regression (43-17).",
+      "execution": "Play at +8.0 or better. Kill if line moves past +9.0. Size: 1.5 units."
+    },
+    {
+      "id": 9,
+      "sport": "NBA",
+      "game": "San Antonio Spurs @ Philadelphia 76ers",
+      "time": "8:00 pm ET",
+      "confidence": 87,
+      "best_bet": {
+        "pick": "San Antonio Spurs -8.0",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "San Antonio Spurs -8.0"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": 1.7,
+        "market_spread": 8.0,
+        "model_total": 224.2,
+        "edge": 6.3,
+        "edge_signed": -6.3,
+        "home_proj": 112.5,
+        "away_proj": 111.7
+      },
+      "why": "Model projects Philadelphia 76ers 112 - San Antonio Spurs 112. Model spread: +1.7 vs market +8.0 = 6.3pt edge. San Antonio Spurs weighted net rating (+10.6) significantly outperforms Philadelphia 76ers (+5.8). San Antonio Spurs is 43-17 on the season.",
+      "risk": "San Antonio Spurs may be due for regression (43-17).",
+      "execution": "Play at +8.0 or better. Kill if line moves past +9.0. Size: 1.5 units."
+    },
+    {
+      "id": 10,
+      "sport": "NBA",
+      "game": "Phoenix Suns @ Sacramento Kings",
+      "time": "11:00 pm ET",
+      "confidence": 83,
+      "best_bet": {
+        "pick": "Under 223.5",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 223.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": 0.7,
+        "market_spread": 223.5,
+        "model_total": 217.8,
+        "market_total": 223.5,
+        "edge": 5.7,
+        "edge_signed": -5.7,
+        "home_proj": 109.5,
+        "away_proj": 108.3
+      },
+      "why": "Model projects 110 + 108 = 217.8 total. Market total: 223.5. Edge: 5.7 points toward Under.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Under 223.5 up to 222.5. Standard sizing."
     }
   ]
 }
