@@ -1,19 +1,19 @@
 {
-  "updated": "2026-03-02T11:58:41.118803",
+  "updated": "2026-03-02T17:18:55.403052",
   "date": "March 02, 2026",
   "daily_code": "EDGE0302",
-  "discord_invite": "https://discord.gg/z5xKNuGWW7",
+  "discord_invite": "",
   "paypal_link": "https://paypal.me/Wheelz27",
   "price": "$29/month",
   "games": [
     {
       "id": 1,
       "sport": "NBA",
-      "game": "Boston Celtics @ Milwaukee Bucks",
-      "time": "7:30 pm ET",
-      "confidence": 90,
+      "game": "Denver Nuggets @ Utah Jazz",
+      "time": "9:00 pm ET",
+      "confidence": 93,
       "best_bet": {
-        "pick": "Milwaukee Bucks -2.0",
+        "pick": "Under 241.5",
         "odds": "-110",
         "book": "FanDuel"
       },
@@ -24,32 +24,34 @@
       },
       "best_parlay": {
         "legs": [
-          "Milwaukee Bucks -2.0"
+          "Under 241.5"
         ],
         "odds": "+200",
-        "correlation": "Single-game parlay based on model spread direction"
+        "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": 5.1,
-        "market_spread": -2.0,
-        "edge": 7.1,
-        "model_total": 215.6,
-        "home_proj": 107.4,
-        "away_proj": 108.2
+        "model_spread": 6.6,
+        "market_spread": 241.5,
+        "model_total": 230.1,
+        "market_total": 241.5,
+        "edge": 11.4,
+        "edge_signed": -11.4,
+        "home_proj": 114.2,
+        "away_proj": 115.9
       },
-      "why": "Model projects Milwaukee Bucks 107 - Boston Celtics 108. Model spread: +5.1 vs market -2.0 = 7.1pt edge. Milwaukee Bucks is 26-33 on the season.",
-      "risk": "Boston Celtics may be due for regression (40-20).",
-      "execution": "Play at -2.0 or better. Kill if line moves past -1.0. Size: 1.5 units."
+      "why": "Model projects 114 + 116 = 230.1 total. Market total: 241.5. Edge: 11.4 points toward Under.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Under 241.5 up to 240.5. Standard sizing."
     },
     {
       "id": 2,
       "sport": "NBA",
       "game": "Houston Rockets @ Washington Wizards",
-      "time": "7:00 pm ET",
-      "confidence": 78,
+      "time": "1st Qtr             ",
+      "confidence": 87,
       "best_bet": {
-        "pick": "Under 225.5",
-        "odds": "-110",
+        "pick": "Under 227.5",
+        "odds": "-104",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -59,32 +61,71 @@
       },
       "best_parlay": {
         "legs": [
-          "Under 225.5"
+          "Under 227.5"
         ],
         "odds": "+200",
-        "correlation": "Single-game parlay based on model spread direction"
+        "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
         "model_spread": 5.0,
-        "market_spread": 225.5,
-        "edge": 4.3,
+        "market_spread": 227.5,
         "model_total": 221.2,
+        "market_total": 227.5,
+        "edge": 6.3,
+        "edge_signed": -6.3,
         "home_proj": 110.1,
         "away_proj": 111.0
       },
-      "why": "Model projects 110 + 111 = 221.2 total. Market total: 225.5. Edge: 4.3 points toward Under.",
+      "why": "Model projects 110 + 111 = 221.2 total. Market total: 227.5. Edge: 6.3 points toward Under.",
       "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Under 225.5 up to 224.5. Standard sizing."
+      "execution": "Play Under 227.5 up to 226.5. Standard sizing."
     },
     {
       "id": 3,
+      "sport": "NBA",
+      "game": "Boston Celtics @ Milwaukee Bucks",
+      "time": "7:30 pm ET",
+      "confidence": 87,
+      "best_bet": {
+        "pick": "Over 209.5",
+        "odds": "-138",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 209.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": 5.1,
+        "market_spread": 209.5,
+        "model_total": 215.6,
+        "market_total": 209.5,
+        "edge": 6.1,
+        "edge_signed": 6.1,
+        "home_proj": 107.4,
+        "away_proj": 108.2
+      },
+      "why": "Model projects 107 + 108 = 215.6 total. Market total: 209.5. Edge: 6.1 points toward Over. Milwaukee Bucks offense rating (111.0) is elite.",
+      "risk": "Boston Celtics may be due for regression (40-20).",
+      "execution": "Play Over 209.5 up to 210.5. Standard sizing."
+    },
+    {
+      "id": 4,
       "sport": "NHL",
       "game": "Carolina Hurricanes @ Seattle Kraken",
       "time": "2026-03-03T03:00:00Z",
       "confidence": 65,
       "best_bet": {
         "pick": "Seattle Kraken -1.5",
-        "odds": "+136",
+        "odds": "+138",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -97,13 +138,14 @@
           "Seattle Kraken -1.5"
         ],
         "odds": "+200",
-        "correlation": "Single-game parlay based on model spread direction"
+        "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
         "model_spread": 0.6,
         "market_spread": -1.5,
-        "edge": 2.1,
         "model_total": 6.1,
+        "edge": 2.1,
+        "edge_signed": 2.1,
         "home_proj": 2.9,
         "away_proj": 3.2
       },
@@ -112,14 +154,14 @@
       "execution": "Play at -1.5 or better. Kill if line moves past -1.0. Size: 0.5 units."
     },
     {
-      "id": 4,
+      "id": 5,
       "sport": "NHL",
-      "game": "Dallas Stars @ Vancouver Canucks",
-      "time": "2026-03-03T03:00:00Z",
+      "game": "Philadelphia Flyers @ Toronto Maple Leafs",
+      "time": "2026-03-03T00:30:00Z",
       "confidence": 60,
       "best_bet": {
         "pick": "Over 5.5",
-        "odds": "-130",
+        "odds": "-120",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -132,13 +174,52 @@
           "Over 5.5"
         ],
         "odds": "+200",
-        "correlation": "Single-game parlay based on model spread direction"
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": -0.1,
+        "market_spread": 5.5,
+        "model_total": 6.4,
+        "market_total": 5.5,
+        "edge": 0.9,
+        "edge_signed": 0.9,
+        "home_proj": 3.3,
+        "away_proj": 3.1
+      },
+      "why": "Model projects 3 + 3 = 6.4 total. Market total: 5.5. Edge: 0.9 points toward Over.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Over 5.5 up to 6.5. Standard sizing."
+    },
+    {
+      "id": 6,
+      "sport": "NHL",
+      "game": "Dallas Stars @ Vancouver Canucks",
+      "time": "2026-03-03T03:00:00Z",
+      "confidence": 60,
+      "best_bet": {
+        "pick": "Over 5.5",
+        "odds": "-132",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 5.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
         "model_spread": 1.6,
         "market_spread": 5.5,
-        "edge": 0.7,
         "model_total": 6.2,
+        "market_total": 5.5,
+        "edge": 0.7,
+        "edge_signed": 0.7,
         "home_proj": 2.7,
         "away_proj": 3.5
       },
