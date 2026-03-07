@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Institutional Crypto Advisor</title>
+
+  <!-- Chart.js (only used if you want charts; safe to leave in) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <style>
+    :root{
+      --bg:#061420;
+      --card:#0b2433;
+      --card2:#0a1c28;
+      --text:#e8f1f7;
+      --muted:#9ab3c2;
+      --accent:#2f74ff;
+      --good:#25c26e;
+      --bad:#ff4d4d;
+      --warn:#ffb020;
+      --line:#123244;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 30% 10%, #0b2a3c 0%, var(--bg) 55%, #040c12 100%);
+      color:var(--text);
+      padding:18px;
+    }
+    .wrap{max-width:980px;margin:0 auto}
+    .hero{
+      background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:18px;
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .title h1{margin:0;font-size:28px;letter-spacing:.3px}
+    .title .sub{margin-top:6px;color:var(--muted);line-height:1.25}
+    .conn{
+      display:flex;align-items:center;gap:10px;
+      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.08);
+      padding:10px 12px;border-radius:12px;
+      min-width:160px;justify-content:center;
+    }
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--warn)}
+    .dot.connected{background:var(--good)}
+    .dot.disconnected{background:var(--bad)}
+    .conn span{color:var(--muted);font-weight:600}
+
+    .tabs{
+      display:flex;gap:18px;
+      margin:16px 0 10px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      padding-left:2px;
+    }
+    .tab{
+      padding:10px 0;
+      color:var(--muted);
+      font-weight:700;
+      cursor:pointer;
+      position:relative;
+      user-select:none;
+    }
+    .tab.active{color:#bcd8ff}
+    .tab.active:after{
+      content:"";
+      position:absolute;left:0;right:0;bottom:-1px;height:3px;
+      background:var(--accent);border-radius:6px 6px 0 0;
+    }
+
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:900px){
+      .grid.twocol{grid-template-columns:1.1fr .9fr}
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:16px;
+    }
+    .card h2{margin:0 0 12px;font-size:18px}
+    label{display:block;color:var(--muted);font-weight:700;margin:10px 0 6px}
+    select,input{
+      width:100%;
+      background:rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--text);
+      border-radius:12px;
+      padding:10px 12px;
+      outline:none;
+      font-size:16px;
+    }
+    button{
+      width:100%;
+      margin-top:12px;
+      background:var(--accent);
+      border:none;
+      color:white;
+      font-weight:800;
+      padding:12px 14px;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:16px;
+    }
+    button:disabled{opacity:.55;cursor:not-allowed}
+    .pill{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--muted);
+      font-weight:800;
+      font-size:13px;
+      gap:8px;
+      align-items:center;
+    }
+    .status{
+      margin-top:10px;
+      display:flex;gap:10px;flex-wrap:wrap;
+      align-items:center;
+    }
+    .alert{
+      margin-top:12px;
+      border-radius:14px;
+      padding:12px 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,77,77,.12);
+      color:#ffd6d6;
+      display:none;
+      line-height:1.35;
+      font-weight:700;
+    }
+    .alert code{
+      background: rgba(0,0,0,.25);
+      padding:2px 6px;border-radius:8px;border:1px solid rgba(255,255,255,.10);
+      color:#d7e7ff;
+    }
+
+    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .row .half{flex:1;min-width:180px}
+
+    .kvs{display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px}
+    .kv{
+      background: rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      padding:12px;
+    }
+    .kv .k{color:var(--muted);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+    .kv .v{margin-top:6px;font-weight:800}
+
+    .list{
+      display:grid;gap:8px;margin-top:8px
+    }
+    .list .item{
+      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:12px;
+      padding:10px 12px;
+      font-weight:800;
+      color:#d7e7ff;
+      display:flex;justify-content:space-between;gap:10px;align-items:center;
+    }
+    .muted{color:var(--muted);font-weight:700}
+    .log{
+      max-height:260px;overflow:auto;
+      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      padding:10px 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size:13px;
+      color:#cde0ef;
+      white-space:pre-wrap;
+    }
+    .hide{display:none}
+    canvas{background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:10px}
+  </style>
+</head>
+
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="title">
+      <h1>Institutional Crypto Advisor</h1>
+      <div class="sub">Multi-Agent Analysis System • Capital Preservation First</div>
+    </div>
+
+    <div class="conn">
+      <div id="connection-dot" class="dot disconnected"></div>
+      <span id="connection-text">Disconnected</span>
+    </div>
+  </div>
+
+  <div id="connection-alert" class="alert"></div>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="live">Live Analysis</div>
+    <div class="tab" data-tab="backtest">Backtesting</div>
+    <div class="tab" data-tab="config">Configuration</div>
+  </div>
+
+  <!-- LIVE -->
+  <div id="tab-live" class="grid twocol">
+    <div class="card">
+      <h2>Run Analysis</h2>
+
+      <label for="asset-select">Asset</label>
+      <select id="asset-select"></select>
+
+      <button id="run-analysis-btn">
+        <span id="run-btn-text">Run Advisory Cycle</span>
+      </button>
+
+      <div class="status">
+        <span class="pill">State: <span id="analysis-state">Idle</span></span>
+        <span class="pill">Last: <span id="last-run">—</span></span>
+      </div>
+
+      <div class="kvs">
+        <div class="kv">
+          <div class="k">Regime</div>
+          <div class="v" id="regime">—</div>
+        </div>
+        <div class="kv">
+          <div class="k">Confidence</div>
+          <div class="v" id="confidence">—</div>
+        </div>
+        <div class="kv">
+          <div class="k">Risk Level</div>
+          <div class="v" id="risk-level">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Agents</h2>
+      <div id="agents-list" class="list">
+        <div class="item"><span>Loading…</span><span class="muted">—</span></div>
+      </div>
+
+      <div style="margin-top:14px">
+        <h2 style="margin:0 0 10px">Agent Confidence</h2>
+        <canvas id="agentChart" height="170"></canvas>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column:1/-1">
+      <h2>Activity Log</h2>
+      <div id="activity-log" class="log"></div>
+    </div>
+  </div>
+
+  <!-- BACKTEST -->
+  <div id="tab-backtest" class="grid twocol hide">
+    <div class="card">
+      <h2>Run Backtest</h2>
+
+      <label for="backtest-asset">Asset</label>
+      <select id="backtest-asset"></select>
+
+      <label for="backtest-steps">Steps (days)</label>
+      <input id="backtest-steps" type="number" min="30" step="10" value="180" />
+
+      <button id="run-backtest-btn">
+        <span id="backtest-btn-text">Run Backtest</span>
+      </button>
+
+      <div class="status">
+        <span class="pill">State: <span id="backtest-state">Idle</span></span>
+        <span class="pill">Last: <span id="backtest-last-run">—</span></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Backtest Results</h2>
+      <div class="kvs">
+        <div class="kv">
+          <div class="k">Summary</div>
+          <div class="v" id="backtest-summary">—</div>
+        </div>
+        <div class="kv">
+          <div class="k">Raw</div>
+          <div class="v muted" id="backtest-raw" style="font-weight:700;white-space:pre-wrap">—</div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px">
+        <h2 style="margin:0 0 10px">Backtest Chart</h2>
+        <canvas id="backtestChart" height="170"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIG -->
+  <div id="tab-config" class="grid hide">
+    <div class="card">
+      <h2>Configuration</h2>
+      <div class="kvs">
+        <div class="kv">
+          <div class="k">API Base</div>
+          <div class="v" id="api-base">—</div>
+        </div>
+        <div class="kv">
+          <div class="k">Assets</div>
+          <div class="v" id="assets-text">—</div>
+        </div>
+        <div class="kv">
+          <div class="k">Agents Enabled</div>
+          <div class="v" id="agents-text">—</div>
+        </div>
+      </div>
+
+      <button id="refresh-config-btn" style="margin-top:14px;background:#144a8f">Refresh Config</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // =========================================================
+  // IMPORTANT FIX:
+  // We keep API_BASE_URL = window.location.origin
+  // and we call endpoints with /api/... exactly once.
+  // =========================================================
+  const API_BASE_URL = window.location.origin;
+
+  // UI refs
+  const dot = document.getElementById('connection-dot');
+  const connText = document.getElementById('connection-text');
+  const alertDiv = document.getElementById('connection-alert');
+
+  const assetSelect = document.getElementById('asset-select');
+  const backtestAsset = document.getElementById('backtest-asset');
+
+  const runBtn = document.getElementById('run-analysis-btn');
+  const runBtnText = document.getElementById('run-btn-text');
+  const analysisState = document.getElementById('analysis-state');
+  const lastRun = document.getElementById('last-run');
+
+  const regimeEl = document.getElementById('regime');
+  const confEl = document.getElementById('confidence');
+  const riskEl = document.getElementById('risk-level');
+
+  const agentsList = document.getElementById('agents-list');
+  const logEl = document.getElementById('activity-log');
+
+  const backtestBtn = document.getElementById('run-backtest-btn');
+  const backtestBtnText = document.getElementById('backtest-btn-text');
+  const backtestSteps = document.getElementById('backtest-steps');
+  const backtestState = document.getElementById('backtest-state');
+  const backtestLastRun = document.getElementById('backtest-last-run');
+  const backtestSummary = document.getElementById('backtest-summary');
+  const backtestRaw = document.getElementById('backtest-raw');
+
+  const apiBaseEl = document.getElementById('api-base');
+  const assetsText = document.getElementById('assets-text');
+  const agentsText = document.getElementById('agents-text');
+  const refreshConfigBtn = document.getElementById('refresh-config-btn');
+
+  let isConnected = false;
+  let agentChart = null;
+  let backtestChart = null;
+
+  function nowStr(){
+    return new Date().toLocaleString();
+  }
+
+  function addLog(msg){
+    const line = `[${new Date().toLocaleTimeString()}] ${msg}\n`;
+    logEl.textContent = line + logEl.textContent;
+  }
+
+  function setConnected(state){
+    isConnected = !!state;
+    if (isConnected){
+      dot.classList.remove('disconnected');
+      dot.classList.add('connected');
+      connText.textContent = 'Connected';
+      alertDiv.style.display = 'none';
+    } else {
+      dot.classList.remove('connected');
+      dot.classList.add('disconnected');
+      connText.textContent = 'Disconnected';
+      alertDiv.style.display = 'block';
+      alertDiv.innerHTML =
+        `⚠️ Cannot connect to API server. Make sure the Flask server is running on <b>${API_BASE_URL}</b><br><br>
+         Test these in your phone/PC browser:<br>
+         <code>${API_BASE_URL}/api/health</code><br>
+         <code>${API_BASE_URL}/api/config</code><br><br>
+         If you start it manually, run: <code>python live_api.py</code> (or whatever your file is named).`;
+    }
+  }
+
+  async function checkConnection(){
+    try{
+      const r = await fetch(`${API_BASE_URL}/api/health`, { cache: 'no-store' });
+      if(!r.ok) throw new Error(`health HTTP ${r.status}`);
+      const data = await r.json();
+
+      // allow multiple "good" statuses just in case
+      const ok = (data.status === 'healthy' || data.status === 'running' || data.status === 'ok');
+      setConnected(ok);
+
+      if(ok){
+        addLog(`API healthy (${data.status})`);
+        await loadConfiguration();
+      } else {
+        addLog(`API responded but status not healthy: ${data.status}`);
+      }
+    } catch(e){
+      setConnected(false);
+      addLog(`API connection failed: ${e.message}`);
+    }
+  }
+
+  function setAssets(assets){
+    // assets can be [{enabled:true,name:"Bitcoin",symbol:"btc"}, ...]
+    const enabled = (assets || []).filter(a => a.enabled !== false);
+    const options = enabled.map(a => `<option value="${a.symbol}">${a.name} (${a.symbol.toUpperCase()})</option>`).join('');
+    assetSelect.innerHTML = options || `<option value="btc">Bitcoin (BTC)</option>`;
+    backtestAsset.innerHTML = options || `<option value="btc">Bitcoin (BTC)</option>`;
+
+    assetsText.textContent = enabled.length
+      ? enabled.map(a => `${a.name} (${a.symbol.toUpperCase()})`).join(', ')
+      : '—';
+  }
+
+  function renderAgentsList(agentFlags){
+    // agentFlags like {"market_position":true, "market_structure":true, ...}
+    const entries = Object.entries(agentFlags || {}).filter(([,v]) => !!v);
+    if(!entries.length){
+      agentsList.innerHTML = `<div class="item"><span>No agents enabled</span><span class="muted">—</span></div>`;
+      return;
+    }
+    agentsList.innerHTML = entries.map(([k]) => {
+      return `<div class="item"><span>${k}</span><span class="muted">enabled</span></div>`;
+    }).join('');
+
+    agentsText.textContent = entries.map(([k]) => k).join(', ');
+  }
+
+  function updateAgentChart(agentScores){
+    // agentScores can be {agentName: confidenceNumber} OR [{name, confidence}]
+    const labels = [];
+    const values = [];
+
+    if(Array.isArray(agentScores)){
+      for(const a of agentScores){
+        labels.push(a.name || a.agent || 'agent');
+        values.push(Number(a.confidence ?? a.score ?? 0));
+      }
+    } else if (agentScores && typeof agentScores === 'object'){
+      for(const [k,v] of Object.entries(agentScores)){
+        labels.push(k);
+        values.push(Number(v));
+      }
+    }
+
+    // fallback chart
+    if(!labels.length){
+      labels.push('—');
+      values.push(0);
+    }
+
+    const ctx = document.getElementById('agentChart');
+    if(agentChart) agentChart.destroy();
+
+    agentChart = new Chart(ctx, {
+      type: 'bar',
+      data: { labels, datasets: [{ label: 'Confidence', data: values }] },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, suggestedMax: 1 }
+        }
+      }
+    });
+  }
+
+  function updateBacktestChart(series){
+    // series can be [{t, v}] or {labels:[], values:[]}
+    const labels = [];
+    const values = [];
+
+    if(Array.isArray(series)){
+      for(const p of series){
+        labels.push(p.t ?? p.time ?? p.date ?? '');
+        values.push(Number(p.v ?? p.value ?? 0));
+      }
+    } else if(series && series.labels && series.values){
+      labels.push(...series.labels);
+      values.push(...series.values.map(Number));
+    }
+
+    if(!labels.length){
+      labels.push('—');
+      values.push(0);
+    }
+
+    const ctx = document.getElementById('backtestChart');
+    if(backtestChart) backtestChart.destroy();
+
+    backtestChart = new Chart(ctx, {
+      type: 'line',
+      data: { labels, datasets: [{ label: 'Equity / Score', data: values, tension: 0.25 }] },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: false } }
+      }
+    });
+  }
+
+  async function loadConfiguration(){
+    try{
+      const r = await fetch(`${API_BASE_URL}/api/config`, { cache: 'no-store' });
+      if(!r.ok) throw new Error(`config HTTP ${r.status}`);
+      const cfg = await r.json();
+
+      apiBaseEl.textContent = API_BASE_URL;
+
+      // cfg.assets
+      setAssets(cfg.assets || []);
+
+      // cfg.agents
+      renderAgentsList(cfg.agents || {});
+      addLog(`Loaded config (${(cfg.assets||[]).length} assets, ${Object.keys(cfg.agents||{}).length} agent flags)`);
+    } catch(e){
+      addLog(`Failed to load config: ${e.message}`);
+    }
+  }
+
+  async function runAnalysis(){
+    if(!isConnected){
+      addLog('Blocked: not connected.');
+      return;
+    }
+
+    const asset = assetSelect.value || 'btc';
+
+    runBtn.disabled = true;
+    runBtnText.textContent = 'Analyzing…';
+    analysisState.textContent = 'Running';
+    lastRun.textContent = nowStr();
+    addLog(`Started analysis for ${asset.toUpperCase()}`);
+
+    try{
+      const r = await fetch(`${API_BASE_URL}/api/analyze/${asset}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}) // keep stable even if backend ignores body
+      });
+      if(!r.ok) throw new Error(`analyze HTTP ${r.status}`);
+      const result = await r.json();
+
+      // Flexible mapping (works even if backend changes field names)
+      const regime = result.regime ?? result.market_regime ?? '—';
+      const confidence = result.confidence ?? result.overall_confidence ?? result.score ?? '—';
+      const risk = result.risk_level ?? result.risk ?? '—';
+
+      regimeEl.textContent = String(regime);
+      confEl.textContent = String(confidence);
+      riskEl.textContent = String(risk);
+
+      // Agents
+      if(result.agents){
+        // show list if agents is object or array
+        if(Array.isArray(result.agents)){
+          agentsList.innerHTML = result.agents.map(a =>
+            `<div class="item"><span>${a.name || a.agent || 'agent'}</span><span class="muted">${a.confidence ?? a.score ?? '—'}</span></div>`
+          ).join('');
+        } else {
+          // object
+          agentsList.innerHTML = Object.entries(result.agents).map(([k,v]) =>
+            `<div class="item"><span>${k}</span><span class="muted">${v.confidence ?? v.score ?? v ?? '—'}</span></div>`
+          ).join('');
+        }
+      }
+
+      // Chart (if agent confidences exist)
+      if(result.agent_confidences) updateAgentChart(result.agent_confidences);
+      else if(result.agents) updateAgentChart(
+        Array.isArray(result.agents)
+          ? result.agents.map(a => ({ name: a.name || a.agent, confidence: a.confidence ?? a.score ?? 0 }))
+          : Object.fromEntries(Object.entries(result.agents).map(([k,v]) => [k, (v.confidence ?? v.score ?? 0)]))
+      );
+
+      analysisState.textContent = 'Complete';
+      addLog(`Analysis complete for ${asset.toUpperCase()}`);
+    } catch(e){
+      analysisState.textContent = 'Error';
+      addLog(`Analysis failed: ${e.message}`);
+    } finally {
+      runBtn.disabled = false;
+      runBtnText.textContent = 'Run Advisory Cycle';
+    }
+  }
+
+  async function runBacktest(){
+    if(!isConnected){
+      addLog('Blocked: not connected.');
+      return;
+    }
+
+    const asset = backtestAsset.value || 'btc';
+    const steps = parseInt(backtestSteps.value || '180', 10);
+
+    backtestBtn.disabled = true;
+    backtestBtnText.textContent = 'Running…';
+    backtestState.textContent = 'Running';
+    backtestLastRun.textContent = nowStr();
+    addLog(`Started backtest for ${asset.toUpperCase()} (${steps} steps)`);
+
+    try{
+      const r = await fetch(`${API_BASE_URL}/api/backtest`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ asset, steps })
+      });
+      if(!r.ok) throw new Error(`backtest HTTP ${r.status}`);
+      const result = await r.json();
+
+      backtestSummary.textContent = result.summary ?? result.result ?? 'Complete';
+      backtestRaw.textContent = JSON.stringify(result, null, 2);
+
+      if(result.series) updateBacktestChart(result.series);
+      else if(result.equity_curve) updateBacktestChart(result.equity_curve);
+
+      backtestState.textContent = 'Complete';
+      addLog(`Backtest complete for ${asset.toUpperCase()}`);
+    } catch(e){
+      backtestState.textContent = 'Error';
+      addLog(`Backtest failed: ${e.message}`);
+    } finally {
+      backtestBtn.disabled = false;
+      backtestBtnText.textContent = 'Run Backtest';
+    }
+  }
+
+  // Tabs
+  function switchTab(name){
+    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    document.getElementById('tab-live').classList.toggle('hide', name !== 'live');
+    document.getElementById('tab-backtest').classList.toggle('hide', name !== 'backtest');
+    document.getElementById('tab-config').classList.toggle('hide', name !== 'config');
+  }
+  document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
+
+  // Buttons
+  runBtn.addEventListener('click', runAnalysis);
+  backtestBtn.addEventListener('click', runBacktest);
+  refreshConfigBtn.addEventListener('click', loadConfiguration);
+
+  // Init
+  window.onload = async () => {
+    logEl.textContent = '';
+    apiBaseEl.textContent = API_BASE_URL;
+    addLog('UI loaded');
+    await checkConnection();
+
+    // keep checking every 10s
+    setInterval(checkConnection, 10000);
+  };
+</script>
+</body>
+</html>
