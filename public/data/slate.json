@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-07T05:54:47.323970",
+  "updated": "2026-03-07T08:00:15.605006",
   "date": "March 07, 2026",
   "daily_code": "EDGE0307",
   "discord_invite": "",
@@ -14,7 +14,7 @@
       "confidence": 93,
       "best_bet": {
         "pick": "Over 215.5",
-        "odds": "-110",
+        "odds": "-108",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -85,46 +85,9 @@
       "sport": "NBA",
       "game": "Orlando Magic @ Minnesota Timberwolves",
       "time": "3/7 - 3:00 PM EST",
-      "confidence": 78,
+      "confidence": 83,
       "best_bet": {
-        "pick": "Over 225.5",
-        "odds": "-108",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Over 225.5"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
-      },
-      "model_vs_market": {
-        "model_spread": -7.1,
-        "market_spread": 225.5,
-        "model_total": 229.8,
-        "market_total": 225.5,
-        "edge": 4.3,
-        "edge_signed": 4.3,
-        "home_proj": 117.5,
-        "away_proj": 112.3
-      },
-      "why": "Model projects 118 + 112 = 229.8 total. Market total: 225.5. Edge: 4.3 points toward Over. Minnesota Timberwolves offense rating (117.7) is elite. Orlando Magic defense is exploitable (def rating 112.1).",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Over 225.5 up to 226.5. Standard sizing."
-    },
-    {
-      "id": 4,
-      "sport": "NBA",
-      "game": "Philadelphia 76ers @ Atlanta Hawks",
-      "time": "3/7 - 6:00 PM EST",
-      "confidence": 72,
-      "best_bet": {
-        "pick": "Atlanta Hawks -6.5",
+        "pick": "Over 224.5",
         "odds": "-110",
         "book": "FanDuel"
       },
@@ -135,23 +98,60 @@
       },
       "best_parlay": {
         "legs": [
-          "Atlanta Hawks -6.5"
+          "Over 224.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": -7.1,
+        "market_spread": 224.5,
+        "model_total": 229.8,
+        "market_total": 224.5,
+        "edge": 5.3,
+        "edge_signed": 5.3,
+        "home_proj": 117.5,
+        "away_proj": 112.3
+      },
+      "why": "Model projects 118 + 112 = 229.8 total. Market total: 224.5. Edge: 5.3 points toward Over. Minnesota Timberwolves offense rating (117.7) is elite. Orlando Magic defense is exploitable (def rating 112.1).",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Over 224.5 up to 225.5. Standard sizing."
+    },
+    {
+      "id": 4,
+      "sport": "NBA",
+      "game": "Philadelphia 76ers @ Atlanta Hawks",
+      "time": "3/7 - 6:00 PM EST",
+      "confidence": 72,
+      "best_bet": {
+        "pick": "Atlanta Hawks -7.0",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Atlanta Hawks -7.0"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
         "model_spread": -3.5,
-        "market_spread": -6.5,
+        "market_spread": -7.0,
         "model_total": 231.5,
-        "edge": 3.0,
-        "edge_signed": 3.0,
+        "edge": 3.5,
+        "edge_signed": 3.5,
         "home_proj": 117.4,
         "away_proj": 114.1
       },
-      "why": "Model projects Atlanta Hawks 117 - Philadelphia 76ers 114. Model spread: -3.5 vs market -6.5 = 3.0pt edge. Atlanta Hawks weighted net rating (+2.6) significantly outperforms Philadelphia 76ers (+2.3). Atlanta Hawks is 32-31 on the season.",
+      "why": "Model projects Atlanta Hawks 117 - Philadelphia 76ers 114. Model spread: -3.5 vs market -7.0 = 3.5pt edge. Atlanta Hawks weighted net rating (+2.6) significantly outperforms Philadelphia 76ers (+2.3). Atlanta Hawks is 32-31 on the season.",
       "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play at -6.5 or better. Kill if line moves past -5.5. Size: 0.5 units."
+      "execution": "Play at -7.0 or better. Kill if line moves past -6.0. Size: 1 unit."
     },
     {
       "id": 5,
@@ -270,7 +270,7 @@
       "confidence": 65,
       "best_bet": {
         "pick": "Toronto Maple Leafs -1.5",
-        "odds": "+132",
+        "odds": "+128",
         "book": "FanDuel"
       },
       "best_prop": {
