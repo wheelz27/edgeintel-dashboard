@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-08T10:00:11.172798",
+  "updated": "2026-03-08T10:32:13.155456",
   "date": "March 08, 2026",
   "daily_code": "EDGE0308",
   "discord_invite": "",
@@ -271,7 +271,7 @@
       "confidence": 78,
       "best_bet": {
         "pick": "Phoenix Suns -4.5",
-        "odds": "-110",
+        "odds": "-112",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -302,12 +302,12 @@
     {
       "id": 9,
       "sport": "NBA",
-      "game": "Boston Celtics @ Cleveland Cavaliers",
-      "time": "9:00 AM PT",
+      "game": "Detroit Pistons @ Miami Heat",
+      "time": "2:00 PM PT",
       "confidence": 72,
       "best_bet": {
-        "pick": "Over 223.5",
-        "odds": "-112",
+        "pick": "Miami Heat -2.5",
+        "odds": "-108",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -317,33 +317,32 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 223.5"
+          "Miami Heat -2.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": 0.7,
-        "market_spread": 223.5,
-        "model_total": 227.0,
-        "market_total": 223.5,
+        "model_spread": 1.0,
+        "market_spread": -2.5,
+        "model_total": 230.9,
         "edge": 3.5,
         "edge_signed": 3.5,
-        "home_proj": 114.1,
-        "away_proj": 112.8
+        "home_proj": 116.0,
+        "away_proj": 114.9
       },
-      "why": "Model projects 114 + 113 = 227.0 total. Market total: 223.5. Edge: 3.5 points toward Over. Cleveland Cavaliers offense rating (118.6) is elite.",
-      "risk": "Boston Celtics may be due for regression (42-21).",
-      "execution": "Play Over 223.5 up to 224.5. Standard sizing."
+      "why": "Model projects Miami Heat 116 - Detroit Pistons 115. Model spread: +1.0 vs market -2.5 = 3.5pt edge. Miami Heat is 35-29 on the season.",
+      "risk": "Detroit Pistons may be due for regression (45-17).",
+      "execution": "Play at -2.5 or better. Kill if line moves past -1.5. Size: 1 unit."
     },
     {
       "id": 10,
       "sport": "NBA",
-      "game": "Detroit Pistons @ Miami Heat",
+      "game": "Dallas Mavericks @ Toronto Raptors",
       "time": "2:00 PM PT",
       "confidence": 72,
       "best_bet": {
-        "pick": "Miami Heat -2.0",
+        "pick": "Under 229.5",
         "odds": "-110",
         "book": "FanDuel"
       },
@@ -354,23 +353,24 @@
       },
       "best_parlay": {
         "legs": [
-          "Miami Heat -2.0"
+          "Under 229.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": 1.0,
-        "market_spread": -2.0,
-        "model_total": 230.9,
+        "model_spread": -8.9,
+        "market_spread": 229.5,
+        "model_total": 226.5,
+        "market_total": 229.5,
         "edge": 3.0,
-        "edge_signed": 3.0,
-        "home_proj": 116.0,
-        "away_proj": 114.9
+        "edge_signed": -3.0,
+        "home_proj": 116.3,
+        "away_proj": 110.2
       },
-      "why": "Model projects Miami Heat 116 - Detroit Pistons 115. Model spread: +1.0 vs market -2.0 = 3.0pt edge. Miami Heat is 35-29 on the season.",
-      "risk": "Detroit Pistons may be due for regression (45-17).",
-      "execution": "Play at -2.0 or better. Kill if line moves past -1.0. Size: 0.5 units."
+      "why": "Model projects 116 + 110 = 226.5 total. Market total: 229.5. Edge: 3.0 points toward Under.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Under 229.5 up to 228.5. Standard sizing."
     }
   ]
 }
