@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-07T19:10:32.323130",
+  "updated": "2026-03-07T19:57:08.042248",
   "date": "March 07, 2026",
   "daily_code": "EDGE0307",
   "discord_invite": "",
@@ -10,11 +10,11 @@
       "id": 1,
       "sport": "NBA",
       "game": "Golden State Warriors @ Oklahoma City Thunder",
-      "time": "5:48 - 3rd",
-      "confidence": 72,
+      "time": "5:30 PM PT",
+      "confidence": 93,
       "best_bet": {
-        "pick": "Under 229.5",
-        "odds": "-130",
+        "pick": "Over 214.5",
+        "odds": "-111",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -24,34 +24,34 @@
       },
       "best_parlay": {
         "legs": [
-          "Under 229.5"
+          "Over 214.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
         "model_spread": -12.8,
-        "market_spread": 229.5,
+        "market_spread": 214.5,
         "model_total": 226.4,
-        "market_total": 229.5,
-        "edge": 3.1,
-        "edge_signed": -3.1,
+        "market_total": 214.5,
+        "edge": 11.9,
+        "edge_signed": 11.9,
         "home_proj": 117.2,
         "away_proj": 109.2
       },
-      "why": "Model projects 117 + 109 = 226.4 total. Market total: 229.5. Edge: 3.1 points toward Under. Oklahoma City Thunder defense is stout (def rating 104.8).",
+      "why": "Model projects 117 + 109 = 226.4 total. Market total: 214.5. Edge: 11.9 points toward Over. Oklahoma City Thunder offense rating (118.1) is elite.",
       "risk": "Oklahoma City Thunder may be due for regression (49-15).",
-      "execution": "Play Under 229.5 up to 228.5. Standard sizing."
+      "execution": "Play Over 214.5 up to 215.5. Standard sizing."
     },
     {
       "id": 2,
       "sport": "NHL",
       "game": "Ottawa Senators @ Seattle Kraken",
-      "time": "2026-03-08T03:00:00Z",
+      "time": "7:00 PM PT",
       "confidence": 60,
       "best_bet": {
-        "pick": "Over 5.5",
-        "odds": "-130",
+        "pick": "Under 7.5",
+        "odds": "+142",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -61,24 +61,24 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 5.5"
+          "Under 7.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
         "model_spread": 0.1,
-        "market_spread": 5.5,
+        "market_spread": 7.5,
         "model_total": 6.2,
-        "market_total": 5.5,
-        "edge": 0.7,
-        "edge_signed": 0.7,
+        "market_total": 7.5,
+        "edge": 1.3,
+        "edge_signed": -1.3,
         "home_proj": 3.1,
         "away_proj": 3.1
       },
-      "why": "Model projects 3 + 3 = 6.2 total. Market total: 5.5. Edge: 0.7 points toward Over.",
+      "why": "Model projects 3 + 3 = 6.2 total. Market total: 7.5. Edge: 1.3 points toward Under. Seattle Kraken defense is stout (def rating 2.9). Ottawa Senators offense has been struggling (off rating 3.4).",
       "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Over 5.5 up to 6.5. Standard sizing."
+      "execution": "Play Under 7.5 up to 6.5. Standard sizing."
     }
   ]
 }
