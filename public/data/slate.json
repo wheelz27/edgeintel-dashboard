@@ -1,19 +1,312 @@
 {
-  "updated": "2026-03-07T20:37:59.997595",
-  "date": "March 07, 2026",
-  "daily_code": "EDGE0307",
+  "updated": "2026-03-08T01:22:02.565656",
+  "date": "March 08, 2026",
+  "daily_code": "EDGE0308",
   "discord_invite": "",
   "paypal_link": "https://paypal.me/Wheelz27",
   "price": "$29/month",
   "games": [
     {
       "id": 1,
-      "sport": "NHL",
-      "game": "Ottawa Senators @ Seattle Kraken",
-      "time": "7:00 PM PT",
-      "confidence": 60,
+      "sport": "NBA",
+      "game": "Washington Wizards @ New Orleans Pelicans",
+      "time": "3:00 PM PT",
+      "confidence": 93,
       "best_bet": {
-        "pick": "Under 7.5",
+        "pick": "Under 242.5",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 242.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": -9.0,
+        "market_spread": 242.5,
+        "model_total": 233.8,
+        "market_total": 242.5,
+        "edge": 8.7,
+        "edge_signed": -8.7,
+        "home_proj": 120.0,
+        "away_proj": 113.8
+      },
+      "why": "Model projects 120 + 114 = 233.8 total. Market total: 242.5. Edge: 8.7 points toward Under.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Under 242.5 up to 241.5. Standard sizing."
+    },
+    {
+      "id": 2,
+      "sport": "NBA",
+      "game": "Houston Rockets @ San Antonio Spurs",
+      "time": "4:00 PM PT",
+      "confidence": 93,
+      "best_bet": {
+        "pick": "Houston Rockets -5.0",
+        "odds": "-106",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Houston Rockets -5.0"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": -5.0,
+        "market_spread": 5.0,
+        "model_total": 225.1,
+        "edge": 10.0,
+        "edge_signed": -10.0,
+        "home_proj": 114.6,
+        "away_proj": 110.5
+      },
+      "why": "Model projects San Antonio Spurs 115 - Houston Rockets 110. Model spread: -5.0 vs market +5.0 = 10.0pt edge. Houston Rockets is 39-23 on the season.",
+      "risk": "San Antonio Spurs may be due for regression (46-17).",
+      "execution": "Play at +5.0 or better. Kill if line moves past +6.0. Size: 1.5 units."
+    },
+    {
+      "id": 3,
+      "sport": "NBA",
+      "game": "Orlando Magic @ Milwaukee Bucks",
+      "time": "4:00 PM PT",
+      "confidence": 87,
+      "best_bet": {
+        "pick": "Over 219.5",
+        "odds": "-114",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 219.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": 1.6,
+        "market_spread": 219.5,
+        "model_total": 226.3,
+        "market_total": 219.5,
+        "edge": 6.8,
+        "edge_signed": 6.8,
+        "home_proj": 113.5,
+        "away_proj": 112.7
+      },
+      "why": "Model projects 114 + 113 = 226.3 total. Market total: 219.5. Edge: 6.8 points toward Over. Milwaukee Bucks offense rating (113.9) is elite.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Over 219.5 up to 220.5. Standard sizing."
+    },
+    {
+      "id": 4,
+      "sport": "NBA",
+      "game": "Chicago Bulls @ Sacramento Kings",
+      "time": "5:00 PM PT",
+      "confidence": 87,
+      "best_bet": {
+        "pick": "Sacramento Kings -3.0",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Sacramento Kings -3.0"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": 3.0,
+        "market_spread": -3.0,
+        "model_total": 232.4,
+        "edge": 6.0,
+        "edge_signed": 6.0,
+        "home_proj": 116.2,
+        "away_proj": 116.2
+      },
+      "why": "Model projects Sacramento Kings 116 - Chicago Bulls 116. Model spread: +3.0 vs market -3.0 = 6.0pt edge. Sacramento Kings is 14-50 on the season.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play at -3.0 or better. Kill if line moves past -2.0. Size: 1.5 units."
+    },
+    {
+      "id": 5,
+      "sport": "NBA",
+      "game": "Charlotte Hornets @ Phoenix Suns",
+      "time": "6:00 PM PT",
+      "confidence": 87,
+      "best_bet": {
+        "pick": "Over 218.5",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 218.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": -0.3,
+        "market_spread": 218.5,
+        "model_total": 225.0,
+        "market_total": 218.5,
+        "edge": 6.5,
+        "edge_signed": 6.5,
+        "home_proj": 113.4,
+        "away_proj": 111.6
+      },
+      "why": "Model projects 113 + 112 = 225.0 total. Market total: 218.5. Edge: 6.5 points toward Over. Phoenix Suns offense rating (114.6) is elite. Charlotte Hornets defense is exploitable (def rating 112.9).",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Over 218.5 up to 219.5. Standard sizing."
+    },
+    {
+      "id": 6,
+      "sport": "NBA",
+      "game": "Indiana Pacers @ Portland Trail Blazers",
+      "time": "5:00 PM PT",
+      "confidence": 83,
+      "best_bet": {
+        "pick": "Under 236.5",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 236.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": -8.4,
+        "market_spread": 236.5,
+        "model_total": 231.3,
+        "market_total": 236.5,
+        "edge": 5.2,
+        "edge_signed": -5.2,
+        "home_proj": 118.6,
+        "away_proj": 112.7
+      },
+      "why": "Model projects 119 + 113 = 231.3 total. Market total: 236.5. Edge: 5.2 points toward Under.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Under 236.5 up to 235.5. Standard sizing."
+    },
+    {
+      "id": 7,
+      "sport": "NBA",
+      "game": "Charlotte Hornets @ Phoenix Suns",
+      "time": "6:00 PM PT",
+      "confidence": 78,
+      "best_bet": {
+        "pick": "Phoenix Suns -4.5",
+        "odds": "-112",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Phoenix Suns -4.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": -0.3,
+        "market_spread": -4.5,
+        "model_total": 225.0,
+        "edge": 4.2,
+        "edge_signed": 4.2,
+        "home_proj": 113.4,
+        "away_proj": 111.6
+      },
+      "why": "Model projects Phoenix Suns 113 - Charlotte Hornets 112. Model spread: -0.3 vs market -4.5 = 4.2pt edge. Phoenix Suns is 36-27 on the season.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play at -4.5 or better. Kill if line moves past -3.5. Size: 1 unit."
+    },
+    {
+      "id": 8,
+      "sport": "NBA",
+      "game": "Boston Celtics @ Cleveland Cavaliers",
+      "time": "9:00 AM PT",
+      "confidence": 65,
+      "best_bet": {
+        "pick": "Over 224.5",
+        "odds": "-106",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 224.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": 0.7,
+        "market_spread": 224.5,
+        "model_total": 227.0,
+        "market_total": 224.5,
+        "edge": 2.5,
+        "edge_signed": 2.5,
+        "home_proj": 114.1,
+        "away_proj": 112.8
+      },
+      "why": "Model projects 114 + 113 = 227.0 total. Market total: 224.5. Edge: 2.5 points toward Over. Cleveland Cavaliers offense rating (118.6) is elite.",
+      "risk": "Boston Celtics may be due for regression (42-21).",
+      "execution": "Play Over 224.5 up to 225.5. Standard sizing."
+    },
+    {
+      "id": 9,
+      "sport": "NBA",
+      "game": "Detroit Pistons @ Miami Heat",
+      "time": "2:00 PM PT",
+      "confidence": 65,
+      "best_bet": {
+        "pick": "Miami Heat -1.5",
         "odds": "-108",
         "book": "FanDuel"
       },
@@ -24,24 +317,60 @@
       },
       "best_parlay": {
         "legs": [
-          "Under 7.5"
+          "Miami Heat -1.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": 0.1,
-        "market_spread": 7.5,
-        "model_total": 6.2,
-        "market_total": 7.5,
-        "edge": 1.3,
-        "edge_signed": -1.3,
-        "home_proj": 3.1,
-        "away_proj": 3.1
+        "model_spread": 1.0,
+        "market_spread": -1.5,
+        "model_total": 230.9,
+        "edge": 2.5,
+        "edge_signed": 2.5,
+        "home_proj": 116.0,
+        "away_proj": 114.9
       },
-      "why": "Model projects 3 + 3 = 6.2 total. Market total: 7.5. Edge: 1.3 points toward Under. Seattle Kraken defense is stout (def rating 2.9). Ottawa Senators offense has been struggling (off rating 3.4).",
+      "why": "Model projects Miami Heat 116 - Detroit Pistons 115. Model spread: +1.0 vs market -1.5 = 2.5pt edge. Miami Heat is 35-29 on the season.",
+      "risk": "Detroit Pistons may be due for regression (45-17).",
+      "execution": "Play at -1.5 or better. Kill if line moves past -0.5. Size: 0.5 units."
+    },
+    {
+      "id": 10,
+      "sport": "NBA",
+      "game": "Dallas Mavericks @ Toronto Raptors",
+      "time": "2:00 PM PT",
+      "confidence": 65,
+      "best_bet": {
+        "pick": "Under 228.5",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 228.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": -8.9,
+        "market_spread": 228.5,
+        "model_total": 226.5,
+        "market_total": 228.5,
+        "edge": 2.0,
+        "edge_signed": -2.0,
+        "home_proj": 116.3,
+        "away_proj": 110.2
+      },
+      "why": "Model projects 116 + 110 = 226.5 total. Market total: 228.5. Edge: 2.0 points toward Under.",
       "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Under 7.5 up to 6.5. Standard sizing."
+      "execution": "Play Under 228.5 up to 227.5. Standard sizing."
     }
   ]
 }
