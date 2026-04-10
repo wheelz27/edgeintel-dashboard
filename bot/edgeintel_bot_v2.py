@@ -23,6 +23,9 @@ import random
 import string
 from datetime import datetime
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).parent.parent / ".env")  # loads repo-root .env
 
 # ================================================================
 # ⚙️  CONFIG — Fill these in (or set as env vars)
