@@ -33,9 +33,11 @@ SLATE_PATH = DATA_DIR / "slate.json"
 RESULTS_PATH = DATA_DIR / "results.json"
 
 # ─── Config from env ──────────────────────────────────────────────────────────
-ODDS_API_KEY = os.getenv("ODDS_API_KEY", "")          # The Odds API free key
-DISCORD_WEBHOOK = os.getenv("DISCORD_WEBHOOK", "")    # Discord webhook URL
-ANTHROPIC_KEY = os.getenv("ANTHROPIC_API_KEY", "")   # Claude API key
+ODDS_API_KEY             = os.getenv("ODDS_API_KEY", "")              # The Odds API free key
+DISCORD_WEBHOOK          = os.getenv("DISCORD_WEBHOOK", "")           # Legacy fallback
+DISCORD_WEBHOOK_DAILY    = os.getenv("DISCORD_WEBHOOK_DAILY", "")     # Today's picks channel
+DISCORD_WEBHOOK_DOSSIERS = os.getenv("DISCORD_WEBHOOK_DOSSIERS", "")  # Grading results channel
+ANTHROPIC_KEY            = os.getenv("ANTHROPIC_API_KEY", "")         # Claude API key
 
 ET = ZoneInfo("America/New_York")
 today = datetime.date.today()
@@ -56,6 +58,10 @@ ODDS_SPORTS = {
     "NHL":   "icehockey_nhl",
     "NCAAB": "basketball_ncaab",
 }
+
+# ─── Discord presentation ─────────────────────────────────────────────────────
+SPORT_EMOJI = {"NBA": "🏀", "NHL": "🏒", "NCAAB": "🏈"}
+SPORT_COLOR = {"NBA": 0x1d428a, "NHL": 0x00b2a9, "NCAAB": 0xf47321}  # blue / teal / orange
 
 # ─── Time-weighted power rating weights ───────────────────────────────────────
 W_SEASON = 0.15
@@ -772,48 +778,142 @@ def git_push():
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# STEP 10 — Discord post
+# STEP 10a — Discord: today's picks  (DISCORD_WEBHOOK_DAILY)
 # ═══════════════════════════════════════════════════════════════════════════════
-def post_discord(games: list[dict], results: dict):
-    if not DISCORD_WEBHOOK:
-        log("No DISCORD_WEBHOOK — skipping Discord post")
+def post_discord_picks(games: list[dict], results: dict):
+    """
+    Posts today's edge picks to DISCORD_WEBHOOK_DAILY.
+    Format: header embed + one embed per edge pick, sport-colour coded.
+    """
+    webhook = DISCORD_WEBHOOK_DAILY or DISCORD_WEBHOOK  # fallback to legacy
+    if not webhook:
+        log("No DISCORD_WEBHOOK_DAILY — skipping picks post")
         return
-    edge_picks = [g for g in games if g.get("isEdgePick")]
-    all_time = results.get("allTime", {})
 
-    # Build embed fields
-    fields = []
+    edge_picks = [g for g in games if g.get("isEdgePick")]
+    if not edge_picks:
+        log("No edge picks to post")
+        return
+
+    all_time   = results.get("allTime", {})
+    now_ts     = datetime.datetime.now(ET).isoformat()
+    date_label = today.strftime("%A, %b %d")
+
+    # ── Header embed ────────────────────────────────────────────────────────
+    header = {
+        "title": f"⚡ EdgeIntel — {date_label}",
+        "color": 0xFFD700,
+        "description": (
+            f"**{len(edge_picks)} Edge Pick{'s' if len(edge_picks) != 1 else ''}** "
+            f"flagged by the model today.\n\n"
+            f"📊 **Season:** "
+            f"{all_time.get('wins', 0)}W‑{all_time.get('losses', 0)}L "
+            f"({all_time.get('winPct', 0)}%) · "
+            f"ROI: {all_time.get('roi', 0)}% · "
+            f"Units: {all_time.get('units', '+0')} · "
+            f"Streak: {all_time.get('streak', '—')}\n\n"
+            f"🔒 Full dossiers + Scotty AI → [edgeintel.vercel.app](https://edgeintel.vercel.app)\n"
+            f"📅 Daily code: `EDGE{today.strftime('%m%d')}`"
+        ),
+        "footer": {"text": "EdgeIntel · Time-weighted power model + market edge detection"},
+        "timestamp": now_ts,
+    }
+
+    # ── One embed per pick ───────────────────────────────────────────────────
+    pick_embeds = []
     for g in edge_picks:
-        bet = g["best_bet"]
+        emoji  = SPORT_EMOJI.get(g["sport"], "🎯")
+        color  = SPORT_COLOR.get(g["sport"], 0x4d8eff)
+        bet    = g["best_bet"]
+        mvs    = g["model_vs_market"]
+        conf   = g["confidence"]
+        # visual confidence bar (10 blocks)
+        filled = round(conf / 10)
+        bar    = "█" * filled + "░" * (10 - filled)
+
+        pick_embeds.append({
+            "color": color,
+            "author": {"name": f"{emoji} {g['sport']} · {g['game']} · {g['time']}"},
+            "fields": [
+                {"name": "Pick",       "value": f"**{bet['pick']}**",          "inline": True},
+                {"name": "Odds",       "value": f"`{bet['odds']}`",            "inline": True},
+                {"name": "Book",       "value": bet["book"],                   "inline": True},
+                {"name": "Confidence", "value": f"`{bar}` **{conf}%**",        "inline": True},
+                {"name": "Edge",       "value": f"**{mvs['edge']}pts**",       "inline": True},
+                {"name": "Model/Mkt",  "value": f"{mvs['model_spread']:+.1f} vs {mvs['market_spread']:+.1f}", "inline": True},
+            ],
+            "timestamp": now_ts,
+        })
+
+    # Discord allows up to 10 embeds per message; send header + picks together
+    all_embeds = [header] + pick_embeds
+    try:
+        r = requests.post(webhook, json={"embeds": all_embeds}, timeout=10)
+        r.raise_for_status()
+        log(f"Discord picks posted: {len(edge_picks)} edge picks")
+    except Exception as e:
+        log(f"Discord picks post failed: {e}")
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# STEP 10b — Discord: yesterday's grading results  (DISCORD_WEBHOOK_DOSSIERS)
+# ═══════════════════════════════════════════════════════════════════════════════
+def post_discord_results(graded: list[dict], all_time: dict, date_label: str):
+    """
+    Posts yesterday's edge-pick results to DISCORD_WEBHOOK_DOSSIERS.
+    One embed with a field per graded pick showing result, units, CLV.
+    """
+    if not DISCORD_WEBHOOK_DOSSIERS:
+        log("No DISCORD_WEBHOOK_DOSSIERS — skipping results post")
+        return
+    if not graded:
+        log("No graded edge picks to post results for")
+        return
+
+    wins   = sum(1 for h in graded if h["result"] == "W")
+    losses = sum(1 for h in graded if h["result"] == "L")
+    pushes = sum(1 for h in graded if h["result"] == "P")
+    net    = sum(float(h["units"]) for h in graded)
+
+    record  = f"{wins}W‑{losses}L" + (f"‑{pushes}P" if pushes else "")
+    net_str = f"{net:+.2f}u"
+    color   = 0x22c55e if net > 0 else 0xef4444 if net < 0 else 0x5a6378
+
+    fields = []
+    for h in graded:
+        emoji    = SPORT_EMOJI.get(h["sport"], "🎯")
+        res      = h["result"]
+        res_icon = "✅" if res == "W" else "❌" if res == "L" else "➖"
         fields.append({
-            "name": f"⭐ {g['sport']} — {g['game']}",
-            "value": (f"**{bet['pick']}** @ `{bet['odds']}` via {bet['book']}\n"
-                      f"Confidence: **{g['confidence']}%** | Edge: {g['model_vs_market']['edge']}pts"),
+            "name":   f"{emoji} {h['game']}",
+            "value":  (
+                f"`{h['pick']}` @ {h['odds']}\n"
+                f"{res_icon} **{res}** · {h['units']} units · CLV {h['clv']}"
+            ),
             "inline": False,
         })
 
     embed = {
-        "title": f"📊 EdgeIntel Daily Board — {today.strftime('%a %b %d')}",
-        "color": 0xFFD700,
+        "title":       f"📋 Yesterday's Results — {date_label}",
+        "color":       color,
         "description": (
-            f"**Season Record:** {all_time.get('wins', 0)}-{all_time.get('losses', 0)} "
-            f"({all_time.get('winPct', 0)}%) | ROI: {all_time.get('roi', 0)}% | "
-            f"Units: {all_time.get('units', '+0')} | Streak: {all_time.get('streak', 'N/A')}\n\n"
-            f"**{len(edge_picks)} Edge Pick{'s' if len(edge_picks) != 1 else ''} today** | "
-            f"Full board: https://edgeintel.vercel.app\n"
-            f"Daily code: `EDGE{today.strftime('%m%d')}`"
+            f"**{record}** · Net: **{net_str}**\n"
+            f"Season: {all_time.get('wins', 0)}W‑{all_time.get('losses', 0)}L "
+            f"({all_time.get('winPct', 0)}%) · "
+            f"ROI: {all_time.get('roi', 0)}% · "
+            f"Units: {all_time.get('units', '+0')}"
         ),
         "fields": fields,
-        "footer": {"text": "EdgeIntel | Time-weighted model + market edge detection"},
+        "footer":    {"text": "EdgeIntel · edgeintel.vercel.app"},
         "timestamp": datetime.datetime.now(ET).isoformat(),
     }
 
     try:
-        r = requests.post(DISCORD_WEBHOOK, json={"embeds": [embed]}, timeout=10)
+        r = requests.post(DISCORD_WEBHOOK_DOSSIERS, json={"embeds": [embed]}, timeout=10)
         r.raise_for_status()
-        log(f"Discord posted: {len(edge_picks)} edge picks")
+        log(f"Discord results posted: {record} · {net_str}")
     except Exception as e:
-        log(f"Discord post failed: {e}")
+        log(f"Discord results post failed: {e}")
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -829,9 +929,19 @@ def main():
         results = json.load(f)
 
     # Step 6: Grade yesterday before overwriting slate
+    yesterday = today - datetime.timedelta(days=1)
+    yesterday_str = yesterday.isoformat()
+    yesterday_label = yesterday.strftime("%A, %b %d")
     archive_slate()
     results = grade_yesterday(results)
     write_results(results)
+
+    # Step 6b: Post grading results to Discord
+    graded_picks = [
+        h for h in results.get("history", [])
+        if h.get("date") == yesterday_str and h.get("countsToRecord")
+    ]
+    post_discord_results(graded_picks, results.get("allTime", {}), yesterday_label)
 
     # Steps 1-2: Fetch schedule + odds
     all_games_raw = []
@@ -874,8 +984,8 @@ def main():
     # Step 9: Git push
     git_push()
 
-    # Step 10: Discord
-    post_discord(games, results)
+    # Step 10: Discord — today's picks
+    post_discord_picks(games, results)
 
     log("=" * 60)
     log("Pipeline complete!")
