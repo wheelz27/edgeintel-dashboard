@@ -532,7 +532,7 @@ def grade_pick(pick_str: str, odds: str, home_score: int, away_score: int,
 
 
 def grade_yesterday(results: dict) -> dict:
-    """Grade yesterday's isEdgePick games and update results.json."""
+    """Grade all of yesterday's games; only isEdgePick games count toward the season record."""
     yesterday = today - datetime.timedelta(days=1)
     yesterday_str = yesterday.isoformat()
     log(f"Grading picks for {yesterday_str}...")
@@ -561,13 +561,12 @@ def grade_yesterday(results: dict) -> dict:
     wins = losses = pushes = 0
 
     for game in old_slate.get("games", []):
-        if not game.get("isEdgePick"):
-            continue
         sport = game["sport"]
         game_name = game["game"]
         best = game.get("best_bet", {})
         pick = best.get("pick", "")
         odds = best.get("odds", "-110")
+        is_edge = game.get("isEdgePick", False)
 
         scores = scores_by_sport.get(sport, {})
         final = scores.get(game_name)
@@ -590,18 +589,20 @@ def grade_yesterday(results: dict) -> dict:
             "result": result,
             "units": f"{units:+.2f}",
             "clv": f"{clv:+.1f}",
-            "wasEdgePick": True,
+            "wasEdgePick": is_edge,
+            "countsToRecord": is_edge,
             "confidence": game["confidence"],
         }
         new_history.insert(0, entry)
-        log(f"  {game_name}: {pick} → {result} ({units:+.2f}u)")
+        log(f"  {game_name}: {pick} → {result} ({units:+.2f}u) [{'EDGE' if is_edge else 'non-edge'}]")
 
-        if result == "W":
-            wins += 1
-        elif result == "L":
-            losses += 1
-        else:
-            pushes += 1
+        if is_edge:
+            if result == "W":
+                wins += 1
+            elif result == "L":
+                losses += 1
+            else:
+                pushes += 1
 
     # Update allTime stats
     all_time = results.get("allTime", {})
@@ -611,8 +612,8 @@ def grade_yesterday(results: dict) -> dict:
     total = all_time["wins"] + all_time["losses"]
     all_time["winPct"] = round(all_time["wins"] / total * 100, 1) if total > 0 else 0
 
-    # Recalculate ROI and units from history
-    edge_history = [h for h in new_history if h.get("wasEdgePick")]
+    # Recalculate ROI and units from history (edge picks only)
+    edge_history = [h for h in new_history if h.get("countsToRecord")]
     total_units = sum(float(h["units"]) for h in edge_history)
     roi = round(total_units / max(len(edge_history), 1) * 100, 1)
     all_time["units"] = f"{total_units:+.1f}"
@@ -633,11 +634,12 @@ def grade_yesterday(results: dict) -> dict:
     results["history"] = new_history[:100]
     results["updated"] = today_str
 
-    # Update bySport
+    # Update bySport — edge picks only
+    record_history = [h for h in new_history if h.get("countsToRecord")]
     by_sport = {"NBA": {"wins": 0, "losses": 0, "roi": 0, "units": "+0"},
                 "NCAAB": {"wins": 0, "losses": 0, "roi": 0, "units": "+0"},
                 "NHL": {"wins": 0, "losses": 0, "roi": 0, "units": "+0"}}
-    for h in new_history:
+    for h in record_history:
         sp = h.get("sport", "")
         if sp in by_sport:
             if h.get("result") == "W":
@@ -645,17 +647,17 @@ def grade_yesterday(results: dict) -> dict:
             elif h.get("result") == "L":
                 by_sport[sp]["losses"] += 1
     for sp in by_sport:
-        sp_history = [h for h in new_history if h.get("sport") == sp]
+        sp_history = [h for h in record_history if h.get("sport") == sp]
         sp_units = sum(float(h["units"]) for h in sp_history)
         sp_roi = round(sp_units / max(len(sp_history), 1) * 100, 1)
         by_sport[sp]["units"] = f"{sp_units:+.1f}"
         by_sport[sp]["roi"] = sp_roi
     results["bySport"] = by_sport
 
-    # Update byConfidence
-    high = [h for h in new_history if h.get("confidence", 0) >= 80]
-    mid  = [h for h in new_history if 65 <= h.get("confidence", 0) < 80]
-    low  = [h for h in new_history if h.get("confidence", 0) < 65]
+    # Update byConfidence — edge picks only
+    high = [h for h in record_history if h.get("confidence", 0) >= 80]
+    mid  = [h for h in record_history if 65 <= h.get("confidence", 0) < 80]
+    low  = [h for h in record_history if h.get("confidence", 0) < 65]
     def _tier_stats(tier_list):
         w = sum(1 for h in tier_list if h.get("result") == "W")
         l = sum(1 for h in tier_list if h.get("result") == "L")
