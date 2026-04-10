@@ -11,6 +11,61 @@ import { DISCORD_INVITE, PRODUCT_PRICE, PAYPAL_LINK } from "./config.js";
    ================================================================ */
 
 const REFRESH_INTERVAL = 60000;
+const SCORE_INTERVAL  = 30000;
+
+const ESPN_URLS = {
+  NBA:   "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard",
+  NHL:   "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard",
+  NCAAB: "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard",
+};
+
+// Build a flat map: lowercase team key → score data for fast look-up
+async function loadScores() {
+  const map = {};
+  await Promise.all(
+    Object.entries(ESPN_URLS).map(async ([, url]) => {
+      try {
+        const data = await fetch(url).then(r => r.json());
+        for (const event of data.events ?? []) {
+          const comp = event.competitions?.[0];
+          if (!comp) continue;
+          const home = comp.competitors.find(c => c.homeAway === "home");
+          const away = comp.competitors.find(c => c.homeAway === "away");
+          if (!home || !away) continue;
+          const entry = {
+            state:  comp.status.type.state,
+            period: comp.status.period,
+            clock:  comp.status.displayClock,
+            detail: comp.status.type.shortDetail,
+            home: { abbr: home.team.abbreviation, score: home.score, short: home.team.shortDisplayName },
+            away: { abbr: away.team.abbreviation, score: away.score, short: away.team.shortDisplayName },
+          };
+          for (const side of [home, away]) {
+            for (const key of [side.team.abbreviation, side.team.shortDisplayName, side.team.displayName]) {
+              map[key.toLowerCase()] = entry;
+            }
+          }
+        }
+      } catch { /* ESPN down or CORS — silently skip */ }
+    })
+  );
+  return map;
+}
+
+function findScore(game, scores) {
+  if (!game || !scores) return null;
+  const lower = game.toLowerCase();
+  // Try exact multi-word keys first (e.g. "golden state warriors")
+  for (const key of Object.keys(scores)) {
+    if (key.length > 4 && lower.includes(key)) return scores[key];
+  }
+  // Fall back to individual tokens (abbreviations like "GSW")
+  const tokens = lower.replace(/\s+vs?\.?\s+|\s+@\s+/g, " ").split(/[\s,]+/).filter(t => t.length > 1);
+  for (const token of tokens) {
+    if (scores[token]) return scores[token];
+  }
+  return null;
+}
 
 const T = {
   bg: "#060a10", surface: "#0c1219", surfaceHover: "#111a25", elevated: "#141e2b",
@@ -177,6 +232,7 @@ export default function App() {
   const [lastRefresh, setLastRefresh] = useState(new Date());
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [pulseId, setPulseId] = useState(null);
+  const [scores, setScores] = useState({});
   const chatEndRef = useRef(null);
 
   const sportIcon = { NBA: "🏀", NHL: "🏒", NCAAB: "🏈" };
@@ -241,6 +297,12 @@ export default function App() {
     const t = setInterval(fetchData, REFRESH_INTERVAL);
     return () => clearInterval(t);
   }, [fetchData]);
+
+  useEffect(() => {
+    loadScores().then(setScores);
+    const t = setInterval(() => loadScores().then(setScores), SCORE_INTERVAL);
+    return () => clearInterval(t);
+  }, []);
 
   useEffect(() => { chatEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [chatMessages]);
 
@@ -482,7 +544,7 @@ export default function App() {
                     <span style={{ fontSize: 9, padding: "2px 8px", borderRadius: 999, background: "rgba(245,166,35,0.08)", border: "1px solid rgba(245,166,35,0.2)", color: T.gold, fontWeight: 800 }}>HIGHEST CONFIDENCE</span>
                   </div>
                   {edgePicks.map((p, i) => (
-                    <PickRow key={`e-${p.id}`} pick={p} rank={i + 1} isSelected={selectedPick?.id === p.id} locked={false} pulsing={pulseId === p.id} onOpen={() => openDossier(p)} />
+                    <PickRow key={`e-${p.id}`} pick={p} rank={i + 1} isSelected={selectedPick?.id === p.id} locked={false} pulsing={pulseId === p.id} onOpen={() => openDossier(p)} score={findScore(p.game, scores)} />
                   ))}
                 </div>
               ) : (
@@ -494,7 +556,7 @@ export default function App() {
                       <span style={{ fontSize: 9, padding: "2px 8px", borderRadius: 999, background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.25)", color: T.green, fontWeight: 800 }}>FREE</span>
                     </div>
                     {freePick
-                      ? <FreePickCard pick={freePick} onUnlock={() => setActiveTab("unlock")} />
+                      ? <FreePickCard pick={freePick} onUnlock={() => setActiveTab("unlock")} score={findScore(freePick.game, scores)} />
                       : <div style={{ padding: 20, borderRadius: 12, background: T.surface, border: `1px solid ${T.border}`, color: T.textMuted, fontSize: 12, textAlign: "center" }}>No picks available yet — check back after 10 AM ET.</div>
                     }
                   </div>
@@ -505,7 +567,7 @@ export default function App() {
                         <span style={{ fontSize: 9, padding: "2px 8px", borderRadius: 999, background: "rgba(88,101,242,0.08)", border: "1px solid rgba(88,101,242,0.2)", color: T.discord, fontWeight: 800 }}>SYNDICATE ONLY</span>
                       </div>
                       {otherEdgePicks.map(p => (
-                        <PickRow key={`e-${p.id}`} pick={p} isSelected={false} locked={true} pulsing={pulseId === p.id} onOpen={() => setActiveTab("unlock")} />
+                        <PickRow key={`e-${p.id}`} pick={p} isSelected={false} locked={true} pulsing={pulseId === p.id} onOpen={() => setActiveTab("unlock")} score={findScore(p.game, scores)} />
                       ))}
                     </div>
                   )}
@@ -520,7 +582,7 @@ export default function App() {
                   ))}
                 </div>
                 {filteredPicks.map(p => (
-                  <PickRow key={`s-${p.id}`} pick={p} isSelected={selectedPick?.id === p.id} locked={!unlocked} pulsing={pulseId === p.id} onOpen={() => unlocked ? openDossier(p) : setActiveTab("unlock")} />
+                  <PickRow key={`s-${p.id}`} pick={p} isSelected={selectedPick?.id === p.id} locked={!unlocked} pulsing={pulseId === p.id} onOpen={() => unlocked ? openDossier(p) : setActiveTab("unlock")} score={findScore(p.game, scores)} />
                 ))}
               </div>
             </div>
@@ -625,8 +687,9 @@ export default function App() {
   );
 }
 
-function FreePickCard({ pick, onUnlock }) {
+function FreePickCard({ pick, onUnlock, score }) {
   const confColor = pick.confidence >= 80 ? T.teal : pick.confidence >= 70 ? T.accent : T.gold;
+  const hasLiveScore = score && score.state !== "pre";
   return (
     <div style={{ borderRadius: 14, border: "1px solid rgba(0,229,195,0.2)", background: "linear-gradient(135deg,rgba(0,229,195,0.04),transparent)", overflow: "hidden" }}>
       {/* Header */}
@@ -634,7 +697,13 @@ function FreePickCard({ pick, onUnlock }) {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10 }}>
           <div>
             <div style={{ fontSize: 15, fontWeight: 900 }}>{pick.icon} {pick.game}</div>
-            <div style={{ fontSize: 10.5, color: T.textMuted, marginTop: 3 }}>{pick.sport} • {pick.market} • {pick.tipTime}</div>
+            <div style={{ fontSize: 10.5, color: T.textMuted, marginTop: 3, display: "flex", alignItems: "center", gap: 6 }}>
+              <span>{pick.sport} • {pick.market}</span>
+              {hasLiveScore
+                ? <LiveScore score={score} sport={pick.sport} />
+                : <span>• {pick.tipTime}</span>
+              }
+            </div>
           </div>
           <div style={{ textAlign: "right", flexShrink: 0 }}>
             <div style={{ fontSize: 20, fontWeight: 900, color: confColor }}>{pick.confidence}%</div>
@@ -667,10 +736,11 @@ function FreePickCard({ pick, onUnlock }) {
   );
 }
 
-function PickRow({ pick, rank, isSelected, locked, pulsing, onOpen }) {
+function PickRow({ pick, rank, isSelected, locked, pulsing, onOpen, score }) {
   const [h, setH] = useState(false);
   const mc = pick.lineMove === "steaming" ? T.gold : pick.lineMove === "fading" ? T.green : T.textMuted;
   const mi = pick.lineMove === "steaming" ? "🔥" : pick.lineMove === "fading" ? "↓" : "—";
+  const hasLiveScore = score && score.state !== "pre";
   return (
     <div onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)} onClick={onOpen} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "11px 12px", borderRadius: 11, marginBottom: 5, border: `1px solid ${isSelected ? "rgba(77,142,255,0.25)" : h ? T.borderHover : T.border}`, background: isSelected ? T.accentGlow : h ? T.surfaceHover : T.surface, cursor: "pointer", transition: "all 0.15s", gap: 10, animation: pulsing ? "rowPulse 0.8s ease-out" : "none" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 9, flex: 1, minWidth: 0 }}>
@@ -687,9 +757,50 @@ function PickRow({ pick, rank, isSelected, locked, pulsing, onOpen }) {
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
         <ConfBar value={pick.confidence} />
-        <span style={{ fontSize: 10, color: T.textMuted }}>{pick.tipTime}</span>
+        {hasLiveScore
+          ? <LiveScore score={score} sport={pick.sport} />
+          : <span style={{ fontSize: 10, color: T.textMuted }}>{pick.tipTime}</span>
+        }
         <div style={{ padding: "3px 9px", borderRadius: 7, fontSize: 9.5, fontWeight: 800, background: locked ? "rgba(88,101,242,0.08)" : T.accentGlow, border: `1px solid ${locked ? "rgba(88,101,242,0.18)" : "rgba(77,142,255,0.18)"}`, color: locked ? T.discord : T.accent }}>{locked ? "🔒" : "VIEW"}</div>
       </div>
+    </div>
+  );
+}
+
+function LiveScore({ score, sport }) {
+  if (!score || score.state === "pre") return null;
+  const { state, home, away, period, clock } = score;
+
+  const periodLabel = (p) => {
+    if (sport === "NHL")   return p <= 3 ? `P${p}` : "OT";
+    if (sport === "NCAAB") return p === 1 ? "H1" : p === 2 ? "H2" : "OT";
+    return p <= 4 ? `Q${p}` : "OT"; // NBA
+  };
+
+  const homeScore = parseInt(home.score || 0);
+  const awayScore = parseInt(away.score || 0);
+  const homeWins  = state === "post" && homeScore > awayScore;
+  const awayWins  = state === "post" && awayScore > homeScore;
+
+  if (state === "post") {
+    return (
+      <div style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "2px 7px", borderRadius: 6, background: "rgba(255,255,255,0.04)", border: `1px solid ${T.border}`, fontSize: 10.5, fontWeight: 800, whiteSpace: "nowrap" }}>
+        <span style={{ fontSize: 9, color: T.textMuted, fontWeight: 700, marginRight: 2 }}>FINAL</span>
+        <span style={{ color: awayWins ? T.green : T.text }}>{away.abbr} {away.score}</span>
+        <span style={{ color: T.textMuted, fontWeight: 400 }}>–</span>
+        <span style={{ color: homeWins ? T.green : T.text }}>{home.abbr} {home.score}</span>
+      </div>
+    );
+  }
+
+  // Live / in-progress
+  return (
+    <div style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "2px 7px", borderRadius: 6, background: "rgba(239,68,68,0.06)", border: "1px solid rgba(239,68,68,0.2)", fontSize: 10.5, fontWeight: 800, whiteSpace: "nowrap" }}>
+      <span style={{ width: 5, height: 5, borderRadius: "50%", background: T.red, display: "inline-block", animation: "pulse 1s infinite", flexShrink: 0 }} />
+      <span>{away.abbr} {away.score}</span>
+      <span style={{ color: T.textMuted, fontWeight: 400 }}>–</span>
+      <span>{home.abbr} {home.score}</span>
+      <span style={{ color: T.textMuted, fontSize: 9, fontWeight: 700 }}>{periodLabel(period)} {clock}</span>
     </div>
   );
 }
