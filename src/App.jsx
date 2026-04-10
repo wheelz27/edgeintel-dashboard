@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { PICKS as INITIAL_PICKS, RESULTS, DISCORD_INVITE, PRODUCT_PRICE, PAYPAL_LINK } from "./config.js";
+import { DISCORD_INVITE, PRODUCT_PRICE, PAYPAL_LINK } from "./config.js";
 
 /* ================================================================
    EDGEINTEL DASHBOARD
@@ -32,36 +32,74 @@ export default function App() {
   const [chatInput, setChatInput] = useState("");
   const [scottyLoading, setScottyLoading] = useState(false);
   const [sportFilter, setSportFilter] = useState("ALL");
-  const [picks, setPicks] = useState(INITIAL_PICKS);
+  const [picks, setPicks] = useState([]);
+  const [results, setResults] = useState([]);
   const [lastRefresh, setLastRefresh] = useState(new Date());
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [pulseId, setPulseId] = useState(null);
   const chatEndRef = useRef(null);
 
-  const simulateLiveUpdate = useCallback(() => {
+  const sportIcon = { NBA: "🏀", NHL: "🏒", NCAAB: "🏈" };
+  const deriveMarket = (pick) => {
+    if (/^(over|under)/i.test(pick)) return "Total";
+    if (/\bML\b/i.test(pick)) return "Moneyline";
+    return "Spread";
+  };
+
+  const fetchData = useCallback(async () => {
     setIsRefreshing(true);
-    setPicks(prev => {
-      const updated = prev.map(p => {
-        const shift = (Math.random() - 0.5) * 4;
-        const newConf = Math.max(50, Math.min(95, p.confidence + shift));
-        const moves = ["stable", "steaming", "fading"];
-        const newMove = Math.random() > 0.7 ? moves[Math.floor(Math.random() * 3)] : p.lineMove;
-        return { ...p, confidence: Math.round(newConf), lineMove: newMove };
+    try {
+      const [slateRes, resultsRes] = await Promise.all([
+        fetch("/data/slate.json"),
+        fetch("/data/results.json"),
+      ]);
+      const slateData = await slateRes.json();
+      const resultsData = await resultsRes.json();
+
+      const mapped = (slateData.games || []).map(g => ({
+        id: g.id,
+        sport: g.sport,
+        game: g.game,
+        icon: sportIcon[g.sport] || "🎯",
+        market: deriveMarket(g.best_bet?.pick || ""),
+        pick: g.best_bet?.pick || "",
+        odds: g.best_bet?.odds || "",
+        book: g.best_bet?.book || "",
+        confidence: Math.round(g.confidence),
+        tipTime: g.time,
+        lineOpen: g.model_vs_market?.market_spread ?? "—",
+        lineCurrent: g.model_vs_market?.market_spread ?? "—",
+        lineMove: "stable",
+        why: [g.why],
+        risk: [g.risk],
+        execution: g.execution,
+        isEdgePick: g.isEdgePick,
+      }));
+
+      setPicks(prev => {
+        // pulse the pick with the biggest confidence change
+        const prevMap = Object.fromEntries(prev.map(p => [p.id, p.confidence]));
+        let maxD = 0, cId = null;
+        mapped.forEach(p => {
+          const d = Math.abs(p.confidence - (prevMap[p.id] ?? p.confidence));
+          if (d > maxD) { maxD = d; cId = p.id; }
+        });
+        if (cId) { setPulseId(cId); setTimeout(() => setPulseId(null), 1500); }
+        return mapped;
       });
-      let maxD = 0, cId = null;
-      updated.forEach((p, i) => { const d = Math.abs(p.confidence - prev[i].confidence); if (d > maxD) { maxD = d; cId = p.id; } });
-      if (cId) setPulseId(cId);
-      setTimeout(() => setPulseId(null), 1500);
-      return updated;
-    });
+      setResults(resultsData.picks || []);
+    } catch (e) {
+      console.error("Failed to fetch data:", e);
+    }
     setLastRefresh(new Date());
     setTimeout(() => setIsRefreshing(false), 600);
   }, []);
 
   useEffect(() => {
-    const t = setInterval(simulateLiveUpdate, REFRESH_INTERVAL);
+    fetchData();
+    const t = setInterval(fetchData, REFRESH_INTERVAL);
     return () => clearInterval(t);
-  }, [simulateLiveUpdate]);
+  }, [fetchData]);
 
   useEffect(() => { chatEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [chatMessages]);
 
@@ -120,11 +158,11 @@ export default function App() {
   const sports = ["ALL", ...new Set(picks.map(p => p.sport))];
 
   const stats = {
-    total: RESULTS.length, wins: RESULTS.filter(r => r.result === "W").length,
-    losses: RESULTS.filter(r => r.result === "L").length,
-    get wr() { return ((this.wins / this.total) * 100).toFixed(1); },
-    get profit() { return RESULTS.reduce((s, r) => s + parseFloat(r.profit), 0).toFixed(2); },
-    get clv() { return (RESULTS.reduce((s, r) => s + parseFloat(r.clv), 0) / this.total).toFixed(2); },
+    total: results.length, wins: results.filter(r => r.result === "W").length,
+    losses: results.filter(r => r.result === "L").length,
+    get wr() { return this.total ? ((this.wins / this.total) * 100).toFixed(1) : "0.0"; },
+    get profit() { return results.reduce((s, r) => s + parseFloat(r.profit || 0), 0).toFixed(2); },
+    get clv() { return this.total ? (results.reduce((s, r) => s + parseFloat(r.clv || 0), 0) / this.total).toFixed(2) : "0.00"; },
   };
 
   const openDossier = (p) => { setSelectedPick(p); setChatMessages([]); setDossierTab("analysis"); };
@@ -146,7 +184,7 @@ export default function App() {
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <span style={{ fontSize: 10, color: T.textMuted }}>{stamp} • {ago < 5 ? "just now" : `${ago}s ago`}</span>
-          <button onClick={simulateLiveUpdate} style={{ padding: "4px 12px", borderRadius: 8, fontSize: 10, fontWeight: 700, background: "transparent", border: `1px solid ${T.border}`, color: T.textMuted, cursor: "pointer" }}>↻</button>
+          <button onClick={fetchData} style={{ padding: "4px 12px", borderRadius: 8, fontSize: 10, fontWeight: 700, background: "transparent", border: `1px solid ${T.border}`, color: T.textMuted, cursor: "pointer" }}>↻</button>
           {unlocked ? (
             <div style={{ padding: "3px 10px", borderRadius: 999, fontSize: 10, fontWeight: 800, background: T.tealGlow, border: "1px solid rgba(0,229,195,0.3)", color: T.teal }}>✓ SYNDICATE</div>
           ) : (
@@ -227,10 +265,10 @@ export default function App() {
               <div style={{ display: "grid", gridTemplateColumns: "65px 1fr 1fr 55px 55px 70px", padding: "8px 12px", fontSize: 9.5, fontWeight: 800, color: T.textMuted, textTransform: "uppercase", letterSpacing: "0.5px", borderBottom: `1px solid ${T.border}` }}>
                 <div>Date</div><div>Game</div><div>Pick</div><div>Result</div><div>CLV</div><div>P&L</div>
               </div>
-              {RESULTS.map((r, i) => {
+              {results.map((r, i) => {
                 const locked = !unlocked && i > 3;
                 return (
-                  <div key={i} style={{ display: "grid", gridTemplateColumns: "65px 1fr 1fr 55px 55px 70px", padding: "9px 12px", fontSize: 12, borderBottom: i < RESULTS.length - 1 ? `1px solid ${T.border}` : "none", filter: locked ? "blur(5px)" : "none", userSelect: locked ? "none" : "auto" }}>
+                  <div key={i} style={{ display: "grid", gridTemplateColumns: "65px 1fr 1fr 55px 55px 70px", padding: "9px 12px", fontSize: 12, borderBottom: i < results.length - 1 ? `1px solid ${T.border}` : "none", filter: locked ? "blur(5px)" : "none", userSelect: locked ? "none" : "auto" }}>
                     <div style={{ color: T.textMuted }}>{r.date}</div>
                     <div style={{ fontWeight: 700 }}>{r.game}</div>
                     <div style={{ color: T.teal, fontWeight: 700 }}>{r.pick} ({r.odds})</div>
@@ -243,7 +281,7 @@ export default function App() {
             </div>
             {!unlocked && (
               <div style={{ textAlign: "center", padding: 18, background: T.surface, borderRadius: "0 0 12px 12px", borderTop: `1px solid ${T.border}`, marginTop: -1 }}>
-                <div style={{ fontSize: 11, color: T.textMuted, marginBottom: 10 }}>4 of {RESULTS.length} shown</div>
+                <div style={{ fontSize: 11, color: T.textMuted, marginBottom: 10 }}>4 of {results.length} shown</div>
                 <button onClick={() => setActiveTab("unlock")} style={{ padding: "8px 22px", borderRadius: 10, fontSize: 11, fontWeight: 800, background: T.discord, border: "none", color: "#fff", cursor: "pointer" }}>🔒 UNLOCK FULL HISTORY</button>
               </div>
             )}
