@@ -13,42 +13,38 @@ import { DISCORD_INVITE, PRODUCT_PRICE, PAYPAL_LINK } from "./config.js";
 const REFRESH_INTERVAL = 60000;
 const SCORE_INTERVAL  = 30000;
 
-const ESPN_URLS = {
-  NBA:   "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard",
-  NHL:   "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard",
-  NCAAB: "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard",
-};
-
 // Build a flat map: lowercase team key → score data for fast look-up
+// Proxied through /api/scores to avoid CORS
 async function loadScores() {
   const map = {};
-  await Promise.all(
-    Object.entries(ESPN_URLS).map(async ([, url]) => {
-      try {
-        const data = await fetch(url).then(r => r.json());
-        for (const event of data.events ?? []) {
-          const comp = event.competitions?.[0];
-          if (!comp) continue;
-          const home = comp.competitors.find(c => c.homeAway === "home");
-          const away = comp.competitors.find(c => c.homeAway === "away");
-          if (!home || !away) continue;
-          const entry = {
-            state:  comp.status.type.state,
-            period: comp.status.period,
-            clock:  comp.status.displayClock,
-            detail: comp.status.type.shortDetail,
-            home: { abbr: home.team.abbreviation, score: home.score, short: home.team.shortDisplayName },
-            away: { abbr: away.team.abbreviation, score: away.score, short: away.team.shortDisplayName },
-          };
-          for (const side of [home, away]) {
-            for (const key of [side.team.abbreviation, side.team.shortDisplayName, side.team.displayName]) {
-              map[key.toLowerCase()] = entry;
-            }
+  try {
+    const data = await fetch("/api/scores").then(r => r.json());
+    for (const { events } of data.sports ?? []) {
+      for (const event of events) {
+        const comp = event.competitions?.[0];
+        if (!comp) continue;
+        const home = comp.competitors.find(c => c.homeAway === "home");
+        const away = comp.competitors.find(c => c.homeAway === "away");
+        if (!home || !away) continue;
+        const entry = {
+          state:  comp.status.type.state,
+          period: comp.status.period,
+          clock:  comp.status.displayClock,
+          detail: comp.status.type.shortDetail,
+          home: { abbr: home.team.abbreviation, score: home.score, short: home.team.shortDisplayName },
+          away: { abbr: away.team.abbreviation, score: away.score, short: away.team.shortDisplayName },
+        };
+        for (const side of [home, away]) {
+          for (const key of [side.team.abbreviation, side.team.shortDisplayName, side.team.displayName]) {
+            map[key.toLowerCase()] = entry;
           }
         }
-      } catch { /* ESPN down or CORS — silently skip */ }
-    })
-  );
+      }
+    }
+  } catch (e) {
+    console.error("[scores] fetch failed:", e);
+  }
+  console.log("[scores] map built —", Object.keys(map).length, "team keys:", Object.keys(map).slice(0, 10));
   return map;
 }
 
@@ -432,7 +428,7 @@ export default function App() {
           {unlocked ? (
             <div style={{ padding: "3px 10px", borderRadius: 999, fontSize: 10, fontWeight: 800, background: T.tealGlow, border: "1px solid rgba(0,229,195,0.3)", color: T.teal }}>✓ SYNDICATE</div>
           ) : (
-            <div style={{ padding: "3px 10px", borderRadius: 999, fontSize: 10, fontWeight: 800, background: "rgba(245,166,35,0.08)", border: "1px solid rgba(245,166,35,0.25)", color: T.gold }}>FREE TIER</div>
+            <button onClick={() => setActiveTab("unlock")} style={{ padding: "3px 10px", borderRadius: 999, fontSize: 10, fontWeight: 800, background: "rgba(245,166,35,0.08)", border: "1px solid rgba(245,166,35,0.25)", color: T.gold, cursor: "pointer" }}>🔒 GET FULL ACCESS</button>
           )}
         </div>
       </div>
@@ -748,19 +744,21 @@ function PickRow({ pick, rank, isSelected, locked, pulsing, onOpen, score }) {
         <div style={{ fontSize: 16 }}>{pick.icon}</div>
         <div style={{ minWidth: 0 }}>
           <div style={{ fontSize: 12.5, fontWeight: 800, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{pick.game}</div>
-          <div style={{ fontSize: 10.5, color: T.textMuted, display: "flex", gap: 5, flexWrap: "wrap", marginTop: 1 }}>
+          <div style={{ fontSize: 10.5, color: T.textMuted, display: "flex", gap: 5, flexWrap: "wrap", marginTop: 1, alignItems: "center" }}>
             <span>{pick.sport}</span><span style={{ opacity: 0.35 }}>•</span><span>{pick.market}</span><span style={{ opacity: 0.35 }}>•</span>
             {locked ? <span style={{ color: T.discord, fontWeight: 700 }}>🔒 Hidden</span> : <span style={{ color: T.teal, fontWeight: 700 }}>{pick.pick} {pick.odds}</span>}
             <span style={{ opacity: 0.35 }}>•</span><span style={{ color: mc, fontWeight: 700 }}>{mi}</span>
           </div>
+          {hasLiveScore && (
+            <div style={{ marginTop: 4 }}>
+              <LiveScore score={score} sport={pick.sport} />
+            </div>
+          )}
         </div>
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
         <ConfBar value={pick.confidence} />
-        {hasLiveScore
-          ? <LiveScore score={score} sport={pick.sport} />
-          : <span style={{ fontSize: 10, color: T.textMuted }}>{pick.tipTime}</span>
-        }
+        <span style={{ fontSize: 10, color: T.textMuted }}>{hasLiveScore ? "" : pick.tipTime}</span>
         <div style={{ padding: "3px 9px", borderRadius: 7, fontSize: 9.5, fontWeight: 800, background: locked ? "rgba(88,101,242,0.08)" : T.accentGlow, border: `1px solid ${locked ? "rgba(88,101,242,0.18)" : "rgba(77,142,255,0.18)"}`, color: locked ? T.discord : T.accent }}>{locked ? "🔒" : "VIEW"}</div>
       </div>
     </div>
