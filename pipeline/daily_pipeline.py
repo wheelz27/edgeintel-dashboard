@@ -267,11 +267,20 @@ def american_to_implied(odds: int) -> float:
 
 
 def calculate_edge(model_spread: float, market_spread: float,
-                   model_total: float, market_total: float) -> tuple[float, str, float]:
+                   model_total: float, market_total: float,
+                   sport: str = "NBA") -> tuple[float, str, float]:
     """
     Returns (edge_points, bet_type, confidence_pct).
     bet_type: 'spread_home' | 'spread_away' | 'over' | 'under'
+
+    Confidence uses a sport-normalized logistic curve so scores spread
+    realistically across the slate instead of clustering at the cap.
+    Scale = the edge magnitude that represents a genuinely large edge for
+    that sport (not a ceiling — just the inflection point of the curve).
     """
+    # What counts as a "big" edge varies by sport
+    SPORT_EDGE_SCALE = {"NBA": 12.0, "NHL": 3.0, "NCAAB": 15.0}
+
     spread_edge = model_spread - market_spread  # positive = model likes home more
     total_edge = model_total - market_total     # positive = model likes Over
 
@@ -282,8 +291,15 @@ def calculate_edge(model_spread: float, market_spread: float,
         edge = abs(total_edge)
         bet_type = "over" if total_edge > 0 else "under"
 
-    # Map edge to confidence: 0 pts = 50%, 10 pts = 95%
-    confidence = min(95, 50 + edge * 4.5)
+    # Logistic curve with diminishing returns:
+    #   norm = 0.5  →  ~71%  (half a "big" edge)
+    #   norm = 1.0  →  ~78%  (full "big" edge)
+    #   norm = 2.0  →  ~84%  (exceptional edge)
+    #   norm → ∞    →  approaches 92% asymptote (never hits a hard cap)
+    scale = SPORT_EDGE_SCALE.get(sport, 10.0)
+    norm = edge / scale
+    confidence = 50 + 42 * (norm / (0.5 + norm))
+    confidence = max(50.0, min(92.0, confidence))
     return round(edge, 1), bet_type, round(confidence, 1)
 
 
@@ -313,7 +329,7 @@ def build_game(idx: int, raw: dict, odds: dict) -> dict:
     market_total = float(market_total)
 
     # Edge calculation
-    edge, bet_type, confidence = calculate_edge(model_spread, market_spread, model_total, market_total)
+    edge, bet_type, confidence = calculate_edge(model_spread, market_spread, model_total, market_total, sport)
 
     # Build best_bet
     if bet_type == "spread_home":
