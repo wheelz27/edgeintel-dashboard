@@ -153,7 +153,9 @@ export default function App() {
     askScotty(selectedPick, qs[type]);
   };
 
-  const topPicks = [...picks].sort((a, b) => b.confidence - a.confidence).slice(0, 3);
+  const edgePicks = picks.filter(p => p.isEdgePick).sort((a, b) => b.confidence - a.confidence);
+  const freePick = edgePicks[0] ?? null;
+  const otherEdgePicks = edgePicks.slice(1);
   const filteredPicks = sportFilter === "ALL" ? picks : picks.filter(p => p.sport === sportFilter);
   const sports = ["ALL", ...new Set(picks.map(p => p.sport))];
 
@@ -292,19 +294,46 @@ export default function App() {
         {activeTab === "picks" && (
           <div style={{ display: "grid", gridTemplateColumns: selectedPick && unlocked ? "1fr 1fr" : "1fr", gap: 20 }}>
             <div>
-              {/* Top 3 */}
-              <div style={{ marginBottom: 22 }}>
-                <div style={{ fontSize: 12, fontWeight: 900, marginBottom: 8, display: "flex", alignItems: "center", gap: 8 }}>
-                  🔥 TOP 3 PICKS
-                  <span style={{ fontSize: 9, padding: "2px 8px", borderRadius: 999, background: "rgba(245,166,35,0.08)", border: "1px solid rgba(245,166,35,0.2)", color: T.gold, fontWeight: 800 }}>HIGHEST CONFIDENCE</span>
+              {unlocked ? (
+                /* ── UNLOCKED: all edge picks as normal rows ── */
+                <div style={{ marginBottom: 22 }}>
+                  <div style={{ fontSize: 12, fontWeight: 900, marginBottom: 8, display: "flex", alignItems: "center", gap: 8 }}>
+                    ⭐ EDGE PICKS
+                    <span style={{ fontSize: 9, padding: "2px 8px", borderRadius: 999, background: "rgba(245,166,35,0.08)", border: "1px solid rgba(245,166,35,0.2)", color: T.gold, fontWeight: 800 }}>HIGHEST CONFIDENCE</span>
+                  </div>
+                  {edgePicks.map((p, i) => (
+                    <PickRow key={`e-${p.id}`} pick={p} rank={i + 1} isSelected={selectedPick?.id === p.id} locked={false} pulsing={pulseId === p.id} onOpen={() => openDossier(p)} />
+                  ))}
                 </div>
-                {topPicks.map((p, i) => (
-                  <PickRow key={`t-${p.id}`} pick={p} rank={i + 1} isSelected={selectedPick?.id === p.id} locked={!unlocked} pulsing={pulseId === p.id} onOpen={() => unlocked ? openDossier(p) : setActiveTab("unlock")} />
-                ))}
-              </div>
+              ) : (
+                /* ── LOCKED: free pick card + locked edge rows ── */
+                <>
+                  <div style={{ marginBottom: 22 }}>
+                    <div style={{ fontSize: 12, fontWeight: 900, marginBottom: 8, display: "flex", alignItems: "center", gap: 8 }}>
+                      🎯 TODAY'S FREE PICK
+                      <span style={{ fontSize: 9, padding: "2px 8px", borderRadius: 999, background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.25)", color: T.green, fontWeight: 800 }}>FREE</span>
+                    </div>
+                    {freePick
+                      ? <FreePickCard pick={freePick} onUnlock={() => setActiveTab("unlock")} />
+                      : <div style={{ padding: 20, borderRadius: 12, background: T.surface, border: `1px solid ${T.border}`, color: T.textMuted, fontSize: 12, textAlign: "center" }}>No picks available yet — check back after 10 AM ET.</div>
+                    }
+                  </div>
+                  {otherEdgePicks.length > 0 && (
+                    <div style={{ marginBottom: 22 }}>
+                      <div style={{ fontSize: 12, fontWeight: 900, marginBottom: 8, display: "flex", alignItems: "center", gap: 8 }}>
+                        ⭐ MORE EDGE PICKS
+                        <span style={{ fontSize: 9, padding: "2px 8px", borderRadius: 999, background: "rgba(88,101,242,0.08)", border: "1px solid rgba(88,101,242,0.2)", color: T.discord, fontWeight: 800 }}>SYNDICATE ONLY</span>
+                      </div>
+                      {otherEdgePicks.map(p => (
+                        <PickRow key={`e-${p.id}`} pick={p} isSelected={false} locked={true} pulsing={pulseId === p.id} onOpen={() => setActiveTab("unlock")} />
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
               {/* Full slate */}
               <div>
-                <div style={{ fontSize: 12, fontWeight: 900, marginBottom: 8 }}>📋 FULL SLATE — {picks.length} picks</div>
+                <div style={{ fontSize: 12, fontWeight: 900, marginBottom: 8 }}>📋 FULL SLATE — {picks.length} games</div>
                 <div style={{ display: "flex", gap: 5, marginBottom: 10, flexWrap: "wrap" }}>
                   {sports.map(s => (
                     <button key={s} onClick={() => setSportFilter(s)} style={{ padding: "4px 12px", borderRadius: 999, fontSize: 10.5, fontWeight: 700, background: sportFilter === s ? T.accentGlow : "transparent", border: `1px solid ${sportFilter === s ? "rgba(77,142,255,0.25)" : T.border}`, color: sportFilter === s ? T.accent : T.textMuted, cursor: "pointer" }}>{s}</button>
@@ -412,6 +441,48 @@ export default function App() {
       )}
 
       <style>{`@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}@keyframes rowPulse{0%{box-shadow:0 0 0 0 rgba(77,142,255,.3)}70%{box-shadow:0 0 0 6px rgba(77,142,255,0)}100%{box-shadow:0 0 0 0 rgba(77,142,255,0)}}`}</style>
+    </div>
+  );
+}
+
+function FreePickCard({ pick, onUnlock }) {
+  const confColor = pick.confidence >= 80 ? T.teal : pick.confidence >= 70 ? T.accent : T.gold;
+  return (
+    <div style={{ borderRadius: 14, border: "1px solid rgba(0,229,195,0.2)", background: "linear-gradient(135deg,rgba(0,229,195,0.04),transparent)", overflow: "hidden" }}>
+      {/* Header */}
+      <div style={{ padding: "14px 16px", borderBottom: "1px solid rgba(0,229,195,0.1)" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10 }}>
+          <div>
+            <div style={{ fontSize: 15, fontWeight: 900 }}>{pick.icon} {pick.game}</div>
+            <div style={{ fontSize: 10.5, color: T.textMuted, marginTop: 3 }}>{pick.sport} • {pick.market} • {pick.tipTime}</div>
+          </div>
+          <div style={{ textAlign: "right", flexShrink: 0 }}>
+            <div style={{ fontSize: 20, fontWeight: 900, color: confColor }}>{pick.confidence}%</div>
+            <div style={{ fontSize: 9, color: T.textMuted, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>Confidence</div>
+          </div>
+        </div>
+        <div style={{ padding: "10px 12px", borderRadius: 10, background: "rgba(0,229,195,0.06)", border: "1px solid rgba(0,229,195,0.15)", display: "flex", gap: 20, flexWrap: "wrap", fontSize: 13 }}>
+          <div><div style={{ fontSize: 10, color: T.textMuted, fontWeight: 700, marginBottom: 2 }}>PICK</div><strong style={{ color: T.teal }}>{pick.pick}</strong></div>
+          <div><div style={{ fontSize: 10, color: T.textMuted, fontWeight: 700, marginBottom: 2 }}>ODDS</div><strong>{pick.odds}</strong></div>
+          <div><div style={{ fontSize: 10, color: T.textMuted, fontWeight: 700, marginBottom: 2 }}>BOOK</div><strong>{pick.book}</strong></div>
+        </div>
+      </div>
+      {/* Why */}
+      <div style={{ padding: "12px 16px 0" }}>
+        <div style={{ fontSize: 10.5, fontWeight: 800, color: T.teal, marginBottom: 8, letterSpacing: "0.5px" }}>✅ WHY</div>
+        {pick.why.map((item, i) => (
+          <div key={i} style={{ padding: "7px 11px", borderRadius: 8, marginBottom: 4, background: "rgba(255,255,255,0.015)", border: "1px solid rgba(255,255,255,0.05)", fontSize: 12, lineHeight: 1.5, display: "flex", gap: 7 }}>
+            <span style={{ color: T.textMuted, flexShrink: 0, fontSize: 11 }}>{i + 1}.</span><span>{item}</span>
+          </div>
+        ))}
+      </div>
+      {/* Upsell */}
+      <div style={{ padding: "12px 16px 14px" }}>
+        <div style={{ padding: "10px 14px", borderRadius: 10, background: "rgba(88,101,242,0.06)", border: "1px solid rgba(88,101,242,0.15)", fontSize: 12, color: T.textMuted, display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 10 }}>
+          <span>🔒 <strong style={{ color: T.accent }}>Risk, execution & Scotty AI</strong> are Syndicate-only.</span>
+          <button onClick={onUnlock} style={{ padding: "6px 16px", borderRadius: 8, fontSize: 11, fontWeight: 800, background: T.discord, border: "none", color: "#fff", cursor: "pointer", whiteSpace: "nowrap" }}>UNLOCK ACCESS</button>
+        </div>
+      </div>
     </div>
   );
 }
