@@ -532,7 +532,7 @@ async def admin_setup_channels(ctx):
             report.append(f"  ✓ #{name}")
         else:
             ch = await guild.create_text_channel(
-                name, category=category, overwrites=overwrites,
+                name, category=category, overwrites=overwrites or {},
                 reason="EdgeIntel bot setup",
             )
             created_ids[name] = ch.id
