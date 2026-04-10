@@ -21,7 +21,147 @@ const T = {
   green: "#22c55e", red: "#ef4444", gold: "#f5a623", discord: "#5865F2",
 };
 
+function SubscribePage() {
+  const [email, setEmail] = useState("");
+  const [discordId, setDiscordId] = useState("");
+  const [discordUsername, setDiscordUsername] = useState("");
+  const [status, setStatus] = useState(null); // null | "loading" | "success" | "error"
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email.trim() || !discordId.trim()) return;
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim().toLowerCase(),
+          discord_user_id: discordId.trim(),
+          discord_username: discordUsername.trim() || undefined,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStatus("success");
+        setMessage(data.role || data.note || "You're registered. Role will be granted once payment is confirmed.");
+      } else {
+        setStatus("error");
+        setMessage(data.error || "Something went wrong. Try again.");
+      }
+    } catch {
+      setStatus("error");
+      setMessage("Network error. Check your connection and try again.");
+    }
+  };
+
+  const inputStyle = {
+    width: "100%", padding: "12px 14px", borderRadius: 10, fontSize: 14,
+    background: "#0c1219", border: "1px solid rgba(255,255,255,0.09)",
+    color: "#d0d5e0", outline: "none", boxSizing: "border-box",
+    transition: "border-color 0.2s",
+  };
+
+  return (
+    <div style={{ minHeight: "100vh", background: "#060a10", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "24px 16px", fontFamily: "'Inter', 'SF Pro Display', system-ui, sans-serif" }}>
+      {/* Logo / Brand */}
+      <div style={{ marginBottom: 32, textAlign: "center" }}>
+        <div style={{ fontSize: 28, fontWeight: 900, letterSpacing: "-0.5px", color: "#d0d5e0" }}>
+          EDGE<span style={{ color: "#4d8eff" }}>INTEL</span>
+        </div>
+        <div style={{ fontSize: 12, color: "#5a6378", marginTop: 4, letterSpacing: "2px", textTransform: "uppercase" }}>Syndicate Access</div>
+      </div>
+
+      {/* Card */}
+      <div style={{ width: "100%", maxWidth: 420, background: "#0c1219", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 16, padding: "32px 28px" }}>
+        {status === "success" ? (
+          <div style={{ textAlign: "center" }}>
+            <div style={{ fontSize: 40, marginBottom: 16 }}>✅</div>
+            <div style={{ fontSize: 18, fontWeight: 700, color: "#d0d5e0", marginBottom: 10 }}>You're in</div>
+            <div style={{ fontSize: 13, color: "#5a6378", lineHeight: 1.6, marginBottom: 24 }}>{message}</div>
+            <a href="/" style={{ display: "inline-block", padding: "10px 24px", borderRadius: 10, background: "#4d8eff", color: "#fff", fontWeight: 700, fontSize: 13, textDecoration: "none" }}>
+              Go to Dashboard
+            </a>
+          </div>
+        ) : (
+          <>
+            <div style={{ marginBottom: 24 }}>
+              <div style={{ fontSize: 18, fontWeight: 800, color: "#d0d5e0", marginBottom: 6 }}>Activate Syndicate Access</div>
+              <div style={{ fontSize: 13, color: "#5a6378", lineHeight: 1.6 }}>
+                Enter the email you paid with and your Discord User ID to get the Syndicate role granted automatically.
+              </div>
+            </div>
+
+            <form onSubmit={handleSubmit}>
+              <div style={{ marginBottom: 14 }}>
+                <label style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#5a6378", marginBottom: 6, letterSpacing: "0.5px", textTransform: "uppercase" }}>Payment Email</label>
+                <input
+                  type="email" required value={email} onChange={e => setEmail(e.target.value)}
+                  placeholder="you@example.com" style={inputStyle}
+                  onFocus={e => e.target.style.borderColor = "rgba(77,142,255,0.4)"}
+                  onBlur={e => e.target.style.borderColor = "rgba(255,255,255,0.09)"}
+                />
+              </div>
+
+              <div style={{ marginBottom: 14 }}>
+                <label style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#5a6378", marginBottom: 6, letterSpacing: "0.5px", textTransform: "uppercase" }}>Discord User ID</label>
+                <input
+                  type="text" required value={discordId} onChange={e => setDiscordId(e.target.value)}
+                  placeholder="e.g. 123456789012345678" style={inputStyle}
+                  onFocus={e => e.target.style.borderColor = "rgba(77,142,255,0.4)"}
+                  onBlur={e => e.target.style.borderColor = "rgba(255,255,255,0.09)"}
+                />
+                <div style={{ fontSize: 11, color: "#5a6378", marginTop: 6, lineHeight: 1.5 }}>
+                  Discord → Settings → Advanced → Enable Developer Mode → right-click your username → Copy User ID
+                </div>
+              </div>
+
+              <div style={{ marginBottom: 20 }}>
+                <label style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#5a6378", marginBottom: 6, letterSpacing: "0.5px", textTransform: "uppercase" }}>Discord Username <span style={{ fontWeight: 400 }}>(optional)</span></label>
+                <input
+                  type="text" value={discordUsername} onChange={e => setDiscordUsername(e.target.value)}
+                  placeholder="e.g. wheelz27" style={inputStyle}
+                  onFocus={e => e.target.style.borderColor = "rgba(77,142,255,0.4)"}
+                  onBlur={e => e.target.style.borderColor = "rgba(255,255,255,0.09)"}
+                />
+              </div>
+
+              {status === "error" && (
+                <div style={{ padding: "10px 14px", borderRadius: 8, background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", color: "#ef4444", fontSize: 12, marginBottom: 16 }}>
+                  {message}
+                </div>
+              )}
+
+              <button
+                type="submit" disabled={status === "loading"}
+                style={{ width: "100%", padding: "13px", borderRadius: 10, background: status === "loading" ? "rgba(77,142,255,0.4)" : "#4d8eff", color: "#fff", fontWeight: 800, fontSize: 14, border: "none", cursor: status === "loading" ? "not-allowed" : "pointer", transition: "background 0.2s", letterSpacing: "0.3px" }}
+              >
+                {status === "loading" ? "Activating..." : "Activate Syndicate Role"}
+              </button>
+            </form>
+
+            <div style={{ marginTop: 20, padding: "12px 14px", borderRadius: 10, background: "rgba(88,101,242,0.06)", border: "1px solid rgba(88,101,242,0.14)", fontSize: 12, color: "#5a6378", lineHeight: 1.6 }}>
+              Haven't joined the Discord yet?{" "}
+              <a href="https://discord.gg/j5QYKkpE" target="_blank" rel="noreferrer" style={{ color: "#5865F2", fontWeight: 600, textDecoration: "none" }}>
+                Join here first
+              </a>
+              , then come back to activate.
+            </div>
+          </>
+        )}
+      </div>
+
+      <div style={{ marginTop: 24, fontSize: 11, color: "#5a6378" }}>
+        <a href="/" style={{ color: "#5a6378", textDecoration: "none" }}>← Back to Dashboard</a>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
+  if (window.location.pathname === "/subscribe") return <SubscribePage />;
+
   const [unlocked, setUnlocked] = useState(false);
   const [codeInput, setCodeInput] = useState("");
   const [codeError, setCodeError] = useState(false);

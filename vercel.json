@@ -9,7 +9,8 @@
     { "source": "/ncaab-picks", "destination": "/index.html" },
     { "source": "/nhl-picks", "destination": "/index.html" },
     { "source": "/results", "destination": "/index.html" },
-    { "source": "/how-it-works", "destination": "/index.html" }
+    { "source": "/how-it-works", "destination": "/index.html" },
+    { "source": "/subscribe", "destination": "/index.html" }
   ],
   "headers": [
     {
