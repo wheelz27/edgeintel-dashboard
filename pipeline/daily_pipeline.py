@@ -23,6 +23,8 @@ import subprocess
 import sys
 from pathlib import Path
 from zoneinfo import ZoneInfo
+from dotenv import load_dotenv
+load_dotenv()
 
 # ─── Paths ────────────────────────────────────────────────────────────────────
 ROOT = Path(__file__).parent.parent
