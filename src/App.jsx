@@ -70,6 +70,7 @@ export default function App() {
         lineOpen: g.model_vs_market?.market_spread ?? "—",
         lineCurrent: g.model_vs_market?.market_spread ?? "—",
         lineMove: "stable",
+        model_vs_market: g.model_vs_market ?? {},
         why: [g.why],
         risk: [g.risk],
         execution: g.execution,
@@ -125,6 +126,8 @@ export default function App() {
   const askScotty = async (pick, question) => {
     setScottyLoading(true);
     setChatMessages(prev => [...prev, { role: "user", text: question }]);
+    // Seed an empty assistant bubble that we'll fill as the stream arrives
+    setChatMessages(prev => [...prev, { role: "assistant", text: "" }]);
 
     try {
       const res = await fetch("/api/scotty", {
@@ -132,13 +135,50 @@ export default function App() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ pick, messages: chatMessages, question }),
       });
-      const data = await res.json();
-      const reply = data.reply || "Signal lost. Try again.";
-      setChatMessages(prev => [...prev, { role: "assistant", text: reply }]);
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buf += decoder.decode(value, { stream: true });
+        const lines = buf.split("\n");
+        buf = lines.pop(); // keep any incomplete line for next chunk
+
+        for (const line of lines) {
+          if (!line.startsWith("data: ")) continue;
+          const payload = line.slice(6).trim();
+          if (payload === "[DONE]") break;
+          try {
+            const evt = JSON.parse(payload);
+            // Anthropic streams content_block_delta events with delta.text
+            const token = evt?.delta?.text ?? "";
+            if (token) {
+              setChatMessages(prev => {
+                const msgs = [...prev];
+                msgs[msgs.length - 1] = {
+                  ...msgs[msgs.length - 1],
+                  text: msgs[msgs.length - 1].text + token,
+                };
+                return msgs;
+              });
+            }
+          } catch { /* skip malformed SSE events */ }
+        }
+      }
     } catch {
-      const fb = `⚡ ${pick.game} — ${pick.pick} (${pick.odds})\nConfidence: ${pick.confidence}% | Line: ${pick.lineOpen} → ${pick.lineCurrent} (${pick.lineMove})\n\nEdge:\n${pick.why.map(w=>`• ${w}`).join("\n")}\n\nRisk:\n${pick.risk.map(r=>`• ${r}`).join("\n")}\n\nExecution: ${pick.execution}\n\nACTION: ${pick.lineMove === "steaming" ? "Act now if within limits." : "Window open. Standard rules."}`;
-      setChatMessages(prev => [...prev, { role: "assistant", text: fb }]);
+      setChatMessages(prev => {
+        const msgs = [...prev];
+        msgs[msgs.length - 1] = { role: "assistant", text: "Signal lost. Try again." };
+        return msgs;
+      });
     }
+
     setScottyLoading(false);
   };
 
