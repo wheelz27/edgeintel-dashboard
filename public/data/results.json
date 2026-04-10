@@ -1,1 +1,62 @@
-{"season":{"wins":0,"losses":0,"pushes":0,"roi":0,"units":0},"picks":[]}
+{
+  "season": {
+    "wins": 0,
+    "losses": 0,
+    "pushes": 0,
+    "roi": 0,
+    "units": 0
+  },
+  "picks": [],
+  "allTime": {
+    "wins": 0,
+    "losses": 0,
+    "pushes": 0,
+    "winPct": 0,
+    "units": "+0.0",
+    "roi": 0.0,
+    "streak": "P0",
+    "streakCount": 0
+  },
+  "history": [],
+  "updated": "2026-04-09",
+  "bySport": {
+    "NBA": {
+      "wins": 0,
+      "losses": 0,
+      "roi": 0.0,
+      "units": "+0.0"
+    },
+    "NCAAB": {
+      "wins": 0,
+      "losses": 0,
+      "roi": 0.0,
+      "units": "+0.0"
+    },
+    "NHL": {
+      "wins": 0,
+      "losses": 0,
+      "roi": 0.0,
+      "units": "+0.0"
+    }
+  },
+  "byConfidence": {
+    "high": {
+      "label": "80-100%",
+      "wins": 0,
+      "losses": 0,
+      "winPct": 0.0
+    },
+    "mid": {
+      "label": "65-79%",
+      "wins": 0,
+      "losses": 0,
+      "winPct": 0.0
+    },
+    "low": {
+      "label": "50-64%",
+      "wins": 0,
+      "losses": 0,
+      "winPct": 0.0
+    }
+  }
+}
