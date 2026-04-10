@@ -1,7 +1,7 @@
 {
-  "updated": "2026-03-10T10:00:16.773542",
-  "date": "March 10, 2026",
-  "daily_code": "EDGE0310",
+  "updated": "2026-04-09T21:09:15.281367-04:00",
+  "date": "April 09, 2026",
+  "daily_code": "EDGE0409",
   "discord_invite": "",
   "paypal_link": "https://paypal.me/Wheelz27",
   "price": "$29/month",
@@ -9,13 +9,14 @@
     {
       "id": 1,
       "sport": "NBA",
-      "game": "Memphis Grizzlies @ Philadelphia 76ers",
-      "time": "3:00 PM PT",
-      "confidence": 93,
+      "game": "Miami Heat @ Toronto Raptors",
+      "time": "7:00 PM ET",
+      "confidence": 95,
+      "isEdgePick": true,
       "best_bet": {
-        "pick": "Memphis Grizzlies -3.0",
-        "odds": "-114",
-        "book": "FanDuel"
+        "pick": "Toronto Raptors -19.5",
+        "odds": "-115",
+        "book": "DraftKings"
       },
       "best_prop": {
         "pick": "No prop identified",
@@ -24,34 +25,37 @@
       },
       "best_parlay": {
         "legs": [
-          "Memphis Grizzlies -3.0"
+          "Toronto Raptors -19.5",
+          "Over 246.5"
         ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
       },
       "model_vs_market": {
-        "model_spread": -5.2,
-        "market_spread": 3.0,
-        "model_total": 230.7,
-        "edge": 8.2,
-        "edge_signed": -8.2,
-        "home_proj": 117.4,
-        "away_proj": 113.2
+        "model_spread": -1.1,
+        "market_spread": -19.5,
+        "model_total": 228.5,
+        "market_total": 246.5,
+        "edge": 18.4,
+        "edge_signed": 18.4,
+        "home_proj": 114.8,
+        "away_proj": 113.7
       },
-      "why": "Model projects Philadelphia 76ers 117 - Memphis Grizzlies 113. Model spread: -5.2 vs market +3.0 = 8.2pt edge. Memphis Grizzlies is 23-40 on the season.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play at +3.0 or better. Kill if line moves past +4.0. Size: 1.5 units."
+      "why": "Model spread: -1.1. Market: -19.5. Toronto Raptors has a 18.4-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Standard model variance.",
+      "execution": "Play Toronto Raptors -19.5 up to Toronto Raptors -20.0. Standard sizing."
     },
     {
       "id": 2,
       "sport": "NBA",
-      "game": "Dallas Mavericks @ Atlanta Hawks",
-      "time": "3:30 PM PT",
-      "confidence": 93,
+      "game": "Chicago Bulls @ Washington Wizards",
+      "time": "7:00 PM ET",
+      "confidence": 94.6,
+      "isEdgePick": false,
       "best_bet": {
-        "pick": "Under 240.5",
-        "odds": "-112",
-        "book": "FanDuel"
+        "pick": "Chicago Bulls -10.5",
+        "odds": "-135",
+        "book": "DraftKings"
       },
       "best_prop": {
         "pick": "No prop identified",
@@ -60,35 +64,37 @@
       },
       "best_parlay": {
         "legs": [
-          "Under 240.5"
+          "Chicago Bulls -10.5",
+          "Over 229.5"
         ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
       },
       "model_vs_market": {
-        "model_spread": -8.1,
-        "market_spread": 240.5,
-        "model_total": 231.5,
-        "market_total": 240.5,
-        "edge": 9.0,
-        "edge_signed": -9.0,
-        "home_proj": 118.6,
-        "away_proj": 112.9
+        "model_spread": 0.6,
+        "market_spread": 10.5,
+        "model_total": 226.4,
+        "market_total": 229.5,
+        "edge": 9.9,
+        "edge_signed": -9.9,
+        "home_proj": 112.9,
+        "away_proj": 113.5
       },
-      "why": "Model projects 119 + 113 = 231.5 total. Market total: 240.5. Edge: 9.0 points toward Under.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Under 240.5 up to 239.5. Standard sizing."
+      "why": "Model spread: +0.6. Market: +10.5. Chicago Bulls has a 9.9-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Standard model variance.",
+      "execution": "Play Chicago Bulls -10.5 up to Chicago Bulls -11.0. Standard sizing."
     },
     {
       "id": 3,
       "sport": "NBA",
-      "game": "Phoenix Suns @ Milwaukee Bucks",
-      "time": "4:00 PM PT",
-      "confidence": 87,
+      "game": "Indiana Pacers @ Brooklyn Nets",
+      "time": "7:30 PM ET",
+      "confidence": 95,
+      "isEdgePick": true,
       "best_bet": {
-        "pick": "Over 217.5",
-        "odds": "-110",
-        "book": "FanDuel"
+        "pick": "Indiana Pacers -23.5",
+        "odds": "-120",
+        "book": "DraftKings"
       },
       "best_prop": {
         "pick": "No prop identified",
@@ -97,34 +103,36 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 217.5"
+          "Indiana Pacers -23.5",
+          "Over 220.5"
         ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
       },
       "model_vs_market": {
-        "model_spread": 2.4,
-        "market_spread": 217.5,
-        "model_total": 223.8,
-        "market_total": 217.5,
-        "edge": 6.3,
-        "edge_signed": 6.3,
-        "home_proj": 112.1,
-        "away_proj": 111.7
+        "model_spread": 3.2,
+        "market_spread": 23.5,
+        "model_total": 229.6,
+        "market_total": 220.5,
+        "edge": 20.3,
+        "edge_signed": -20.3,
+        "home_proj": 113.2,
+        "away_proj": 116.4
       },
-      "why": "Model projects 112 + 112 = 223.8 total. Market total: 217.5. Edge: 6.3 points toward Over. Milwaukee Bucks offense rating (113.6) is elite.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Over 217.5 up to 218.5. Standard sizing."
+      "why": "Model spread: +3.2. Market: +23.5. Indiana Pacers has a 20.3-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Standard model variance.",
+      "execution": "Play Indiana Pacers -23.5 up to Indiana Pacers -24.0. Standard sizing."
     },
     {
       "id": 4,
       "sport": "NBA",
-      "game": "Charlotte Hornets @ Portland Trail Blazers",
-      "time": "6:00 PM PT",
-      "confidence": 87,
+      "game": "Boston Celtics @ New York Knicks",
+      "time": "7:30 PM ET",
+      "confidence": 95,
+      "isEdgePick": true,
       "best_bet": {
-        "pick": "Portland Trail Blazers -3.0",
-        "odds": "-112",
+        "pick": "Over 211.5",
+        "odds": "-115",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -134,33 +142,36 @@
       },
       "best_parlay": {
         "legs": [
-          "Portland Trail Blazers -3.0"
+          "Over 211.5",
+          "New York Knicks ML"
         ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
       },
       "model_vs_market": {
-        "model_spread": 3.0,
-        "market_spread": -3.0,
-        "model_total": 230.0,
-        "edge": 6.0,
-        "edge_signed": 6.0,
-        "home_proj": 115.0,
-        "away_proj": 115.0
+        "model_spread": -11.0,
+        "market_spread": -9.5,
+        "model_total": 228.4,
+        "market_total": 211.5,
+        "edge": 16.9,
+        "edge_signed": 16.9,
+        "home_proj": 119.7,
+        "away_proj": 108.7
       },
-      "why": "Model projects Portland Trail Blazers 115 - Charlotte Hornets 115. Model spread: +3.0 vs market -3.0 = 6.0pt edge. Portland Trail Blazers is 31-34 on the season.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play at -3.0 or better. Kill if line moves past -2.0. Size: 1.5 units."
+      "why": "Model spread: -11.0. Market: -9.5. New York Knicks has a 16.9-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Standard model variance.",
+      "execution": "Play Over 211.5 up to Over 212.0. Standard sizing."
     },
     {
       "id": 5,
       "sport": "NBA",
-      "game": "Indiana Pacers @ Sacramento Kings",
-      "time": "6:00 PM PT",
-      "confidence": 87,
+      "game": "Philadelphia 76ers @ Houston Rockets",
+      "time": "8:00 PM ET",
+      "confidence": 89.1,
+      "isEdgePick": false,
       "best_bet": {
-        "pick": "Under 236.5",
-        "odds": "-114",
+        "pick": "Under 237.5",
+        "odds": "-120",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -170,35 +181,37 @@
       },
       "best_parlay": {
         "legs": [
-          "Under 236.5"
+          "Under 237.5",
+          "Houston Rockets ML"
         ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
       },
       "model_vs_market": {
-        "model_spread": -1.5,
-        "market_spread": 236.5,
-        "model_total": 230.5,
-        "market_total": 236.5,
-        "edge": 6.0,
-        "edge_signed": -6.0,
-        "home_proj": 116.4,
-        "away_proj": 114.1
+        "model_spread": -11.8,
+        "market_spread": -16.5,
+        "model_total": 228.8,
+        "market_total": 237.5,
+        "edge": 8.7,
+        "edge_signed": -8.7,
+        "home_proj": 120.3,
+        "away_proj": 108.5
       },
-      "why": "Model projects 116 + 114 = 230.5 total. Market total: 236.5. Edge: 6.0 points toward Under.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Under 236.5 up to 235.5. Standard sizing."
+      "why": "Model spread: -11.8. Market: -16.5. Houston Rockets has a 8.7-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Standard model variance.",
+      "execution": "Play Under 237.5 up to Under 238.0. Standard sizing."
     },
     {
       "id": 6,
       "sport": "NBA",
-      "game": "Detroit Pistons @ Brooklyn Nets",
-      "time": "3:30 PM PT",
-      "confidence": 83,
+      "game": "Los Angeles Lakers @ Golden State Warriors",
+      "time": "10:00 PM ET",
+      "confidence": 95,
+      "isEdgePick": false,
       "best_bet": {
-        "pick": "Over 218.5",
+        "pick": "Los Angeles Lakers +1.5",
         "odds": "-110",
-        "book": "FanDuel"
+        "book": "DraftKings"
       },
       "best_prop": {
         "pick": "No prop identified",
@@ -207,33 +220,113 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 218.5"
+          "Los Angeles Lakers +1.5",
+          "Over 221.5"
         ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
       },
       "model_vs_market": {
-        "model_spread": 12.2,
-        "market_spread": 218.5,
-        "model_total": 223.6,
-        "market_total": 218.5,
-        "edge": 5.1,
-        "edge_signed": 5.1,
-        "home_proj": 109.6,
-        "away_proj": 114.0
+        "model_spread": -11.6,
+        "market_spread": -1.5,
+        "model_total": 228.8,
+        "market_total": 221.5,
+        "edge": 10.1,
+        "edge_signed": -10.1,
+        "home_proj": 120.2,
+        "away_proj": 108.6
       },
-      "why": "Model projects 110 + 114 = 223.6 total. Market total: 218.5. Edge: 5.1 points toward Over. Brooklyn Nets offense rating (111.0) is elite.",
-      "risk": "Detroit Pistons may be due for regression (45-18).",
-      "execution": "Play Over 218.5 up to 219.5. Standard sizing."
+      "why": "Model spread: -11.6. Market: -1.5. Golden State Warriors has a 10.1-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Standard model variance.",
+      "execution": "Play Los Angeles Lakers +1.5 up to Los Angeles Lakers 2.0. Standard sizing."
     },
     {
       "id": 7,
-      "sport": "NBA",
-      "game": "Toronto Raptors @ Houston Rockets",
-      "time": "4:00 PM PT",
-      "confidence": 83,
+      "sport": "NHL",
+      "game": "Toronto Maple Leafs @ New York Islanders",
+      "time": "6:45 PM ET",
+      "confidence": 64.8,
+      "isEdgePick": false,
       "best_bet": {
-        "pick": "Over 217.5",
+        "pick": "New York Islanders -3.5",
+        "odds": "100",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "New York Islanders -3.5",
+          "Over 7.5"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.2,
+        "market_spread": -3.5,
+        "model_total": 6.4,
+        "market_total": 7.5,
+        "edge": 3.3,
+        "edge_signed": 3.3,
+        "home_proj": 3.3,
+        "away_proj": 3.1
+      },
+      "why": "Model spread: -0.2. Market: -3.5. New York Islanders has a 3.3-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play New York Islanders -3.5 up to New York Islanders -4.0. Standard sizing."
+    },
+    {
+      "id": 8,
+      "sport": "NHL",
+      "game": "Columbus Blue Jackets @ Buffalo Sabres",
+      "time": "7:00 PM ET",
+      "confidence": 66.2,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Over 2.5",
+        "odds": "-280",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 2.5",
+          "Columbus Blue Jackets ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": 0.1,
+        "market_spread": -1.5,
+        "model_total": 6.1,
+        "market_total": 2.5,
+        "edge": 3.6,
+        "edge_signed": 3.6,
+        "home_proj": 3.0,
+        "away_proj": 3.1
+      },
+      "why": "Model spread: +0.1. Market: -1.5. Columbus Blue Jackets has a 3.6-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Over 2.5 up to Over 3.0. Standard sizing."
+    },
+    {
+      "id": 9,
+      "sport": "NHL",
+      "game": "Tampa Bay Lightning @ Montreal Canadiens",
+      "time": "7:00 PM ET",
+      "confidence": 56.8,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Under 8.1",
         "odds": "-110",
         "book": "FanDuel"
       },
@@ -244,106 +337,153 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 217.5"
+          "Under 8.1",
+          "Tampa Bay Lightning ML"
         ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
       },
       "model_vs_market": {
-        "model_spread": -5.9,
-        "market_spread": 217.5,
-        "model_total": 222.7,
-        "market_total": 217.5,
-        "edge": 5.2,
-        "edge_signed": 5.2,
-        "home_proj": 113.6,
-        "away_proj": 109.1
+        "model_spread": -0.6,
+        "market_spread": -0.09999999999999998,
+        "model_total": 6.6,
+        "market_total": 8.1,
+        "edge": 1.5,
+        "edge_signed": -1.5,
+        "home_proj": 3.6,
+        "away_proj": 3.0
       },
-      "why": "Model projects 114 + 109 = 222.7 total. Market total: 217.5. Edge: 5.2 points toward Over. Houston Rockets offense rating (118.0) is elite.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Over 217.5 up to 218.5. Standard sizing."
-    },
-    {
-      "id": 8,
-      "sport": "NBA",
-      "game": "Boston Celtics @ San Antonio Spurs",
-      "time": "4:00 PM PT",
-      "confidence": 83,
-      "best_bet": {
-        "pick": "Boston Celtics -3.0",
-        "odds": "-108",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Boston Celtics -3.0"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
-      },
-      "model_vs_market": {
-        "model_spread": -2.3,
-        "market_spread": 3.0,
-        "model_total": 225.3,
-        "edge": 5.3,
-        "edge_signed": -5.3,
-        "home_proj": 114.0,
-        "away_proj": 111.3
-      },
-      "why": "Model projects San Antonio Spurs 114 - Boston Celtics 111. Model spread: -2.3 vs market +3.0 = 5.3pt edge. Boston Celtics weighted net rating (+10.6) significantly outperforms San Antonio Spurs (+9.7). Boston Celtics is 43-21 on the season.",
-      "risk": "San Antonio Spurs may be due for regression (47-17). Boston Celtics may be due for regression (43-21).",
-      "execution": "Play at +3.0 or better. Kill if line moves past +4.0. Size: 1.5 units."
-    },
-    {
-      "id": 9,
-      "sport": "NBA",
-      "game": "Indiana Pacers @ Sacramento Kings",
-      "time": "6:00 PM PT",
-      "confidence": 78,
-      "best_bet": {
-        "pick": "Indiana Pacers -3.0",
-        "odds": "-112",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Indiana Pacers -3.0"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
-      },
-      "model_vs_market": {
-        "model_spread": -1.5,
-        "market_spread": 3.0,
-        "model_total": 230.5,
-        "edge": 4.5,
-        "edge_signed": -4.5,
-        "home_proj": 116.4,
-        "away_proj": 114.1
-      },
-      "why": "Model projects Sacramento Kings 116 - Indiana Pacers 114. Model spread: -1.5 vs market +3.0 = 4.5pt edge. Indiana Pacers weighted net rating (-6.1) significantly outperforms Sacramento Kings (-7.8). Indiana Pacers is 15-49 on the season.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play at +3.0 or better. Kill if line moves past +4.0. Size: 1 unit."
+      "why": "Model spread: -0.6. Market: -0.1. Montreal Canadiens has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Under 8.1 up to Under 8.6. Standard sizing."
     },
     {
       "id": 10,
-      "sport": "NBA",
-      "game": "Memphis Grizzlies @ Philadelphia 76ers",
-      "time": "3:00 PM PT",
-      "confidence": 72,
+      "sport": "NHL",
+      "game": "Florida Panthers @ Ottawa Senators",
+      "time": "7:00 PM ET",
+      "confidence": 64.0,
+      "isEdgePick": false,
       "best_bet": {
-        "pick": "Over 227.5",
-        "odds": "-108",
+        "pick": "Ottawa Senators -3.5",
+        "odds": "-115",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Ottawa Senators -3.5",
+          "Over 4.5"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.4,
+        "market_spread": -3.5,
+        "model_total": 6.4,
+        "market_total": 4.5,
+        "edge": 3.1,
+        "edge_signed": 3.1,
+        "home_proj": 3.4,
+        "away_proj": 3.0
+      },
+      "why": "Model spread: -0.4. Market: -3.5. Ottawa Senators has a 3.1-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Ottawa Senators -3.5 up to Ottawa Senators -4.0. Standard sizing."
+    },
+    {
+      "id": 11,
+      "sport": "NHL",
+      "game": "Philadelphia Flyers @ Detroit Red Wings",
+      "time": "7:00 PM ET",
+      "confidence": 60.8,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Detroit Red Wings -2.5",
+        "odds": "-110",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Detroit Red Wings -2.5",
+          "Over 8.5"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.1,
+        "market_spread": -2.5,
+        "model_total": 6.5,
+        "market_total": 8.5,
+        "edge": 2.4,
+        "edge_signed": 2.4,
+        "home_proj": 3.3,
+        "away_proj": 3.2
+      },
+      "why": "Model spread: -0.1. Market: -2.5. Detroit Red Wings has a 2.4-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Detroit Red Wings -2.5 up to Detroit Red Wings -3.0. Standard sizing."
+    },
+    {
+      "id": 12,
+      "sport": "NHL",
+      "game": "Pittsburgh Penguins @ New Jersey Devils",
+      "time": "7:00 PM ET",
+      "confidence": 61.7,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Pittsburgh Penguins -2.5",
+        "odds": "-105",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Pittsburgh Penguins -2.5",
+          "Over 7.5"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.1,
+        "market_spread": 2.5,
+        "model_total": 6.3,
+        "market_total": 7.5,
+        "edge": 2.6,
+        "edge_signed": -2.6,
+        "home_proj": 3.2,
+        "away_proj": 3.1
+      },
+      "why": "Model spread: -0.1. Market: +2.5. New Jersey Devils has a 2.6-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Pittsburgh Penguins -2.5 up to Pittsburgh Penguins -3.0. Standard sizing."
+    },
+    {
+      "id": 13,
+      "sport": "NHL",
+      "game": "Winnipeg Jets @ St. Louis Blues",
+      "time": "8:00 PM ET",
+      "confidence": 56.8,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Under 8.2",
+        "odds": "-110",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -353,24 +493,298 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 227.5"
+          "Under 8.2",
+          "Winnipeg Jets ML"
         ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
       },
       "model_vs_market": {
-        "model_spread": -5.2,
-        "market_spread": 227.5,
-        "model_total": 230.7,
-        "market_total": 227.5,
-        "edge": 3.2,
-        "edge_signed": 3.2,
-        "home_proj": 117.4,
-        "away_proj": 113.2
+        "model_spread": 0.1,
+        "market_spread": -0.4,
+        "model_total": 6.7,
+        "market_total": 8.2,
+        "edge": 1.5,
+        "edge_signed": -1.5,
+        "home_proj": 3.3,
+        "away_proj": 3.4
       },
-      "why": "Model projects 117 + 113 = 230.7 total. Market total: 227.5. Edge: 3.2 points toward Over. Philadelphia 76ers offense rating (115.4) is elite. Memphis Grizzlies defense is exploitable (def rating 114.7).",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Over 227.5 up to 228.5. Standard sizing."
+      "why": "Model spread: +0.1. Market: -0.4. Winnipeg Jets has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Under 8.2 up to Under 8.7. Standard sizing."
+    },
+    {
+      "id": 14,
+      "sport": "NHL",
+      "game": "Carolina Hurricanes @ Chicago Blackhawks",
+      "time": "8:30 PM ET",
+      "confidence": 58.5,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Carolina Hurricanes -1.5",
+        "odds": "114",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Carolina Hurricanes -1.5",
+          "Over 7.5"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.4,
+        "market_spread": 1.5,
+        "model_total": 6.4,
+        "market_total": 7.5,
+        "edge": 1.9,
+        "edge_signed": -1.9,
+        "home_proj": 3.4,
+        "away_proj": 3.0
+      },
+      "why": "Model spread: -0.4. Market: +1.5. Chicago Blackhawks has a 1.9-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Carolina Hurricanes -1.5 up to Carolina Hurricanes -2.0. Standard sizing."
+    },
+    {
+      "id": 15,
+      "sport": "NHL",
+      "game": "Minnesota Wild @ Dallas Stars",
+      "time": "9:00 PM ET",
+      "confidence": 56.3,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Dallas Stars -1.5",
+        "odds": "188",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Dallas Stars -1.5",
+          "Over 6.0"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.1,
+        "market_spread": -1.5,
+        "model_total": 6.5,
+        "market_total": 6.0,
+        "edge": 1.4,
+        "edge_signed": 1.4,
+        "home_proj": 3.3,
+        "away_proj": 3.2
+      },
+      "why": "Model spread: -0.1. Market: -1.5. Dallas Stars has a 1.4-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Dallas Stars -1.5 up to Dallas Stars -2.0. Standard sizing."
+    },
+    {
+      "id": 16,
+      "sport": "NHL",
+      "game": "Calgary Flames @ Colorado Avalanche",
+      "time": "9:00 PM ET",
+      "confidence": 54.5,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Colorado Avalanche -1.5",
+        "odds": "-137",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Colorado Avalanche -1.5",
+          "Over 6.5"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.5,
+        "market_spread": -1.5,
+        "model_total": 6.5,
+        "market_total": 6.5,
+        "edge": 1.0,
+        "edge_signed": 1.0,
+        "home_proj": 3.5,
+        "away_proj": 3.0
+      },
+      "why": "Model spread: -0.5. Market: -1.5. Colorado Avalanche has a 1.0-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Colorado Avalanche -1.5 up to Colorado Avalanche -2.0. Standard sizing."
+    },
+    {
+      "id": 17,
+      "sport": "NHL",
+      "game": "Nashville Predators @ Utah Mammoth",
+      "time": "9:00 PM ET",
+      "confidence": 55.4,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Utah Mammoth -1.5",
+        "odds": "140",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Utah Mammoth -1.5",
+          "Over 6.5"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.3,
+        "market_spread": -1.5,
+        "model_total": 6.5,
+        "market_total": 6.5,
+        "edge": 1.2,
+        "edge_signed": 1.2,
+        "home_proj": 3.4,
+        "away_proj": 3.1
+      },
+      "why": "Model spread: -0.3. Market: -1.5. Utah Mammoth has a 1.2-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Utah Mammoth -1.5 up to Utah Mammoth -2.0. Standard sizing."
+    },
+    {
+      "id": 18,
+      "sport": "NHL",
+      "game": "San Jose Sharks @ Anaheim Ducks",
+      "time": "10:00 PM ET",
+      "confidence": 56.3,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Anaheim Ducks -1.5",
+        "odds": "148",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Anaheim Ducks -1.5",
+          "Over 6.5"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.1,
+        "market_spread": -1.5,
+        "model_total": 6.3,
+        "market_total": 6.5,
+        "edge": 1.4,
+        "edge_signed": 1.4,
+        "home_proj": 3.2,
+        "away_proj": 3.1
+      },
+      "why": "Model spread: -0.1. Market: -1.5. Anaheim Ducks has a 1.4-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Anaheim Ducks -1.5 up to Anaheim Ducks -2.0. Standard sizing."
+    },
+    {
+      "id": 19,
+      "sport": "NHL",
+      "game": "Vegas Golden Knights @ Seattle Kraken",
+      "time": "10:00 PM ET",
+      "confidence": 56.3,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Vegas Golden Knights -1.5",
+        "odds": "-175",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Vegas Golden Knights -1.5",
+          "Over 6.0"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": 0.1,
+        "market_spread": 1.5,
+        "model_total": 6.7,
+        "market_total": 6.0,
+        "edge": 1.4,
+        "edge_signed": -1.4,
+        "home_proj": 3.3,
+        "away_proj": 3.4
+      },
+      "why": "Model spread: +0.1. Market: +1.5. Vegas Golden Knights has a 1.4-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Vegas Golden Knights -1.5 up to Vegas Golden Knights -2.0. Standard sizing."
+    },
+    {
+      "id": 20,
+      "sport": "NHL",
+      "game": "Vancouver Canucks @ Los Angeles Kings",
+      "time": "10:30 PM ET",
+      "confidence": 51.8,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Over 6.0",
+        "odds": "-113",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 6.0",
+          "Vancouver Canucks ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -1.4,
+        "market_spread": -1.5,
+        "model_total": 6.4,
+        "market_total": 6.0,
+        "edge": 0.4,
+        "edge_signed": 0.4,
+        "home_proj": 3.9,
+        "away_proj": 2.5
+      },
+      "why": "Model spread: -1.4. Market: -1.5. Los Angeles Kings has a 0.4-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Over 6.0 up to Over 6.5. Standard sizing."
     }
   ]
 }
