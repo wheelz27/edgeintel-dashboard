@@ -1,10 +1,11 @@
 """
-EdgeIntel — Stripe Webhook Handler
-====================================
+EdgeIntel — Webhook Handler
+============================
 FastAPI app that:
-  - POST /webhook/stripe  — receives Stripe events, verifies signature, grants Syndicate role
-  - POST /subscribe       — registers email + Discord info after paying
-  - GET  /health          — liveness check
+  - POST /webhook/stripe   — receives Stripe events, verifies signature, grants Syndicate role
+  - POST /webhook/paypal   — receives PayPal IPN events, verifies with PayPal, grants role
+  - POST /subscribe        — registers email + Discord info after paying
+  - GET  /health           — liveness check
 
 Run:
   uvicorn bot.stripe_webhook:app --host 0.0.0.0 --port 8000
@@ -17,6 +18,12 @@ Required env vars (add to .env):
   DISCORD_BOT_TOKEN          — bot token (already in .env)
   DISCORD_GUILD_ID           — right-click your server → Copy Server ID
   DISCORD_SYNDICATE_ROLE_ID  — right-click Syndicate role → Copy Role ID
+
+PayPal IPN setup:
+  1. Log into PayPal Business → Account Settings → Notifications → Instant Payment Notifications
+  2. Set notification URL to: https://your-domain.com/webhook/paypal
+  3. Enable IPN
+  No extra env vars needed — PayPal IPN uses a verification handshake, not a secret key.
 """
 
 import hashlib
@@ -24,6 +31,7 @@ import hmac
 import json
 import os
 import datetime
+import urllib.parse
 from pathlib import Path
 
 import httpx
@@ -274,6 +282,121 @@ async def subscribe(body: SubscribeRequest):
             "note": "Syndicate role will be granted automatically when your Stripe payment is confirmed."
         }),
     })
+
+
+@app.post("/webhook/paypal")
+async def paypal_webhook(request: Request):
+    """
+    Receives PayPal IPN (Instant Payment Notification) events.
+
+    PayPal IPN flow:
+      1. PayPal POSTs form-encoded payment data to this URL
+      2. We POST it back to PayPal prefixed with cmd=_notify-validate
+      3. PayPal replies "VERIFIED" or "INVALID"
+      4. If VERIFIED and payment_status == "Completed", grant Syndicate role
+
+    The payer's email must already exist in subscribers.json (via /subscribe),
+    OR we store a pending record and grant when they register.
+    """
+    raw_body = await request.body()
+
+    # ── Step 1: Verify with PayPal ────────────────────────────────────────────
+    verify_payload = b"cmd=_notify-validate&" + raw_body
+    paypal_ipn_url = "https://ipnpb.paypal.com/cgi-bin/webscr"  # production
+
+    async with httpx.AsyncClient() as client:
+        verify_res = await client.post(
+            paypal_ipn_url,
+            content=verify_payload,
+            headers={"Content-Type": "application/x-www-form-urlencoded"},
+            timeout=15,
+        )
+
+    if verify_res.text != "VERIFIED":
+        # Log invalid IPN attempts but don't 500 — PayPal expects 200 always
+        return JSONResponse({"status": "invalid", "reason": "IPN verification failed"})
+
+    # ── Step 2: Parse form data ───────────────────────────────────────────────
+    params = dict(urllib.parse.parse_qsl(raw_body.decode("utf-8")))
+
+    payment_status = params.get("payment_status", "")
+    txn_type       = params.get("txn_type", "")
+
+    # Only process completed payments (not refunds, reversals, etc.)
+    if payment_status != "Completed":
+        return JSONResponse({"status": "ignored", "payment_status": payment_status})
+
+    # Accept standard payments and subscriptions
+    valid_txn_types = {"web_accept", "subscr_payment", ""}
+    if txn_type and txn_type not in valid_txn_types:
+        return JSONResponse({"status": "ignored", "txn_type": txn_type})
+
+    # ── Step 3: Extract payer email ───────────────────────────────────────────
+    email = (params.get("payer_email") or params.get("receiver_email") or "").lower().strip()
+    txn_id = params.get("txn_id", "unknown")
+    amount = params.get("mc_gross", "?")
+    currency = params.get("mc_currency", "USD")
+
+    if not email:
+        return JSONResponse({"status": "ignored", "reason": "no payer_email in IPN"})
+
+    # ── Step 4: Look up or create subscriber record ───────────────────────────
+    subscribers = load_subscribers()
+    subscriber  = subscribers.get(email)
+
+    if not subscriber:
+        subscribers[email] = {
+            "email": email,
+            "discord_username": None,
+            "discord_user_id": None,
+            "active": False,
+            "paid": True,
+            "paid_at": datetime.datetime.utcnow().isoformat(),
+            "paypal_txn_id": txn_id,
+            "amount": f"{amount} {currency}",
+        }
+        save_subscribers(subscribers)
+        return JSONResponse({
+            "status": "pending",
+            "reason": (
+                f"PayPal payment verified for {email} (txn {txn_id}) but no Discord "
+                "registration yet. Direct them to POST /subscribe with their Discord user ID."
+            ),
+        })
+
+    discord_user_id = subscriber.get("discord_user_id")
+    if not discord_user_id:
+        subscribers[email]["paid"] = True
+        subscribers[email]["paid_at"] = datetime.datetime.utcnow().isoformat()
+        subscribers[email]["paypal_txn_id"] = txn_id
+        subscribers[email]["amount"] = f"{amount} {currency}"
+        save_subscribers(subscribers)
+        return JSONResponse({
+            "status": "pending",
+            "reason": "Payment recorded but no discord_user_id. Ask them to re-register at /subscribe.",
+        })
+
+    # ── Step 5: Grant Syndicate role ──────────────────────────────────────────
+    success, msg = await grant_syndicate_role(discord_user_id)
+
+    subscribers[email]["paid"]         = True
+    subscribers[email]["active"]       = success
+    subscribers[email]["paid_at"]      = datetime.datetime.utcnow().isoformat()
+    subscribers[email]["paypal_txn_id"] = txn_id
+    subscribers[email]["amount"]       = f"{amount} {currency}"
+    if success:
+        subscribers[email]["granted_at"] = datetime.datetime.utcnow().isoformat()
+    save_subscribers(subscribers)
+
+    if success:
+        return JSONResponse({
+            "status": "ok",
+            "email": email,
+            "discord_user_id": discord_user_id,
+            "role": "Syndicate granted",
+            "txn_id": txn_id,
+        })
+    return JSONResponse({"status": "error", "reason": msg}, status_code=500)
 
 
 @app.get("/health")
