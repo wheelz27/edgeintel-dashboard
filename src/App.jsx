@@ -214,6 +214,7 @@ export default function App() {
   if (window.location.pathname === "/subscribe") return <SubscribePage />;
 
   const [unlocked, setUnlocked] = useState(false);
+  const [showPaywall, setShowPaywall] = useState(false);
   const [codeInput, setCodeInput] = useState("");
   const [codeError, setCodeError] = useState(false);
   const [activeTab, setActiveTab] = useState("picks");
@@ -311,7 +312,7 @@ export default function App() {
       });
       const data = await res.json();
       if (data.valid) {
-        setUnlocked(true); setCodeError(false); setActiveTab("picks");
+        setUnlocked(true); setCodeError(false); setActiveTab("picks"); setShowPaywall(false);
       } else {
         setCodeError(true); setTimeout(() => setCodeError(false), 2500);
       }
@@ -428,7 +429,7 @@ export default function App() {
           {unlocked ? (
             <div style={{ padding: "3px 10px", borderRadius: 999, fontSize: 10, fontWeight: 800, background: T.tealGlow, border: "1px solid rgba(0,229,195,0.3)", color: T.teal }}>✓ SYNDICATE</div>
           ) : (
-            <button onClick={() => { setActiveTab("unlock"); window.scrollTo(0, 0); }} style={{ padding: "3px 10px", borderRadius: 999, fontSize: 10, fontWeight: 800, background: "rgba(245,166,35,0.08)", border: "1px solid rgba(245,166,35,0.25)", color: T.gold, cursor: "pointer" }}>🔒 GET FULL ACCESS</button>
+            <button onClick={() => setShowPaywall(true)} style={{ padding: "3px 10px", borderRadius: 999, fontSize: 10, fontWeight: 800, background: "rgba(245,166,35,0.08)", border: "1px solid rgba(245,166,35,0.25)", color: T.gold, cursor: "pointer" }}>🔒 GET FULL ACCESS</button>
           )}
         </div>
       </div>
@@ -674,8 +675,35 @@ export default function App() {
         <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, padding: "10px 20px", background: "linear-gradient(180deg,transparent,rgba(6,10,16,0.97) 40%)", display: "flex", justifyContent: "center" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14, padding: "11px 20px", borderRadius: 12, background: "rgba(88,101,242,0.08)", border: "1px solid rgba(88,101,242,0.2)", backdropFilter: "blur(12px)" }}>
             <span style={{ fontSize: 11.5, fontWeight: 700 }}>🔒 Full picks, dossiers & Scotty AI locked</span>
-            <button onClick={() => setActiveTab("unlock")} style={{ padding: "7px 18px", borderRadius: 9, fontSize: 11, fontWeight: 800, background: T.discord, border: "none", color: "#fff", cursor: "pointer" }}>UNLOCK</button>
+            <button onClick={() => setShowPaywall(true)} style={{ padding: "7px 18px", borderRadius: 9, fontSize: 11, fontWeight: 800, background: T.discord, border: "none", color: "#fff", cursor: "pointer" }}>UNLOCK</button>
             <a href={DISCORD_INVITE} target="_blank" rel="noopener noreferrer" style={{ padding: "7px 18px", borderRadius: 9, fontSize: 11, fontWeight: 800, background: "transparent", border: "1px solid rgba(88,101,242,0.35)", color: T.discord, textDecoration: "none" }}>DISCORD</a>
+          </div>
+        </div>
+      )}
+
+      {/* PAYWALL MODAL */}
+      {showPaywall && (
+        <div onClick={() => setShowPaywall(false)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.75)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: 20, backdropFilter: "blur(4px)" }}>
+          <div onClick={e => e.stopPropagation()} style={{ width: "100%", maxWidth: 420, borderRadius: 18, background: T.surface, border: "1px solid rgba(77,142,255,0.2)", padding: 28, position: "relative" }}>
+            <button onClick={() => setShowPaywall(false)} style={{ position: "absolute", top: 14, right: 14, background: "transparent", border: "none", color: T.textMuted, fontSize: 18, cursor: "pointer", lineHeight: 1 }}>✕</button>
+            <div style={{ fontSize: 11, fontWeight: 800, color: T.teal, letterSpacing: "1px", textTransform: "uppercase", marginBottom: 6 }}>EdgeIntel Syndicate</div>
+            <div style={{ fontSize: 26, fontWeight: 900, marginBottom: 4 }}>{PRODUCT_PRICE} <span style={{ fontSize: 13, color: T.textMuted, fontWeight: 400 }}>/ month</span></div>
+            <div style={{ marginBottom: 20 }}>
+              {["All 3 edge picks fully revealed","Full dossiers + model reasoning","Scotty AI on every pick","Live scores & line movement","Complete results history"].map((item, i) => (
+                <div key={i} style={{ display: "flex", gap: 8, alignItems: "center", padding: "4px 0", fontSize: 12, color: T.textMuted }}><span style={{ color: T.teal }}>✓</span>{item}</div>
+              ))}
+            </div>
+            <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "block", padding: "14px", borderRadius: 12, fontSize: 14, fontWeight: 900, background: "linear-gradient(135deg,#4d8eff,#00e5c3)", color: "#fff", textDecoration: "none", textAlign: "center", marginBottom: 10 }}>
+              SUBSCRIBE NOW — {PRODUCT_PRICE}
+            </a>
+            <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 16, marginTop: 4 }}>
+              <div style={{ fontSize: 11, color: T.textMuted, marginBottom: 10, textAlign: "center" }}>Already subscribed? Enter today's code</div>
+              <div style={{ display: "flex", gap: 8 }}>
+                <input value={codeInput} onChange={e => setCodeInput(e.target.value)} onKeyDown={e => e.key === "Enter" && tryCode()} placeholder="ACCESS CODE" style={{ flex: 1, padding: "10px 14px", borderRadius: 10, fontSize: 13, background: T.bg, border: `1px solid ${codeError ? T.red : T.border}`, color: T.text, outline: "none", fontWeight: 800, letterSpacing: "3px", textAlign: "center", textTransform: "uppercase" }} />
+                <button onClick={tryCode} style={{ padding: "10px 18px", borderRadius: 10, fontSize: 12, fontWeight: 800, background: T.accent, border: "none", color: "#fff", cursor: "pointer" }}>GO</button>
+              </div>
+              {codeError && <div style={{ color: T.red, fontSize: 11, marginTop: 8, fontWeight: 700 }}>Invalid code. Check #daily-code in Discord.</div>}
+            </div>
           </div>
         </div>
       )}
