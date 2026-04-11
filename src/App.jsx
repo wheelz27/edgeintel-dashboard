@@ -428,7 +428,7 @@ export default function App() {
           {unlocked ? (
             <div style={{ padding: "3px 10px", borderRadius: 999, fontSize: 10, fontWeight: 800, background: T.tealGlow, border: "1px solid rgba(0,229,195,0.3)", color: T.teal }}>✓ SYNDICATE</div>
           ) : (
-            <button onClick={() => setActiveTab("unlock")} style={{ padding: "3px 10px", borderRadius: 999, fontSize: 10, fontWeight: 800, background: "rgba(245,166,35,0.08)", border: "1px solid rgba(245,166,35,0.25)", color: T.gold, cursor: "pointer" }}>🔒 GET FULL ACCESS</button>
+            <button onClick={() => { setActiveTab("unlock"); window.scrollTo(0, 0); }} style={{ padding: "3px 10px", borderRadius: 999, fontSize: 10, fontWeight: 800, background: "rgba(245,166,35,0.08)", border: "1px solid rgba(245,166,35,0.25)", color: T.gold, cursor: "pointer" }}>🔒 GET FULL ACCESS</button>
           )}
         </div>
       </div>
@@ -436,7 +436,7 @@ export default function App() {
       {/* NAV */}
       <div style={{ display: "flex", padding: "0 20px", borderBottom: `1px solid ${T.border}`, background: T.surface }}>
         {[{ key: "picks", label: "📡 Today's Card" }, { key: "results", label: "📊 Track Record" }, { key: "unlock", label: unlocked ? "🔓 Active" : "🔒 Unlock" }].map(tab => (
-          <button key={tab.key} onClick={() => setActiveTab(tab.key)} style={{ padding: "11px 18px", fontSize: 11.5, fontWeight: 700, background: "transparent", border: "none", cursor: "pointer", color: activeTab === tab.key ? T.accent : T.textMuted, borderBottom: activeTab === tab.key ? `2px solid ${T.accent}` : "2px solid transparent" }}>{tab.label}</button>
+          <button key={tab.key} onClick={() => { setActiveTab(tab.key); window.scrollTo(0, 0); }} style={{ padding: "11px 18px", fontSize: 11.5, fontWeight: 700, background: "transparent", border: "none", cursor: "pointer", color: activeTab === tab.key ? T.accent : T.textMuted, borderBottom: activeTab === tab.key ? `2px solid ${T.accent}` : "2px solid transparent" }}>{tab.label}</button>
         ))}
       </div>
 
@@ -697,7 +697,7 @@ function FreePickCard({ pick, onUnlock, score }) {
               <span>{pick.sport} • {pick.market}</span>
               {hasLiveScore
                 ? <LiveScore score={score} sport={pick.sport} />
-                : <span>• {pick.tipTime}</span>
+                : <span style={{ color: T.teal, fontWeight: 700 }}>🕐 {pick.tipTime}</span>
               }
             </div>
           </div>
@@ -758,7 +758,7 @@ function PickRow({ pick, rank, isSelected, locked, pulsing, onOpen, score }) {
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
         <ConfBar value={pick.confidence} />
-        <span style={{ fontSize: 10, color: T.textMuted }}>{hasLiveScore ? "" : pick.tipTime}</span>
+        <span style={{ fontSize: 10.5, color: T.teal, fontWeight: 700 }}>{hasLiveScore ? "" : pick.tipTime}</span>
         <div style={{ padding: "3px 9px", borderRadius: 7, fontSize: 9.5, fontWeight: 800, background: locked ? "rgba(88,101,242,0.08)" : T.accentGlow, border: `1px solid ${locked ? "rgba(88,101,242,0.18)" : "rgba(77,142,255,0.18)"}`, color: locked ? T.discord : T.accent }}>{locked ? "🔒" : "VIEW"}</div>
       </div>
     </div>
