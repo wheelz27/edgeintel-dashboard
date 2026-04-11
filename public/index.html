@@ -1093,26 +1093,19 @@ function openGame(id) {
     liveEntry = scoreMap[w.toLowerCase()];
     if (liveEntry) break;
   }
-  const liveHTML = liveEntry && liveEntry.state !== 'pre' ? (() => {
+  let liveHTML = '';
+  if (liveEntry && liveEntry.state !== 'pre') {
     const a = liveEntry.away, h = liveEntry.home;
     const isLive = liveEntry.state === 'in';
-    const isFinal = liveEntry.state === 'post';
     const color = isLive ? 'var(--gold)' : 'var(--green)';
-    return `<div style="background:rgba(0,0,0,0.3);border:1px solid ${color};border-radius:12px;padding:16px;margin-bottom:16px;text-align:center">
-      <div style="font-size:11px;font-weight:800;color:${color};letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">${isLive ? '🔴 LIVE' : '✅ FINAL'} · ${liveEntry.detail}</div>
-      <div style="display:flex;align-items:center;justify-content:center;gap:20px">
-        <div style="text-align:center">
-          <div style="font-size:13px;color:var(--text2);margin-bottom:4px">${a.short}</div>
-          <div style="font-size:40px;font-weight:900;color:#fff;line-height:1">${a.score}</div>
-        </div>
-        <div style="font-size:18px;color:var(--text3);font-weight:300">–</div>
-        <div style="text-align:center">
-          <div style="font-size:13px;color:var(--text2);margin-bottom:4px">${h.short}</div>
-          <div style="font-size:40px;font-weight:900;color:#fff;line-height:1">${h.score}</div>
-        </div>
-      </div>
-    </div>`;
-  })() : '';
+    liveHTML = '<div style="background:rgba(0,0,0,0.3);border:1px solid ' + color + ';border-radius:12px;padding:16px;margin-bottom:16px;text-align:center">'
+      + '<div style="font-size:11px;font-weight:800;color:' + color + ';letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">' + (isLive ? '🔴 LIVE' : '✅ FINAL') + ' · ' + liveEntry.detail + '</div>'
+      + '<div style="display:flex;align-items:center;justify-content:center;gap:20px">'
+      + '<div style="text-align:center"><div style="font-size:13px;color:var(--text2);margin-bottom:4px">' + a.short + '</div><div style="font-size:40px;font-weight:900;color:#fff;line-height:1">' + a.score + '</div></div>'
+      + '<div style="font-size:18px;color:var(--text3)">–</div>'
+      + '<div style="text-align:center"><div style="font-size:13px;color:var(--text2);margin-bottom:4px">' + h.short + '</div><div style="font-size:40px;font-weight:900;color:#fff;line-height:1">' + h.score + '</div></div>'
+      + '</div></div>';
+  }
 
   document.getElementById('modalMeta').innerHTML = `
     <span class="sport-pill ${sp}">${g.sport}</span>
