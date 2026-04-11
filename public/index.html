@@ -454,8 +454,8 @@ a { text-decoration: none; color: inherit; }
           <input class="code-input" id="codeInput" type="text" placeholder="Enter daily access code" onkeydown="if(event.key==='Enter')submitCode()">
           <button class="code-submit" onclick="submitCode()">Unlock</button>
         </div>
-        <div class="code-error" id="codeError">Invalid code. Subscribe at paypal.me/Wheelz27</div>
-        <div class="paywall-sub">No code? <a href="https://paypal.me/Wheelz27" target="_blank">Subscribe for $29/month →</a></div>
+        <div class="code-error" id="codeError">Invalid code. Subscribe at buy.stripe.com/aFa28t1qM8y6c0acvV8N200</div>
+        <div class="paywall-sub">No code? <a href="https://buy.stripe.com/aFa28t1qM8y6c0acvV8N200" target="_blank">Subscribe for $29/month →</a></div>
       </div>
     </div>
   </section>
@@ -578,7 +578,7 @@ a { text-decoration: none; color: inherit; }
             <li>Discord community access</li>
             <li>Daily email picks</li>
           </ul>
-          <a class="price-cta featured-cta" href="https://paypal.me/Wheelz27" target="_blank">Subscribe Now</a>
+          <a class="price-cta featured-cta" href="https://buy.stripe.com/aFa28t1qM8y6c0acvV8N200" target="_blank">Subscribe Now</a>
         </div>
         <div class="price-card">
           <div class="price-name">Discord</div>
@@ -717,6 +717,37 @@ a { text-decoration: none; color: inherit; }
   </div>
 </div>
 
+<!-- ===== PAYWALL MODAL ===== -->
+<div class="modal-overlay hidden" id="paywallModal" onclick="if(event.target===this)closePaywall()">
+  <div class="modal" style="max-width:420px;width:100%;margin:auto">
+    <div class="modal-top" style="padding:20px 24px 16px">
+      <div>
+        <div style="font-size:11px;font-weight:800;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">EdgeIntel Syndicate</div>
+        <div style="font-size:26px;font-weight:900;color:#fff">$29<span style="font-size:14px;color:var(--text2);font-weight:400">/month</span></div>
+      </div>
+      <button class="modal-close" onclick="closePaywall()">✕</button>
+    </div>
+    <div class="modal-body" style="padding:0 24px 24px">
+      <div style="margin-bottom:20px">
+        <div style="display:flex;gap:8px;align-items:center;padding:4px 0;font-size:13px;color:var(--text2)"><span style="color:var(--blue)">✓</span> All edge picks fully revealed</div>
+        <div style="display:flex;gap:8px;align-items:center;padding:4px 0;font-size:13px;color:var(--text2)"><span style="color:var(--blue)">✓</span> Full dossiers + model reasoning</div>
+        <div style="display:flex;gap:8px;align-items:center;padding:4px 0;font-size:13px;color:var(--text2)"><span style="color:var(--blue)">✓</span> Scotty AI on every pick</div>
+        <div style="display:flex;gap:8px;align-items:center;padding:4px 0;font-size:13px;color:var(--text2)"><span style="color:var(--blue)">✓</span> Live scores &amp; line movement</div>
+        <div style="display:flex;gap:8px;align-items:center;padding:4px 0;font-size:13px;color:var(--text2)"><span style="color:var(--blue)">✓</span> Complete results history</div>
+      </div>
+      <a href="https://buy.stripe.com/aFa28t1qM8y6c0acvV8N200" target="_blank" onclick="closePaywall()" style="display:block;padding:14px;border-radius:12px;font-size:14px;font-weight:900;background:linear-gradient(135deg,#4d8eff,#00e5c3);color:#fff;text-decoration:none;text-align:center;margin-bottom:16px">SUBSCRIBE NOW — $29/mo</a>
+      <div style="border-top:1px solid var(--border);padding-top:16px">
+        <div style="font-size:11px;color:var(--text3);margin-bottom:10px;text-align:center">Already subscribed? Enter today's code</div>
+        <div style="display:flex;gap:8px">
+          <input class="code-input" id="paywallCodeInput" type="text" placeholder="ACCESS CODE" onkeydown="if(event.key==='Enter')submitPaywallCode()" style="text-align:center;letter-spacing:3px;text-transform:uppercase;font-weight:800">
+          <button class="code-submit" onclick="submitPaywallCode()">GO</button>
+        </div>
+        <div class="code-error hidden" id="paywallCodeError">Invalid code. Check #daily-code in Discord.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ===== GAME DETAIL MODAL ===== -->
 <div class="modal-overlay hidden" id="modalOverlay" onclick="if(event.target===this)closeModal()">
   <div class="modal" id="gameModal">
@@ -753,7 +784,7 @@ a { text-decoration: none; color: inherit; }
       <div class="footer-links">
         <h4>Subscribe</h4>
         <ul>
-          <li><a href="https://paypal.me/Wheelz27" target="_blank">$29/month Access</a></li>
+          <li><a href="https://buy.stripe.com/aFa28t1qM8y6c0acvV8N200" target="_blank">$29/month Access</a></li>
           <li onclick="showPaywall()">Enter Access Code</li>
           <li>Discord Community</li>
         </ul>
@@ -827,10 +858,10 @@ function showPage(id, updateHash = true) {
 }
 
 function showPaywall() {
-  showPage('home');
-  setTimeout(() => {
-    document.getElementById('paywallSection').scrollIntoView({ behavior: 'smooth' });
-  }, 100);
+  document.getElementById('paywallModal').classList.remove('hidden');
+}
+function closePaywall() {
+  document.getElementById('paywallModal').classList.add('hidden');
 }
 
 // ============================================================
@@ -1268,7 +1299,26 @@ function submitCode() {
     window.scrollTo(0, 0);
   } else {
     err.style.display = 'block';
-    err.textContent = 'Invalid code. Get access at paypal.me/Wheelz27';
+    err.textContent = 'Invalid code. Check #daily-code in Discord.';
+  }
+}
+
+function submitPaywallCode() {
+  const val = document.getElementById('paywallCodeInput').value.trim().toUpperCase();
+  const err = document.getElementById('paywallCodeError');
+  const todayCode = slateData?.daily_code?.toUpperCase() || '';
+  const valid = VALID_CODES.includes(val) || val === todayCode;
+
+  if (valid) {
+    isAuthenticated = true;
+    localStorage.setItem('edgeintel_auth', val);
+    closePaywall();
+    document.getElementById('paywallSection').classList.add('hidden');
+    document.getElementById('paidBoard').classList.remove('hidden');
+    renderGamesGrid(slateData?.games || [], 'paidGamesGrid', true);
+    window.scrollTo(0, 0);
+  } else {
+    err.classList.remove('hidden');
   }
 }
 
