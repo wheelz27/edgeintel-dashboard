@@ -8,16 +8,211 @@
   },
   "picks": [],
   "allTime": {
-    "wins": 3,
-    "losses": 0,
+    "wins": 4,
+    "losses": 1,
     "pushes": 0,
-    "winPct": 100.0,
+    "winPct": 80.0,
     "units": "+2.2",
-    "roi": 72.0,
-    "streak": "W3",
-    "streakCount": 3
+    "roi": 44.8,
+    "streak": "P2",
+    "streakCount": 2
   },
   "history": [
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "Phoenix Suns @ Los Angeles Lakers",
+      "pick": "Over 198.5",
+      "odds": "-122",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-1.3",
+      "wasEdgePick": true,
+      "countsToRecord": true,
+      "confidence": 84.2
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "Golden State Warriors @ Sacramento Kings",
+      "pick": "Under 232.5",
+      "odds": "-138",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 65.7
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "LA Clippers @ Portland Trail Blazers",
+      "pick": "Under 229.6",
+      "odds": "-110",
+      "result": "W",
+      "units": "+0.91",
+      "clv": "+0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "Memphis Grizzlies @ Utah Jazz",
+      "pick": "Under 227.5",
+      "odds": "-110",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "Minnesota Timberwolves @ Houston Rockets",
+      "pick": "Under 269.5",
+      "odds": "108",
+      "result": "W",
+      "units": "+1.08",
+      "clv": "+3.9",
+      "wasEdgePick": true,
+      "countsToRecord": true,
+      "confidence": 86.3
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "Oklahoma City Thunder @ Denver Nuggets",
+      "pick": "Under 231.8",
+      "odds": "-110",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "Dallas Mavericks @ San Antonio Spurs",
+      "pick": "Under 230.7",
+      "odds": "-110",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "Brooklyn Nets @ Milwaukee Bucks",
+      "pick": "Under 230.8",
+      "odds": "-110",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "Orlando Magic @ Chicago Bulls",
+      "pick": "Under 229.0",
+      "odds": "-110",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "Toronto Raptors @ New York Knicks",
+      "pick": "Under 231.0",
+      "odds": "-110",
+      "result": "W",
+      "units": "+0.91",
+      "clv": "+0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "Philadelphia 76ers @ Indiana Pacers",
+      "pick": "Under 230.1",
+      "odds": "-110",
+      "result": "W",
+      "units": "+0.91",
+      "clv": "+0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "New Orleans Pelicans @ Boston Celtics",
+      "pick": "Under 229.2",
+      "odds": "-110",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "Cleveland Cavaliers @ Atlanta Hawks",
+      "pick": "Under 229.6",
+      "odds": "-110",
+      "result": "W",
+      "units": "+0.91",
+      "clv": "+0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "Miami Heat @ Washington Wizards",
+      "pick": "Under 228.8",
+      "odds": "-110",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
+    {
+      "date": "2026-04-10",
+      "sport": "NBA",
+      "game": "Detroit Pistons @ Charlotte Hornets",
+      "pick": "Under 229.1",
+      "odds": "-110",
+      "result": "W",
+      "units": "+0.91",
+      "clv": "+0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
     {
       "date": "2026-04-09",
       "sport": "NHL",
@@ -279,13 +474,13 @@
       "confidence": 58.4
     }
   ],
-  "updated": "2026-04-10",
+  "updated": "2026-04-11",
   "bySport": {
     "NBA": {
-      "wins": 1,
-      "losses": 0,
-      "roi": 87.0,
-      "units": "+0.9"
+      "wins": 2,
+      "losses": 1,
+      "roi": 31.7,
+      "units": "+1.0"
     },
     "NCAAB": {
       "wins": 0,
@@ -303,9 +498,9 @@
   "byConfidence": {
     "high": {
       "label": "80-100%",
-      "wins": 1,
-      "losses": 0,
-      "winPct": 100.0
+      "wins": 2,
+      "losses": 1,
+      "winPct": 66.7
     },
     "mid": {
       "label": "65-79%",
