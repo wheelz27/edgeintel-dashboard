@@ -810,13 +810,74 @@ const ANTHROPIC_KEY = ''; // Set via env or backend proxy
 // ============================================================
 // INIT
 // ============================================================
+let scoreMap = {};
+
+async function loadScores() {
+  try {
+    const data = await fetch('/api/scores').then(r => r.json());
+    const map = {};
+    for (const { events } of data.sports ?? []) {
+      for (const event of events ?? []) {
+        const comp = event.competitions?.[0];
+        if (!comp) continue;
+        const home = comp.competitors.find(c => c.homeAway === 'home');
+        const away = comp.competitors.find(c => c.homeAway === 'away');
+        if (!home || !away) continue;
+        const entry = {
+          state: comp.status.type.state,
+          detail: comp.status.type.shortDetail,
+          home: { name: home.team.displayName, short: home.team.shortDisplayName, abbr: home.team.abbreviation, score: home.score },
+          away: { name: away.team.displayName, short: away.team.shortDisplayName, abbr: away.team.abbreviation, score: away.score },
+        };
+        for (const side of [home, away]) {
+          for (const k of [side.team.displayName, side.team.shortDisplayName, side.team.abbreviation]) {
+            map[k.toLowerCase()] = entry;
+          }
+        }
+      }
+    }
+    scoreMap = map;
+  } catch(e) {
+    console.warn('[scores] fetch failed', e);
+  }
+}
+
+function getScoreBadge(gameStr) {
+  if (!gameStr) return '';
+  const parts = gameStr.split('@').map(s => s.trim());
+  if (parts.length < 2) return '';
+  const awayWords = parts[0].split(' ');
+  const homeWords = parts[1].split(' ');
+  let entry = null;
+  for (const w of [...awayWords, ...homeWords]) {
+    entry = scoreMap[w.toLowerCase()];
+    if (entry) break;
+  }
+  if (!entry) return '';
+  if (entry.state === 'pre') return '';
+  const a = entry.away, h = entry.home;
+  if (entry.state === 'post') {
+    return `<span style="font-size:11px;font-weight:800;color:var(--green);margin-left:6px">FINAL: ${a.abbr} ${a.score}–${h.score} ${h.abbr}</span>`;
+  }
+  return `<span style="font-size:11px;font-weight:800;color:var(--gold);margin-left:6px">LIVE: ${a.abbr} ${a.score}–${h.score} ${h.abbr} · ${entry.detail}</span>`;
+}
+
 window.addEventListener('DOMContentLoaded', async () => {
   isAuthenticated = !!localStorage.getItem('edgeintel_auth');
 
-  await Promise.all([loadSlate(), loadResults()]);
+  await Promise.all([loadSlate(), loadResults(), loadScores()]);
 
   const hash = window.location.hash.replace('#', '') || 'home';
   showPage(hash, false);
+
+  // Refresh scores every 30s
+  setInterval(async () => {
+    await loadScores();
+    if (slateData) {
+      renderGamesGrid(slateData.games || [], 'gamesGrid', false);
+      if (isAuthenticated) renderGamesGrid(slateData.games || [], 'paidGamesGrid', true);
+    }
+  }, 30000);
 });
 
 async function loadSlate() {
@@ -930,7 +991,7 @@ function gameCardHTML(g, paid) {
     <div class="gc-row1">
       <span class="sport-pill ${sp}">${g.sport}</span>
       <span class="game-matchup">${g.game || g.matchup || ''}</span>
-      <span class="game-time">${g.time || ''}</span>
+      <span class="game-time">${getScoreBadge(g.game || g.matchup) || g.time || ''}</span>
     </div>
     <div class="gc-row2">
       <span class="gc-pick">Best Bet: <span>${g.best_bet?.pick || ''}</span></span>
