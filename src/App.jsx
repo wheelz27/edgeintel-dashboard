@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { DISCORD_INVITE, PRODUCT_PRICE, PAYPAL_LINK } from "./config.js";
+import { DISCORD_INVITE, PRODUCT_PRICE, PAYPAL_LINK, STRIPE_LINK } from "./config.js";
 
 /* ================================================================
    EDGEINTEL DASHBOARD
@@ -453,29 +453,31 @@ export default function App() {
               </div>
             ) : (
               <>
-                <div style={{ padding: 28, borderRadius: 16, border: `1px solid ${T.border}`, background: T.surface, marginBottom: 16 }}>
-                  <div style={{ fontSize: 36, marginBottom: 10 }}>🔐</div>
-                  <div style={{ fontSize: 16, fontWeight: 900, marginBottom: 4 }}>Enter Today's Code</div>
-                  <div style={{ color: T.textMuted, fontSize: 12, marginBottom: 20 }}>Daily code from the Syndicate Discord channel.</div>
+                {/* PAYMENT FIRST */}
+                <div style={{ padding: 32, borderRadius: 18, background: "linear-gradient(135deg,rgba(77,142,255,0.1),rgba(0,229,195,0.06))", border: "1px solid rgba(77,142,255,0.25)", marginBottom: 16 }}>
+                  <div style={{ fontSize: 13, fontWeight: 800, color: T.teal, letterSpacing: "1px", textTransform: "uppercase", marginBottom: 8 }}>EdgeIntel Syndicate</div>
+                  <div style={{ fontSize: 28, fontWeight: 900, marginBottom: 4 }}>{PRODUCT_PRICE} <span style={{ fontSize: 13, color: T.textMuted, fontWeight: 400 }}>/ month</span></div>
+                  <div style={{ color: T.textMuted, fontSize: 12, marginBottom: 22, lineHeight: 1.7 }}>
+                    {["All 3 edge picks daily — fully revealed","Full model dossiers with Scotty AI","Live odds & line movement","Execution rules + exact thresholds","Complete results history"].map((item, i) => (
+                      <div key={i} style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 4 }}><span style={{ color: T.teal }}>✓</span>{item}</div>
+                    ))}
+                  </div>
+                  <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "block", padding: "14px 24px", borderRadius: 12, fontSize: 14, fontWeight: 900, background: "linear-gradient(135deg,#4d8eff,#00e5c3)", color: "#fff", textDecoration: "none", marginBottom: 10 }}>
+                    SUBSCRIBE NOW — {PRODUCT_PRICE}
+                  </a>
+                  <a href={DISCORD_INVITE} target="_blank" rel="noopener noreferrer" style={{ display: "block", padding: "11px 24px", borderRadius: 12, fontSize: 12, fontWeight: 800, background: "rgba(88,101,242,0.12)", border: "1px solid rgba(88,101,242,0.25)", color: T.discord, textDecoration: "none" }}>
+                    JOIN DISCORD FIRST
+                  </a>
+                </div>
+
+                {/* ALREADY SUBSCRIBED — code entry */}
+                <div style={{ padding: 20, borderRadius: 14, border: `1px solid ${T.border}`, background: T.surface }}>
+                  <div style={{ fontSize: 12, fontWeight: 800, marginBottom: 12, color: T.textMuted }}>Already subscribed? Enter today's code</div>
                   <div style={{ display: "flex", gap: 8, maxWidth: 320, margin: "0 auto" }}>
                     <input value={codeInput} onChange={e => setCodeInput(e.target.value)} onKeyDown={e => e.key === "Enter" && tryCode()} placeholder="ACCESS CODE" style={{ flex: 1, padding: "10px 14px", borderRadius: 10, fontSize: 14, background: T.bg, border: `1px solid ${codeError ? T.red : T.border}`, color: T.text, outline: "none", fontWeight: 800, letterSpacing: "3px", textAlign: "center", textTransform: "uppercase" }} />
                     <button onClick={tryCode} style={{ padding: "10px 20px", borderRadius: 10, fontSize: 12, fontWeight: 800, background: T.accent, border: "none", color: "#fff", cursor: "pointer" }}>GO</button>
                   </div>
                   {codeError && <div style={{ color: T.red, fontSize: 11, marginTop: 8, fontWeight: 700 }}>Invalid code. Check #daily-code in Discord.</div>}
-                </div>
-                <div style={{ padding: 22, borderRadius: 16, background: `linear-gradient(135deg,rgba(88,101,242,0.08),rgba(0,229,195,0.04))`, border: `1px solid ${T.border}`, marginBottom: 16 }}>
-                  <div style={{ fontSize: 14, fontWeight: 900, marginBottom: 4 }}>No code yet?</div>
-                  <div style={{ color: T.textMuted, fontSize: 12, marginBottom: 14, lineHeight: 1.6 }}>Join EdgeIntel Discord → subscribe ({PRODUCT_PRICE}) → get daily codes + Scotty AI + line alerts.</div>
-                  <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
-                    <a href={DISCORD_INVITE} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", padding: "10px 24px", borderRadius: 10, fontSize: 12, fontWeight: 800, background: T.discord, color: "#fff", textDecoration: "none" }}>JOIN DISCORD</a>
-                    <a href={PAYPAL_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", padding: "10px 24px", borderRadius: 10, fontSize: 12, fontWeight: 800, background: "transparent", border: `1px solid ${T.gold}`, color: T.gold, textDecoration: "none" }}>PAY VIA PAYPAL</a>
-                  </div>
-                </div>
-                <div style={{ padding: 18, borderRadius: 14, background: T.surface, border: `1px solid ${T.border}`, textAlign: "left" }}>
-                  <div style={{ fontSize: 12, fontWeight: 800, marginBottom: 10 }}>Syndicate members get:</div>
-                  {["Every pick revealed — odds, book, sizing","Full dossiers with model reasoning","Scotty AI — ask anything about any pick","Live line movement tracking","Execution rules with exact thresholds","Complete results history with CLV"].map((item, i) => (
-                    <div key={i} style={{ display: "flex", gap: 8, alignItems: "center", padding: "5px 0", fontSize: 12, color: T.textMuted }}><span style={{ color: T.teal }}>✓</span>{item}</div>
-                  ))}
                 </div>
               </>
             )}
