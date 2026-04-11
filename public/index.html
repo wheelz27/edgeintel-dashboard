@@ -1084,9 +1084,39 @@ function openGame(id) {
 
   document.getElementById('modalMatchup').textContent = g.game || g.matchup || '';
   const sp = (g.sport||'').toLowerCase();
+
+  // Live score lookup
+  const gameStr = g.game || g.matchup || '';
+  const parts = gameStr.split('@').map(s => s.trim());
+  let liveEntry = null;
+  for (const w of [...(parts[0]||'').split(' '), ...(parts[1]||'').split(' ')]) {
+    liveEntry = scoreMap[w.toLowerCase()];
+    if (liveEntry) break;
+  }
+  const liveHTML = liveEntry && liveEntry.state !== 'pre' ? (() => {
+    const a = liveEntry.away, h = liveEntry.home;
+    const isLive = liveEntry.state === 'in';
+    const isFinal = liveEntry.state === 'post';
+    const color = isLive ? 'var(--gold)' : 'var(--green)';
+    return `<div style="background:rgba(0,0,0,0.3);border:1px solid ${color};border-radius:12px;padding:16px;margin-bottom:16px;text-align:center">
+      <div style="font-size:11px;font-weight:800;color:${color};letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">${isLive ? '🔴 LIVE' : '✅ FINAL'} · ${liveEntry.detail}</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:20px">
+        <div style="text-align:center">
+          <div style="font-size:13px;color:var(--text2);margin-bottom:4px">${a.short}</div>
+          <div style="font-size:40px;font-weight:900;color:#fff;line-height:1">${a.score}</div>
+        </div>
+        <div style="font-size:18px;color:var(--text3);font-weight:300">–</div>
+        <div style="text-align:center">
+          <div style="font-size:13px;color:var(--text2);margin-bottom:4px">${h.short}</div>
+          <div style="font-size:40px;font-weight:900;color:#fff;line-height:1">${h.score}</div>
+        </div>
+      </div>
+    </div>`;
+  })() : '';
+
   document.getElementById('modalMeta').innerHTML = `
     <span class="sport-pill ${sp}">${g.sport}</span>
-    <span style="font-size:13px;color:var(--text3)">${g.time || ''}</span>
+    <span style="font-size:13px;color:var(--text3)">${liveEntry && liveEntry.state !== 'pre' ? liveEntry.detail : (g.time || '')}</span>
     ${g.isEdgePick ? '<span class="edge-badge" style="position:static;border-radius:6px">⭐ EDGE PICK</span>' : ''}
   `;
 
@@ -1099,6 +1129,7 @@ function openGame(id) {
   const homeName = gameParts[1]?.trim() || 'Home';
 
   document.getElementById('modalBody').innerHTML = `
+    ${liveHTML}
     <!-- MODEL VS MARKET -->
     <div class="mvmarket">
       <div class="mvmarket-title">Model vs Market</div>
