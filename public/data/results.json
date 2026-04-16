@@ -14,10 +14,114 @@
     "winPct": 52.9,
     "units": "-0.4",
     "roi": -2.5,
-    "streak": "L6",
-    "streakCount": 6
+    "streak": "P0",
+    "streakCount": 0
   },
   "history": [
+    {
+      "date": "2026-04-15",
+      "sport": "NHL",
+      "game": "Seattle Kraken @ Vegas Golden Knights",
+      "pick": "Under 8.1",
+      "odds": "-110",
+      "result": "W",
+      "units": "+0.91",
+      "clv": "+0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 71.0
+    },
+    {
+      "date": "2026-04-15",
+      "sport": "NHL",
+      "game": "San Jose Sharks @ Chicago Blackhawks",
+      "pick": "Under 8.0",
+      "odds": "-110",
+      "result": "W",
+      "units": "+0.91",
+      "clv": "+0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 71.0
+    },
+    {
+      "date": "2026-04-15",
+      "sport": "NHL",
+      "game": "Toronto Maple Leafs @ Ottawa Senators",
+      "pick": "Under 7.9",
+      "odds": "-110",
+      "result": "W",
+      "units": "+0.91",
+      "clv": "+0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 71.0
+    },
+    {
+      "date": "2026-04-15",
+      "sport": "NHL",
+      "game": "Detroit Red Wings @ Florida Panthers",
+      "pick": "Under 7.9",
+      "odds": "-110",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 71.0
+    },
+    {
+      "date": "2026-04-15",
+      "sport": "NHL",
+      "game": "New York Rangers @ Tampa Bay Lightning",
+      "pick": "Under 8.0",
+      "odds": "-110",
+      "result": "W",
+      "units": "+0.91",
+      "clv": "+0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 71.0
+    },
+    {
+      "date": "2026-04-15",
+      "sport": "NHL",
+      "game": "Dallas Stars @ Buffalo Sabres",
+      "pick": "Under 7.6",
+      "odds": "-110",
+      "result": "W",
+      "units": "+0.91",
+      "clv": "+0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 71.0
+    },
+    {
+      "date": "2026-04-15",
+      "sport": "NBA",
+      "game": "Golden State Warriors @ LA Clippers",
+      "pick": "Under 230.2",
+      "odds": "-110",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
+    {
+      "date": "2026-04-15",
+      "sport": "NBA",
+      "game": "Orlando Magic @ Philadelphia 76ers",
+      "pick": "Under 228.0",
+      "odds": "-110",
+      "result": "W",
+      "units": "+0.91",
+      "clv": "+0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 58.4
+    },
     {
       "date": "2026-04-14",
       "sport": "NHL",
@@ -1215,7 +1319,7 @@
       "confidence": 58.4
     }
   ],
-  "updated": "2026-04-15",
+  "updated": "2026-04-16",
   "bySport": {
     "NBA": {
       "wins": 6,
