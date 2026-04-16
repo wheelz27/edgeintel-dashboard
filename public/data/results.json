@@ -8,16 +8,159 @@
   },
   "picks": [],
   "allTime": {
-    "wins": 8,
-    "losses": 6,
+    "wins": 9,
+    "losses": 8,
     "pushes": 0,
-    "winPct": 57.1,
-    "units": "+0.7",
-    "roi": 4.8,
-    "streak": "L3",
-    "streakCount": 3
+    "winPct": 52.9,
+    "units": "-0.4",
+    "roi": -2.5,
+    "streak": "L6",
+    "streakCount": 6
   },
   "history": [
+    {
+      "date": "2026-04-14",
+      "sport": "NHL",
+      "game": "Los Angeles Kings @ Vancouver Canucks",
+      "pick": "Los Angeles Kings -1.5",
+      "odds": "-185",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.0",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 63.4
+    },
+    {
+      "date": "2026-04-14",
+      "sport": "NHL",
+      "game": "Pittsburgh Penguins @ St. Louis Blues",
+      "pick": "Under 8.0",
+      "odds": "-110",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 71.0
+    },
+    {
+      "date": "2026-04-14",
+      "sport": "NHL",
+      "game": "Colorado Avalanche @ Calgary Flames",
+      "pick": "Colorado Avalanche -1.5",
+      "odds": "-180",
+      "result": "W",
+      "units": "+0.56",
+      "clv": "+0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 71.7
+    },
+    {
+      "date": "2026-04-14",
+      "sport": "NHL",
+      "game": "Winnipeg Jets @ Utah Mammoth",
+      "pick": "Utah Mammoth -1.5",
+      "odds": "142",
+      "result": "W",
+      "units": "+1.42",
+      "clv": "+0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 69.5
+    },
+    {
+      "date": "2026-04-14",
+      "sport": "NHL",
+      "game": "Anaheim Ducks @ Minnesota Wild",
+      "pick": "Anaheim Ducks -1.5",
+      "odds": "-225",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": true,
+      "countsToRecord": true,
+      "confidence": 75.8
+    },
+    {
+      "date": "2026-04-14",
+      "sport": "NHL",
+      "game": "Washington Capitals @ Columbus Blue Jackets",
+      "pick": "Columbus Blue Jackets -1.5",
+      "odds": "200",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 71.7
+    },
+    {
+      "date": "2026-04-14",
+      "sport": "NHL",
+      "game": "Montreal Canadiens @ Philadelphia Flyers",
+      "pick": "Under 8.1",
+      "odds": "-110",
+      "result": "W",
+      "units": "+0.91",
+      "clv": "+0.2",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 71.0
+    },
+    {
+      "date": "2026-04-14",
+      "sport": "NHL",
+      "game": "Carolina Hurricanes @ New York Islanders",
+      "pick": "New York Islanders -1.5",
+      "odds": "195",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.0",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 65.8
+    },
+    {
+      "date": "2026-04-14",
+      "sport": "NHL",
+      "game": "New Jersey Devils @ Boston Bruins",
+      "pick": "Boston Bruins -1.5",
+      "odds": "190",
+      "result": "W",
+      "units": "+1.90",
+      "clv": "+0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 63.4
+    },
+    {
+      "date": "2026-04-14",
+      "sport": "NBA",
+      "game": "Portland Trail Blazers @ Phoenix Suns",
+      "pick": "Over 217.5",
+      "odds": "-110",
+      "result": "W",
+      "units": "+0.91",
+      "clv": "+1.0",
+      "wasEdgePick": true,
+      "countsToRecord": true,
+      "confidence": 76.4
+    },
+    {
+      "date": "2026-04-14",
+      "sport": "NBA",
+      "game": "Miami Heat @ Charlotte Hornets",
+      "pick": "Charlotte Hornets -5.5",
+      "odds": "-112",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.4",
+      "wasEdgePick": true,
+      "countsToRecord": true,
+      "confidence": 74.7
+    },
     {
       "date": "2026-04-13",
       "sport": "NHL",
@@ -1072,13 +1215,13 @@
       "confidence": 58.4
     }
   ],
-  "updated": "2026-04-14",
+  "updated": "2026-04-15",
   "bySport": {
     "NBA": {
-      "wins": 5,
-      "losses": 1,
-      "roi": 61.3,
-      "units": "+3.7"
+      "wins": 6,
+      "losses": 2,
+      "roi": 44.9,
+      "units": "+3.6"
     },
     "NCAAB": {
       "wins": 0,
@@ -1088,9 +1231,9 @@
     },
     "NHL": {
       "wins": 3,
-      "losses": 5,
-      "roi": -37.6,
-      "units": "-3.0"
+      "losses": 6,
+      "roi": -44.6,
+      "units": "-4.0"
     }
   },
   "byConfidence": {
@@ -1102,9 +1245,9 @@
     },
     "mid": {
       "label": "65-79%",
-      "wins": 3,
-      "losses": 5,
-      "winPct": 37.5
+      "wins": 4,
+      "losses": 7,
+      "winPct": 36.4
     },
     "low": {
       "label": "50-64%",
