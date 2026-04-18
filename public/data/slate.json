@@ -1,7 +1,7 @@
 {
-  "updated": "2026-04-17T23:27:43.597429-04:00",
-  "date": "April 17, 2026",
-  "daily_code": "EDGE0417",
+  "updated": "2026-04-18T09:00:12.518397-04:00",
+  "date": "April 18, 2026",
+  "daily_code": "EDGE0418",
   "discord_invite": "",
   "paypal_link": "https://paypal.me/Wheelz27",
   "price": "$29/month",
@@ -9,12 +9,168 @@
     {
       "id": 1,
       "sport": "NBA",
-      "game": "Charlotte Hornets @ Orlando Magic",
-      "time": "7:30 PM ET",
-      "confidence": 58.4,
+      "game": "Toronto Raptors @ Cleveland Cavaliers",
+      "time": "1:00 PM ET",
+      "confidence": 76.7,
+      "isEdgePick": true,
+      "best_bet": {
+        "pick": "Over 219.5",
+        "odds": "-114",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 219.5",
+          "Cleveland Cavaliers ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -8.4,
+        "market_spread": -8.0,
+        "model_total": 230.0,
+        "market_total": 219.5,
+        "edge": 10.5,
+        "edge_signed": 10.5,
+        "home_proj": 119.2,
+        "away_proj": 110.8
+      },
+      "why": "Model spread: -8.4. Market: -8.0. Cleveland Cavaliers has a 10.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Standard model variance.",
+      "execution": "Play Over 219.5 up to Over 220.0. Standard sizing."
+    },
+    {
+      "id": 2,
+      "sport": "NBA",
+      "game": "Minnesota Timberwolves @ Denver Nuggets",
+      "time": "3:30 PM ET",
+      "confidence": 62.0,
       "isEdgePick": false,
       "best_bet": {
-        "pick": "Under 227.7",
+        "pick": "Denver Nuggets -6.5",
+        "odds": "-115",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Denver Nuggets -6.5",
+          "Over 231.5"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -4.1,
+        "market_spread": -6.5,
+        "model_total": 230.9,
+        "market_total": 231.5,
+        "edge": 2.4,
+        "edge_signed": 2.4,
+        "home_proj": 117.5,
+        "away_proj": 113.4
+      },
+      "why": "Model spread: -4.1. Market: -6.5. Denver Nuggets has a 2.4-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Denver Nuggets -6.5 up to Denver Nuggets -7.0. Standard sizing."
+    },
+    {
+      "id": 3,
+      "sport": "NBA",
+      "game": "Atlanta Hawks @ New York Knicks",
+      "time": "6:00 PM ET",
+      "confidence": 77.4,
+      "isEdgePick": true,
+      "best_bet": {
+        "pick": "Over 216.5",
+        "odds": "-108",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 216.5",
+          "New York Knicks ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -12.8,
+        "market_spread": -5.5,
+        "model_total": 227.8,
+        "market_total": 216.5,
+        "edge": 11.3,
+        "edge_signed": 11.3,
+        "home_proj": 120.3,
+        "away_proj": 107.5
+      },
+      "why": "Model spread: -12.8. Market: -5.5. New York Knicks has a 11.3-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Standard model variance.",
+      "execution": "Play Over 216.5 up to Over 217.0. Standard sizing."
+    },
+    {
+      "id": 4,
+      "sport": "NBA",
+      "game": "Houston Rockets @ Los Angeles Lakers",
+      "time": "8:30 PM ET",
+      "confidence": 82.8,
+      "isEdgePick": true,
+      "best_bet": {
+        "pick": "Over 207.5",
+        "odds": "-105",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 207.5",
+          "Houston Rockets ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": 6.8,
+        "market_spread": 5.5,
+        "model_total": 228.8,
+        "market_total": 207.5,
+        "edge": 21.3,
+        "edge_signed": 21.3,
+        "home_proj": 111.0,
+        "away_proj": 117.8
+      },
+      "why": "Model spread: +6.8. Market: +5.5. Houston Rockets has a 21.3-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Standard model variance.",
+      "execution": "Play Over 207.5 up to Over 208.0. Standard sizing."
+    },
+    {
+      "id": 5,
+      "sport": "NHL",
+      "game": "Ottawa Senators @ Carolina Hurricanes",
+      "time": "3:00 PM ET",
+      "confidence": 71.0,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Under 8.1",
         "odds": "-110",
         "book": "FanDuel"
       },
@@ -25,36 +181,36 @@
       },
       "best_parlay": {
         "legs": [
-          "Under 227.7",
-          "Orlando Magic ML"
+          "Under 8.1",
+          "Ottawa Senators ML"
         ],
         "odds": "+220",
         "correlation": "Correlated same-game parlay"
       },
       "model_vs_market": {
-        "model_spread": -6.2,
-        "market_spread": -5.7,
-        "model_total": 226.2,
-        "market_total": 227.7,
+        "model_spread": 0.2,
+        "market_spread": -0.3,
+        "model_total": 6.6,
+        "market_total": 8.1,
         "edge": 1.5,
         "edge_signed": -1.5,
-        "home_proj": 116.2,
-        "away_proj": 110.0
+        "home_proj": 3.2,
+        "away_proj": 3.4
       },
-      "why": "Model spread: -6.2. Market: -5.7. Orlando Magic has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "why": "Model spread: +0.2. Market: -0.3. Ottawa Senators has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
       "risk": "Moderate edge \u2014 size down slightly.",
-      "execution": "Play Under 227.7 up to Under 228.2. Standard sizing."
+      "execution": "Play Under 8.1 up to Under 8.6. Standard sizing."
     },
     {
-      "id": 2,
-      "sport": "NBA",
-      "game": "Golden State Warriors @ Phoenix Suns",
-      "time": "10:00 PM ET",
-      "confidence": 83.5,
-      "isEdgePick": true,
+      "id": 6,
+      "sport": "NHL",
+      "game": "Minnesota Wild @ Dallas Stars",
+      "time": "5:30 PM ET",
+      "confidence": 71.0,
+      "isEdgePick": false,
       "best_bet": {
-        "pick": "Over 204.5",
-        "odds": "-120",
+        "pick": "Under 8.0",
+        "odds": "-110",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -64,25 +220,64 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 204.5",
-          "Golden State Warriors ML"
+          "Under 8.0",
+          "Minnesota Wild ML"
         ],
         "odds": "+220",
         "correlation": "Correlated same-game parlay"
       },
       "model_vs_market": {
-        "model_spread": 8.1,
-        "market_spread": -3.5,
-        "model_total": 228.3,
-        "market_total": 204.5,
-        "edge": 23.8,
-        "edge_signed": 23.8,
-        "home_proj": 110.1,
-        "away_proj": 118.2
+        "model_spread": -0.1,
+        "market_spread": 0.4,
+        "model_total": 6.5,
+        "market_total": 8.0,
+        "edge": 1.5,
+        "edge_signed": -1.5,
+        "home_proj": 3.3,
+        "away_proj": 3.2
       },
-      "why": "Model spread: +8.1. Market: -3.5. Golden State Warriors has a 23.8-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
-      "risk": "Standard model variance.",
-      "execution": "Play Over 204.5 up to Over 205.0. Standard sizing."
+      "why": "Model spread: -0.1. Market: +0.4. Dallas Stars has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Under 8.0 up to Under 8.5. Standard sizing."
+    },
+    {
+      "id": 7,
+      "sport": "NHL",
+      "game": "Philadelphia Flyers @ Pittsburgh Penguins",
+      "time": "8:00 PM ET",
+      "confidence": 71.0,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Under 8.0",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 8.0",
+          "Philadelphia Flyers ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.1,
+        "market_spread": 0.4,
+        "model_total": 6.5,
+        "market_total": 8.0,
+        "edge": 1.5,
+        "edge_signed": -1.5,
+        "home_proj": 3.3,
+        "away_proj": 3.2
+      },
+      "why": "Model spread: -0.1. Market: +0.4. Pittsburgh Penguins has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Under 8.0 up to Under 8.5. Standard sizing."
     }
   ]
 }
