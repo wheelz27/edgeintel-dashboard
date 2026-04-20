@@ -14,8 +14,8 @@
     "winPct": 55.6,
     "units": "-0.5",
     "roi": -2.7,
-    "streak": "W1",
-    "streakCount": 1
+    "streak": "P0",
+    "streakCount": 0
   },
   "history": [
     {
@@ -1319,7 +1319,7 @@
       "confidence": 71.0
     }
   ],
-  "updated": "2026-04-18",
+  "updated": "2026-04-20",
   "bySport": {
     "NBA": {
       "wins": 6,
