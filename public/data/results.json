@@ -9,15 +9,106 @@
   "picks": [],
   "allTime": {
     "wins": 10,
-    "losses": 8,
+    "losses": 11,
     "pushes": 0,
-    "winPct": 55.6,
-    "units": "-0.5",
-    "roi": -2.7,
-    "streak": "P0",
-    "streakCount": 0
+    "winPct": 47.6,
+    "units": "-3.5",
+    "roi": -17.3,
+    "streak": "L3",
+    "streakCount": 3
   },
   "history": [
+    {
+      "date": "2026-04-20",
+      "sport": "NHL",
+      "game": "Anaheim Ducks @ Edmonton Oilers",
+      "pick": "Edmonton Oilers -1.5",
+      "odds": "140",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.0",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 62.0
+    },
+    {
+      "date": "2026-04-20",
+      "sport": "NHL",
+      "game": "Minnesota Wild @ Dallas Stars",
+      "pick": "Dallas Stars -1.5",
+      "odds": "195",
+      "result": "W",
+      "units": "+1.95",
+      "clv": "+0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 70.3
+    },
+    {
+      "date": "2026-04-20",
+      "sport": "NHL",
+      "game": "Ottawa Senators @ Carolina Hurricanes",
+      "pick": "Carolina Hurricanes -1.5",
+      "odds": "170",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": true,
+      "countsToRecord": true,
+      "confidence": 72.3
+    },
+    {
+      "date": "2026-04-20",
+      "sport": "NHL",
+      "game": "Philadelphia Flyers @ Pittsburgh Penguins",
+      "pick": "Pittsburgh Penguins -1.5",
+      "odds": "164",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 70.3
+    },
+    {
+      "date": "2026-04-20",
+      "sport": "NBA",
+      "game": "Minnesota Timberwolves @ Denver Nuggets",
+      "pick": "Denver Nuggets -6.5",
+      "odds": "-115",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 62.0
+    },
+    {
+      "date": "2026-04-20",
+      "sport": "NBA",
+      "game": "Atlanta Hawks @ New York Knicks",
+      "pick": "Over 217.5",
+      "odds": "-110",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.5",
+      "wasEdgePick": true,
+      "countsToRecord": true,
+      "confidence": 76.5
+    },
+    {
+      "date": "2026-04-20",
+      "sport": "NBA",
+      "game": "Toronto Raptors @ Cleveland Cavaliers",
+      "pick": "Over 222.5",
+      "odds": "-115",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.4",
+      "wasEdgePick": true,
+      "countsToRecord": true,
+      "confidence": 73.3
+    },
     {
       "date": "2026-04-17",
       "sport": "NBA",
@@ -1226,106 +1317,15 @@
       "wasEdgePick": false,
       "countsToRecord": false,
       "confidence": 74.0
-    },
-    {
-      "date": "2026-04-09",
-      "sport": "NHL",
-      "game": "Minnesota Wild @ Dallas Stars",
-      "pick": "Minnesota Wild -1.5",
-      "odds": "-154",
-      "result": "L",
-      "units": "-1.00",
-      "clv": "-0.1",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 71.7
-    },
-    {
-      "date": "2026-04-09",
-      "sport": "NHL",
-      "game": "Carolina Hurricanes @ Chicago Blackhawks",
-      "pick": "Carolina Hurricanes -3.5",
-      "odds": "-164",
-      "result": "W",
-      "units": "+0.61",
-      "clv": "+0.4",
-      "wasEdgePick": true,
-      "countsToRecord": true,
-      "confidence": 80.3
-    },
-    {
-      "date": "2026-04-09",
-      "sport": "NHL",
-      "game": "Winnipeg Jets @ St. Louis Blues",
-      "pick": "Under 8.2",
-      "odds": "-110",
-      "result": "W",
-      "units": "+0.91",
-      "clv": "+0.2",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 71.0
-    },
-    {
-      "date": "2026-04-09",
-      "sport": "NHL",
-      "game": "Pittsburgh Penguins @ New Jersey Devils",
-      "pick": "Under 7.8",
-      "odds": "-110",
-      "result": "W",
-      "units": "+0.91",
-      "clv": "+0.2",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 71.0
-    },
-    {
-      "date": "2026-04-09",
-      "sport": "NHL",
-      "game": "Philadelphia Flyers @ Detroit Red Wings",
-      "pick": "Under 8.0",
-      "odds": "-110",
-      "result": "L",
-      "units": "-1.00",
-      "clv": "-0.1",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 71.0
-    },
-    {
-      "date": "2026-04-09",
-      "sport": "NHL",
-      "game": "Florida Panthers @ Ottawa Senators",
-      "pick": "Under 7.9",
-      "odds": "-110",
-      "result": "W",
-      "units": "+0.91",
-      "clv": "+0.2",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 71.0
-    },
-    {
-      "date": "2026-04-09",
-      "sport": "NHL",
-      "game": "Tampa Bay Lightning @ Montreal Canadiens",
-      "pick": "Under 8.1",
-      "odds": "-110",
-      "result": "W",
-      "units": "+0.91",
-      "clv": "+0.2",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 71.0
     }
   ],
-  "updated": "2026-04-20",
+  "updated": "2026-04-21",
   "bySport": {
     "NBA": {
       "wins": 6,
-      "losses": 2,
-      "roi": 44.4,
-      "units": "+3.6"
+      "losses": 4,
+      "roi": 15.5,
+      "units": "+1.6"
     },
     "NCAAB": {
       "wins": 0,
@@ -1335,9 +1335,9 @@
     },
     "NHL": {
       "wins": 3,
-      "losses": 6,
-      "roi": -44.6,
-      "units": "-4.0"
+      "losses": 7,
+      "roi": -50.1,
+      "units": "-5.0"
     }
   },
   "byConfidence": {
@@ -1350,8 +1350,8 @@
     "mid": {
       "label": "65-79%",
       "wins": 3,
-      "losses": 7,
-      "winPct": 30.0
+      "losses": 10,
+      "winPct": 23.1
     },
     "low": {
       "label": "50-64%",
