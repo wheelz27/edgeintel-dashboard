@@ -100,7 +100,7 @@ def build_ratings_for_sport(sport: str) -> dict:
         if not team_name:
             continue
 
-        games = fetch_team_game_log(sport, team_id, limit=15)
+        games = fetch_team_game_log(sport, team_id, limit=82)
         if not games:
             continue
 
@@ -117,13 +117,13 @@ def build_ratings_for_sport(sport: str) -> dict:
 
         def avg(lst): return sum(lst) / len(lst) if lst else 0
 
-        # Season average (all games we have)
+        # Season average (all games pulled)
         season_off = avg(scores_for)
         season_def = avg(scores_against)
 
-        # L15 = last 15 (all we pulled)
-        l15_off = avg(scores_for)
-        l15_def = avg(scores_against)
+        # L15 = last 15 games
+        l15_off = avg(scores_for[-15:])
+        l15_def = avg(scores_against[-15:])
 
         # L5 = last 5
         l5_off = avg(scores_for[-5:])

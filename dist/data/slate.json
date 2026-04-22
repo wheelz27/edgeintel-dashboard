@@ -1,0 +1,205 @@
+{
+  "updated": "2026-04-22T09:00:10.014945-04:00",
+  "date": "April 22, 2026",
+  "daily_code": "EDGE0422",
+  "discord_invite": "",
+  "paypal_link": "https://paypal.me/Wheelz27",
+  "price": "$29/month",
+  "games": [
+    {
+      "id": 1,
+      "sport": "NBA",
+      "game": "Orlando Magic @ Detroit Pistons",
+      "time": "7:00 PM ET",
+      "confidence": 76.6,
+      "isEdgePick": true,
+      "best_bet": {
+        "pick": "Over 218.5",
+        "odds": "-106",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 218.5",
+          "Detroit Pistons ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -5.9,
+        "market_spread": -8.5,
+        "model_total": 228.9,
+        "market_total": 218.5,
+        "edge": 10.4,
+        "edge_signed": 10.4,
+        "home_proj": 117.4,
+        "away_proj": 111.5
+      },
+      "why": "Model spread: -5.9. Market: -8.5. Detroit Pistons has a 10.4-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Standard model variance.",
+      "execution": "Play Over 218.5 up to Over 219.0. Standard sizing."
+    },
+    {
+      "id": 2,
+      "sport": "NBA",
+      "game": "Phoenix Suns @ Oklahoma City Thunder",
+      "time": "9:30 PM ET",
+      "confidence": 77.6,
+      "isEdgePick": true,
+      "best_bet": {
+        "pick": "Over 215.5",
+        "odds": "-108",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 215.5",
+          "Oklahoma City Thunder ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -9.2,
+        "market_spread": -17.5,
+        "model_total": 227.0,
+        "market_total": 215.5,
+        "edge": 11.5,
+        "edge_signed": 11.5,
+        "home_proj": 118.1,
+        "away_proj": 108.9
+      },
+      "why": "Model spread: -9.2. Market: -17.5. Oklahoma City Thunder has a 11.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Standard model variance.",
+      "execution": "Play Over 215.5 up to Over 216.0. Standard sizing."
+    },
+    {
+      "id": 3,
+      "sport": "NHL",
+      "game": "Pittsburgh Penguins @ Philadelphia Flyers",
+      "time": "7:00 PM ET",
+      "confidence": 66.8,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Philadelphia Flyers -1.5",
+        "odds": "210",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Philadelphia Flyers -1.5",
+          "Over 5.5"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.5,
+        "market_spread": -1.5,
+        "model_total": 6.5,
+        "market_total": 5.5,
+        "edge": 1.0,
+        "edge_signed": 1.0,
+        "home_proj": 3.5,
+        "away_proj": 3.0
+      },
+      "why": "Model spread: -0.5. Market: -1.5. Philadelphia Flyers has a 1.0-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Philadelphia Flyers -1.5 up to Philadelphia Flyers -2.0. Standard sizing."
+    },
+    {
+      "id": 4,
+      "sport": "NHL",
+      "game": "Dallas Stars @ Minnesota Wild",
+      "time": "9:30 PM ET",
+      "confidence": 66.8,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Minnesota Wild -1.5",
+        "odds": "186",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Minnesota Wild -1.5",
+          "Over 5.5"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.5,
+        "market_spread": -1.5,
+        "model_total": 6.5,
+        "market_total": 5.5,
+        "edge": 1.0,
+        "edge_signed": 1.0,
+        "home_proj": 3.5,
+        "away_proj": 3.0
+      },
+      "why": "Model spread: -0.5. Market: -1.5. Minnesota Wild has a 1.0-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Minnesota Wild -1.5 up to Minnesota Wild -2.0. Standard sizing."
+    },
+    {
+      "id": 5,
+      "sport": "NHL",
+      "game": "Anaheim Ducks @ Edmonton Oilers",
+      "time": "10:00 PM ET",
+      "confidence": 62.0,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Edmonton Oilers -1.5",
+        "odds": "130",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Edmonton Oilers -1.5",
+          "Over 6.5"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.9,
+        "market_spread": -1.5,
+        "model_total": 6.5,
+        "market_total": 6.5,
+        "edge": 0.6,
+        "edge_signed": 0.6,
+        "home_proj": 3.7,
+        "away_proj": 2.8
+      },
+      "why": "Model spread: -0.9. Market: -1.5. Edmonton Oilers has a 0.6-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Edmonton Oilers -1.5 up to Edmonton Oilers -2.0. Standard sizing."
+    }
+  ]
+}

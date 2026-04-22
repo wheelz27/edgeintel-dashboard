@@ -409,8 +409,8 @@ def build_game(idx: int, raw: dict, odds: dict) -> dict:
             "home_proj": h_proj,
             "away_proj": a_proj,
         },
-        "why": " ".join(why_parts),
-        "risk": risk_text,
+        "why": why_parts,
+        "risk": [risk_text],
         "execution": f"Play {pick} up to {_move_line(pick, 0.5)}. Standard sizing.",
     }
     return game

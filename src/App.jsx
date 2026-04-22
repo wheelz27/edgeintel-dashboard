@@ -281,7 +281,7 @@ export default function App() {
         if (cId) { setPulseId(cId); setTimeout(() => setPulseId(null), 1500); }
         return mapped;
       });
-      setResults(resultsData.picks || []);
+      setResults(resultsData.history || []);
     } catch (e) {
       console.error("Failed to fetch data:", e);
     }
@@ -402,7 +402,7 @@ export default function App() {
     total: results.length, wins: results.filter(r => r.result === "W").length,
     losses: results.filter(r => r.result === "L").length,
     get wr() { return this.total ? ((this.wins / this.total) * 100).toFixed(1) : "0.0"; },
-    get profit() { return results.reduce((s, r) => s + parseFloat(r.profit || 0), 0).toFixed(2); },
+    get profit() { return results.reduce((s, r) => s + parseFloat(r.units || r.profit || 0), 0).toFixed(2); },
     get clv() { return this.total ? (results.reduce((s, r) => s + parseFloat(r.clv || 0), 0) / this.total).toFixed(2) : "0.00"; },
   };
 
@@ -517,7 +517,7 @@ export default function App() {
                     <div style={{ color: T.teal, fontWeight: 700 }}>{r.pick} ({r.odds})</div>
                     <div style={{ fontWeight: 900, color: r.result === "W" ? T.green : T.red }}>{r.result}</div>
                     <div style={{ color: T.teal, fontWeight: 700 }}>{r.clv}</div>
-                    <div style={{ fontWeight: 800, color: parseFloat(r.profit) > 0 ? T.green : T.red }}>{parseFloat(r.profit) > 0 ? "+" : ""}{r.profit}u</div>
+                    <div style={{ fontWeight: 800, color: parseFloat(r.units ?? r.profit) > 0 ? T.green : T.red }}>{parseFloat(r.units ?? r.profit) > 0 ? "+" : ""}{r.units ?? r.profit}u</div>
                   </div>
                 );
               })}

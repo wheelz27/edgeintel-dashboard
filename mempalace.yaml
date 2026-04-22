@@ -1,0 +1,40 @@
+wing: edgeintel_core
+rooms:
+- name: marketing
+  description: Files from marketing/
+  keywords:
+  - marketing
+  - marketing
+- name: pipeline
+  description: Files from pipeline/
+  keywords:
+  - pipeline
+  - pipeline
+- name: public
+  description: Files from public/
+  keywords:
+  - public
+  - public
+- name: bot
+  description: Files from bot/
+  keywords:
+  - bot
+  - bot
+- name: src
+  description: Files from src/
+  keywords:
+  - src
+  - src
+- name: backend
+  description: Files from api/
+  keywords:
+  - backend
+  - api
+- name: static
+  description: Files from static/
+  keywords:
+  - static
+  - static
+- name: general
+  description: Files that don't fit other rooms
+  keywords: []

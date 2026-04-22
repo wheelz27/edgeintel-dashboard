@@ -1,0 +1,508 @@
+[main d0897e3] chore: daily slate 2026-04-09
+ 2 files changed, 270 insertions(+), 209 deletions(-)
+To https://github.com/wheelz27/edgeintel-dashboard.git
+   def98ad..d0897e3  main -> main
+[22:42:00] ============================================================
+[22:42:00] EdgeIntel Daily Pipeline — 2026-04-09
+[22:42:00] ============================================================
+[22:42:00] Grading picks for 2026-04-08...
+[22:42:01]   No final score found for Memphis Grizzlies @ Philadelphia 76ers
+[22:42:01]   No final score found for Dallas Mavericks @ Atlanta Hawks
+[22:42:01]   No final score found for Phoenix Suns @ Milwaukee Bucks
+[22:42:01]   No final score found for Charlotte Hornets @ Portland Trail Blazers
+[22:42:01]   No final score found for Indiana Pacers @ Sacramento Kings
+[22:42:01]   No final score found for Detroit Pistons @ Brooklyn Nets
+[22:42:01]   No final score found for Toronto Raptors @ Houston Rockets
+[22:42:01]   No final score found for Boston Celtics @ San Antonio Spurs
+[22:42:01]   No final score found for Indiana Pacers @ Sacramento Kings
+[22:42:01]   No final score found for Memphis Grizzlies @ Philadelphia 76ers
+[22:42:01] Grading complete: +0W -0L 0P
+[22:42:01] Wrote results.json
+[22:42:01] ESPN NBA: 6 games found
+[22:42:01] Odds API NBA: 7 games priced
+[22:42:01] ESPN NHL: 14 games found
+[22:42:02] Odds API NHL: 7 games priced
+[22:42:02] Processing 20 total games...
+[22:42:02] Flagged 3 Edge Picks from 20 games
+[22:42:02] Wrote slate.json — 20 games, code: EDGE0409
+[22:42:02] Pick cards generated
+[22:42:04] Git push complete — Vercel deploy triggered
+[22:42:04] Discord posted: 3 edge picks
+[22:42:04] ============================================================
+[22:42:04] Pipeline complete!
+[22:42:04] ============================================================
+
+⭐ TODAY'S EDGE PICKS:
+  NBA | Los Angeles Lakers @ Golden State Warriors | Over 214.5 @ -115 | Conf: 79.6%
+  NHL | Carolina Hurricanes @ Chicago Blackhawks | Carolina Hurricanes -3.5 @ -156 | Conf: 80.3%
+  NHL | San Jose Sharks @ Anaheim Ducks | Anaheim Ducks -2.5 @ -140 | Conf: 75.8%
+
+📊 Season: 0-0 | ROI: 0.0% | Units: +0.0
+[main 6e8759a] chore: daily slate 2026-04-09
+ 1 file changed, 26 insertions(+), 26 deletions(-)
+To https://github.com/wheelz27/edgeintel-dashboard.git
+   d0897e3..6e8759a  main -> main
+[22:43:00] ============================================================
+[22:43:00] EdgeIntel Daily Pipeline — 2026-04-09
+[22:43:00] ============================================================
+[22:43:00] Grading picks for 2026-04-08...
+[22:43:01]   No final score found for Memphis Grizzlies @ Philadelphia 76ers
+[22:43:01]   No final score found for Dallas Mavericks @ Atlanta Hawks
+[22:43:01]   No final score found for Phoenix Suns @ Milwaukee Bucks
+[22:43:01]   No final score found for Charlotte Hornets @ Portland Trail Blazers
+[22:43:01]   No final score found for Indiana Pacers @ Sacramento Kings
+[22:43:01]   No final score found for Detroit Pistons @ Brooklyn Nets
+[22:43:01]   No final score found for Toronto Raptors @ Houston Rockets
+[22:43:01]   No final score found for Boston Celtics @ San Antonio Spurs
+[22:43:01]   No final score found for Indiana Pacers @ Sacramento Kings
+[22:43:01]   No final score found for Memphis Grizzlies @ Philadelphia 76ers
+[22:43:01] Grading complete: +0W -0L 0P
+[22:43:01] Wrote results.json
+[22:43:01] ESPN NBA: 6 games found
+[22:43:01] Odds API NBA: 7 games priced
+[22:43:02] ESPN NHL: 14 games found
+[22:43:02] Odds API NHL: 7 games priced
+[22:43:02] Processing 20 total games...
+[22:43:02] Flagged 3 Edge Picks from 20 games
+[22:43:02] Wrote slate.json — 20 games, code: EDGE0409
+[22:43:02] Pick cards generated
+[22:43:03] Git push complete — Vercel deploy triggered
+[22:43:04] Discord posted: 3 edge picks
+[22:43:04] ============================================================
+[22:43:04] Pipeline complete!
+[22:43:04] ============================================================
+
+⭐ TODAY'S EDGE PICKS:
+  NBA | Los Angeles Lakers @ Golden State Warriors | Over 215.5 @ -115 | Conf: 78.9%
+  NHL | Carolina Hurricanes @ Chicago Blackhawks | Carolina Hurricanes -3.5 @ -164 | Conf: 80.3%
+  NHL | San Jose Sharks @ Anaheim Ducks | Anaheim Ducks -2.5 @ -146 | Conf: 75.8%
+
+📊 Season: 0-0 | ROI: 0.0% | Units: +0.0
+[main 087da26] chore: daily slate 2026-04-10
+ 2 files changed, 569 insertions(+), 503 deletions(-)
+To https://github.com/wheelz27/edgeintel-dashboard.git
+   34d0abf..087da26  main -> main
+[09:00:09] ============================================================
+[09:00:09] EdgeIntel Daily Pipeline — 2026-04-10
+[09:00:09] ============================================================
+[09:00:09] Archived slate → slate_2026-04-09.json
+[09:00:09] Grading picks for 2026-04-09...
+[09:00:12]   Miami Heat @ Toronto Raptors: Under 230.0 → L (-1.00u) [non-edge]
+[09:00:12]   Chicago Bulls @ Washington Wizards: Under 227.9 → W (+0.91u) [non-edge]
+[09:00:12]   Indiana Pacers @ Brooklyn Nets: Under 231.1 → W (+0.91u) [non-edge]
+[09:00:12]   Boston Celtics @ New York Knicks: Under 229.9 → W (+0.91u) [non-edge]
+[09:00:12]   Philadelphia 76ers @ Houston Rockets: Under 230.3 → W (+0.91u) [non-edge]
+[09:00:12]   Los Angeles Lakers @ Golden State Warriors: Over 215.5 → W (+0.87u) [EDGE]
+[09:00:12]   Toronto Maple Leafs @ New York Islanders: Under 7.9 → L (-1.00u) [non-edge]
+[09:00:12]   Columbus Blue Jackets @ Buffalo Sabres: Under 7.6 → W (+0.91u) [non-edge]
+[09:00:12]   Tampa Bay Lightning @ Montreal Canadiens: Under 8.1 → W (+0.91u) [non-edge]
+[09:00:12]   Florida Panthers @ Ottawa Senators: Under 7.9 → W (+0.91u) [non-edge]
+[09:00:12]   Philadelphia Flyers @ Detroit Red Wings: Under 8.0 → L (-1.00u) [non-edge]
+[09:00:12]   Pittsburgh Penguins @ New Jersey Devils: Under 7.8 → W (+0.91u) [non-edge]
+[09:00:12]   Winnipeg Jets @ St. Louis Blues: Under 8.2 → W (+0.91u) [non-edge]
+[09:00:12]   Carolina Hurricanes @ Chicago Blackhawks: Carolina Hurricanes -3.5 → W (+0.61u) [EDGE]
+[09:00:12]   Minnesota Wild @ Dallas Stars: Minnesota Wild -1.5 → L (-1.00u) [non-edge]
+[09:00:12]   Calgary Flames @ Colorado Avalanche: Colorado Avalanche -2.5 → L (-1.00u) [non-edge]
+[09:00:12]   Nashville Predators @ Utah Mammoth: Utah Mammoth -2.5 → W (+0.71u) [non-edge]
+[09:00:12]   San Jose Sharks @ Anaheim Ducks: Anaheim Ducks -2.5 → W (+0.68u) [EDGE]
+[09:00:12]   Vegas Golden Knights @ Seattle Kraken: Vegas Golden Knights -1.5 → L (-1.00u) [non-edge]
+[09:00:12]   Vancouver Canucks @ Los Angeles Kings: Los Angeles Kings -2.5 → W (+0.88u) [non-edge]
+[09:00:12] Grading complete: +3W -0L 0P
+[09:00:12] Wrote results.json
+[09:00:12] No DISCORD_WEBHOOK_DOSSIERS — skipping results post
+[09:00:12] ESPN NBA: 15 games found
+[09:00:14] Odds API NBA: 15 games priced
+[09:00:15] ESPN NHL: 0 games found
+[09:00:16] Odds API NHL: 15 games priced
+[09:00:16] Processing 15 total games...
+[09:00:16] Flagged 3 Edge Picks from 15 games
+[09:00:16] Wrote slate.json — 15 games, code: EDGE0410
+[09:00:16] Pick cards generated
+[09:00:18] Git push complete — Vercel deploy triggered
+[09:00:20] Discord picks posted: 3 edge picks
+[09:00:20] ============================================================
+[09:00:20] Pipeline complete!
+[09:00:20] ============================================================
+
+⭐ TODAY'S EDGE PICKS:
+  NBA | New Orleans Pelicans @ Boston Celtics | Boston Celtics -16.5 @ -114 | Conf: 82.5%
+  NBA | Philadelphia 76ers @ Indiana Pacers | Philadelphia 76ers -15.0 @ -114 | Conf: 84.2%
+  NBA | Memphis Grizzlies @ Utah Jazz | Under 247.5 @ -110 | Conf: 82.8%
+
+📊 Season: 3-0 | ROI: 72.0% | Units: +2.2
+[main 2e109bf] chore: daily slate 2026-04-11
+ 2 files changed, 513 insertions(+), 318 deletions(-)
+To https://github.com/wheelz27/edgeintel-dashboard.git
+   86e5584..2e109bf  main -> main
+[09:00:01] ============================================================
+[09:00:01] EdgeIntel Daily Pipeline — 2026-04-11
+[09:00:01] ============================================================
+[09:00:01] Archived slate → slate_2026-04-10.json
+[09:00:01] Grading picks for 2026-04-10...
+[09:00:02]   Detroit Pistons @ Charlotte Hornets: Under 229.1 → W (+0.91u) [non-edge]
+[09:00:02]   Miami Heat @ Washington Wizards: Under 228.8 → L (-1.00u) [non-edge]
+[09:00:02]   Cleveland Cavaliers @ Atlanta Hawks: Under 229.6 → W (+0.91u) [non-edge]
+[09:00:02]   New Orleans Pelicans @ Boston Celtics: Under 229.2 → L (-1.00u) [non-edge]
+[09:00:02]   Philadelphia 76ers @ Indiana Pacers: Under 230.1 → W (+0.91u) [non-edge]
+[09:00:02]   Toronto Raptors @ New York Knicks: Under 231.0 → W (+0.91u) [non-edge]
+[09:00:02]   Orlando Magic @ Chicago Bulls: Under 229.0 → L (-1.00u) [non-edge]
+[09:00:02]   Brooklyn Nets @ Milwaukee Bucks: Under 230.8 → L (-1.00u) [non-edge]
+[09:00:02]   Dallas Mavericks @ San Antonio Spurs: Under 230.7 → L (-1.00u) [non-edge]
+[09:00:02]   Oklahoma City Thunder @ Denver Nuggets: Under 231.8 → L (-1.00u) [non-edge]
+[09:00:02]   Minnesota Timberwolves @ Houston Rockets: Under 269.5 → W (+1.08u) [EDGE]
+[09:00:02]   Memphis Grizzlies @ Utah Jazz: Under 227.5 → L (-1.00u) [non-edge]
+[09:00:02]   LA Clippers @ Portland Trail Blazers: Under 229.6 → W (+0.91u) [non-edge]
+[09:00:02]   Golden State Warriors @ Sacramento Kings: Under 232.5 → L (-1.00u) [non-edge]
+[09:00:02]   Phoenix Suns @ Los Angeles Lakers: Over 198.5 → L (-1.00u) [EDGE]
+[09:00:02] Grading complete: +1W -1L 0P
+[09:00:02] Wrote results.json
+[09:00:02] No DISCORD_WEBHOOK_DOSSIERS — skipping results post
+[09:00:03] ESPN NBA: 0 games found
+[09:00:04] Odds API NBA: 7 games priced
+[09:00:05] ESPN NHL: 15 games found
+[09:00:07] Odds API NHL: 15 games priced
+[09:00:07] Processing 15 total games...
+[09:00:07] Flagged 3 Edge Picks from 15 games
+[09:00:07] Wrote slate.json — 15 games, code: EDGE0411
+[09:00:07] Pick cards generated
+[09:00:09] Git push complete — Vercel deploy triggered
+[09:00:10] Discord picks posted: 3 edge picks
+[09:00:10] ============================================================
+[09:00:10] Pipeline complete!
+[09:00:10] ============================================================
+
+⭐ TODAY'S EDGE PICKS:
+  NHL | Tampa Bay Lightning @ Boston Bruins | Tampa Bay Lightning -1.5 @ -265 | Conf: 73.5%
+  NHL | Edmonton Oilers @ Los Angeles Kings | Edmonton Oilers -1.5 @ -286 | Conf: 74.0%
+  NHL | Minnesota Wild @ Nashville Predators | Minnesota Wild -1.5 @ -230 | Conf: 72.9%
+
+📊 Season: 4-1 | ROI: 44.8% | Units: +2.2
+[main c334875] chore: daily slate 2026-04-12
+ 2 files changed, 716 insertions(+), 287 deletions(-)
+To https://github.com/wheelz27/edgeintel-dashboard.git
+   2e109bf..c334875  main -> main
+[09:00:00] ============================================================
+[09:00:00] EdgeIntel Daily Pipeline — 2026-04-12
+[09:00:00] ============================================================
+[09:00:00] Archived slate → slate_2026-04-11.json
+[09:00:00] Grading picks for 2026-04-11...
+[09:00:01]   Tampa Bay Lightning @ Boston Bruins: Tampa Bay Lightning -1.5 → L (-1.00u) [EDGE]
+[09:00:01]   Ottawa Senators @ New York Islanders: Ottawa Senators -1.5 → W (+0.38u) [non-edge]
+[09:00:01]   Washington Capitals @ Pittsburgh Penguins: Pittsburgh Penguins -1.5 → L (-1.00u) [non-edge]
+[09:00:01]   Edmonton Oilers @ Los Angeles Kings: Edmonton Oilers -1.5 → L (-1.00u) [EDGE]
+[09:00:01]   New Jersey Devils @ Detroit Red Wings: Detroit Red Wings -1.5 → L (-1.00u) [non-edge]
+[09:00:01]   St. Louis Blues @ Chicago Blackhawks: Under 8.0 → P (+0.00u) [non-edge]
+[09:00:01]   Minnesota Wild @ Nashville Predators: Minnesota Wild -1.5 → L (-1.00u) [EDGE]
+[09:00:01]   New York Rangers @ Dallas Stars: Dallas Stars -1.5 → W (+1.30u) [non-edge]
+[09:00:01]   Carolina Hurricanes @ Utah Mammoth: Utah Mammoth -1.5 → L (-1.00u) [non-edge]
+[09:00:01]   Florida Panthers @ Toronto Maple Leafs: Toronto Maple Leafs -1.5 → L (-1.00u) [non-edge]
+[09:00:01]   Columbus Blue Jackets @ Montreal Canadiens: Under 8.1 → W (+0.91u) [non-edge]
+[09:00:01]   Philadelphia Flyers @ Winnipeg Jets: Winnipeg Jets -1.5 → L (-1.00u) [non-edge]
+[09:00:01]   Calgary Flames @ Seattle Kraken: Seattle Kraken -1.5 → W (+1.75u) [non-edge]
+[09:00:01]   Vegas Golden Knights @ Colorado Avalanche: Colorado Avalanche -1.5 → L (-1.00u) [non-edge]
+[09:00:01]   Vancouver Canucks @ San Jose Sharks: San Jose Sharks -1.5 → L (-1.00u) [non-edge]
+[09:00:01] Grading complete: +0W -3L 0P
+[09:00:01] Wrote results.json
+[09:00:01] No DISCORD_WEBHOOK_DOSSIERS — skipping results post
+[09:00:02] ESPN NBA: 15 games found
+[09:00:03] Odds API NBA: 15 games priced
+[09:00:03] ESPN NHL: 6 games found
+[09:00:04] Odds API NHL: 6 games priced
+[09:00:04] Processing 21 total games...
+[09:00:04] Flagged 3 Edge Picks from 21 games
+[09:00:04] Wrote slate.json — 21 games, code: EDGE0412
+[09:00:04] Pick cards generated
+[09:00:06] Git push complete — Vercel deploy triggered
+[09:00:08] Discord picks posted: 3 edge picks
+[09:00:08] ============================================================
+[09:00:08] Pipeline complete!
+[09:00:08] ============================================================
+
+⭐ TODAY'S EDGE PICKS:
+  NBA | Charlotte Hornets @ New York Knicks | Charlotte Hornets -13.5 @ -110 | Conf: 83.8%
+  NBA | Milwaukee Bucks @ Philadelphia 76ers | Philadelphia 76ers -15.0 @ -110 | Conf: 82.5%
+  NBA | Brooklyn Nets @ Toronto Raptors | Toronto Raptors -23.0 @ -110 | Conf: 82.2%
+
+📊 Season: 4-4 | ROI: -9.5% | Units: -0.8
+[main 0c64d93] chore: daily slate 2026-04-13
+ 2 files changed, 461 insertions(+), 617 deletions(-)
+To https://github.com/wheelz27/edgeintel-dashboard.git
+   c334875..0c64d93  main -> main
+[09:00:02] ============================================================
+[09:00:02] EdgeIntel Daily Pipeline — 2026-04-13
+[09:00:02] ============================================================
+[09:00:02] Archived slate → slate_2026-04-12.json
+[09:00:02] Grading picks for 2026-04-12...
+[09:00:05]   Orlando Magic @ Boston Celtics: Orlando Magic -13.0 → L (-1.00u) [non-edge]
+[09:00:05]   Washington Wizards @ Cleveland Cavaliers: Under 235.5 → L (-1.00u) [non-edge]
+[09:00:05]   Detroit Pistons @ Indiana Pacers: Detroit Pistons -14.0 → L (-1.00u) [non-edge]
+[09:00:05]   Atlanta Hawks @ Miami Heat: Under 242.5 → L (-1.00u) [non-edge]
+[09:00:05]   Charlotte Hornets @ New York Knicks: Charlotte Hornets -13.5 → W (+0.91u) [EDGE]
+[09:00:05]   Milwaukee Bucks @ Philadelphia 76ers: Philadelphia 76ers -15.0 → W (+0.91u) [EDGE]
+[09:00:05]   Brooklyn Nets @ Toronto Raptors: Toronto Raptors -23.0 → W (+0.91u) [EDGE]
+[09:00:05]   Chicago Bulls @ Dallas Mavericks: Under 245.5 → L (-1.00u) [non-edge]
+[09:00:05]   Memphis Grizzlies @ Houston Rockets: Over 224.5 → W (+0.91u) [non-edge]
+[09:00:05]   New Orleans Pelicans @ Minnesota Timberwolves: Under 235.5 → L (-1.00u) [non-edge]
+[09:00:05]   Phoenix Suns @ Oklahoma City Thunder: Over 212.5 → W (+0.88u) [non-edge]
+[09:00:05]   Denver Nuggets @ San Antonio Spurs: San Antonio Spurs -11.5 → L (-1.00u) [non-edge]
+[09:00:05]   Utah Jazz @ Los Angeles Lakers: Los Angeles Lakers -15.0 → W (+0.95u) [non-edge]
+[09:00:05]   Golden State Warriors @ LA Clippers: Under 230.2 → W (+0.91u) [non-edge]
+[09:00:05]   Sacramento Kings @ Portland Trail Blazers: Portland Trail Blazers -16.5 → L (-1.00u) [non-edge]
+[09:00:05]   Pittsburgh Penguins @ Washington Capitals: Washington Capitals -1.5 → W (+1.54u) [non-edge]
+[09:00:05]   Montreal Canadiens @ New York Islanders: Under 8.2 → W (+0.91u) [non-edge]
+[09:00:05]   Boston Bruins @ Columbus Blue Jackets: Columbus Blue Jackets -1.5 → L (-1.00u) [non-edge]
+[09:00:05]   Ottawa Senators @ New Jersey Devils: Ottawa Senators -1.5 → L (-1.00u) [non-edge]
+[09:00:05]   Vancouver Canucks @ Anaheim Ducks: Anaheim Ducks -1.5 → L (-1.00u) [non-edge]
+[09:00:05]   Utah Mammoth @ Calgary Flames: Utah Mammoth -1.5 → L (-1.00u) [non-edge]
+[09:00:05] Grading complete: +3W -0L 0P
+[09:00:05] Wrote results.json
+[09:00:05] No DISCORD_WEBHOOK_DOSSIERS — skipping results post
+[09:00:07] ESPN NBA: 0 games found
+[09:00:07] Odds API NBA: 8 games priced
+[09:00:09] ESPN NHL: 10 games found
+[09:00:10] Odds API NHL: 10 games priced
+[09:00:10] Processing 10 total games...
+[09:00:10] Flagged 3 Edge Picks from 10 games
+[09:00:10] Wrote slate.json — 10 games, code: EDGE0413
+[09:00:11] Pick cards generated
+[09:00:15] Git push complete — Vercel deploy triggered
+[09:00:16] Discord picks posted: 3 edge picks
+[09:00:16] ============================================================
+[09:00:16] Pipeline complete!
+[09:00:16] ============================================================
+
+⭐ TODAY'S EDGE PICKS:
+  NHL | New York Rangers @ Florida Panthers | New York Rangers -1.5 @ -218 | Conf: 73.5%
+  NHL | Carolina Hurricanes @ Philadelphia Flyers | Carolina Hurricanes -1.5 @ -265 | Conf: 75.4%
+  NHL | Buffalo Sabres @ Chicago Blackhawks | Buffalo Sabres -1.5 @ -142 | Conf: 75.0%
+
+📊 Season: 7-4 | ROI: 17.9% | Units: +2.0
+[main 45fd0ed] chore: daily slate 2026-04-14
+ 2 files changed, 344 insertions(+), 175 deletions(-)
+To https://github.com/wheelz27/edgeintel-dashboard.git
+   0c64d93..45fd0ed  main -> main
+[09:00:05] ============================================================
+[09:00:05] EdgeIntel Daily Pipeline — 2026-04-14
+[09:00:05] ============================================================
+[09:00:05] Archived slate → slate_2026-04-13.json
+[09:00:05] Grading picks for 2026-04-13...
+[09:00:07]   Detroit Red Wings @ Tampa Bay Lightning: Tampa Bay Lightning -1.5 → L (-1.00u) [non-edge]
+[09:00:07]   New York Rangers @ Florida Panthers: New York Rangers -1.5 → L (-1.00u) [EDGE]
+[09:00:07]   Carolina Hurricanes @ Philadelphia Flyers: Carolina Hurricanes -1.5 → L (-1.00u) [EDGE]
+[09:00:07]   Dallas Stars @ Toronto Maple Leafs: Dallas Stars -1.5 → L (-1.00u) [non-edge]
+[09:00:07]   Minnesota Wild @ St. Louis Blues: Under 8.0 → L (-1.00u) [non-edge]
+[09:00:07]   San Jose Sharks @ Nashville Predators: Nashville Predators -1.5 → L (-1.00u) [non-edge]
+[09:00:07]   Buffalo Sabres @ Chicago Blackhawks: Buffalo Sabres -1.5 → W (+0.70u) [EDGE]
+[09:00:07]   Colorado Avalanche @ Edmonton Oilers: Colorado Avalanche -1.5 → L (-1.00u) [non-edge]
+[09:00:07]   Los Angeles Kings @ Seattle Kraken: Los Angeles Kings -1.5 → W (+0.49u) [non-edge]
+[09:00:07]   Winnipeg Jets @ Vegas Golden Knights: Over 5.5 → W (+0.77u) [non-edge]
+[09:00:07] Grading complete: +1W -2L 0P
+[09:00:07] Wrote results.json
+[09:00:07] No DISCORD_WEBHOOK_DOSSIERS — skipping results post
+[09:00:09] ESPN NBA: 2 games found
+[09:00:10] Odds API NBA: 8 games priced
+[09:00:10] ESPN NHL: 9 games found
+[09:00:11] Odds API NHL: 9 games priced
+[09:00:11] Processing 11 total games...
+[09:00:11] Flagged 3 Edge Picks from 11 games
+[09:00:11] Wrote slate.json — 11 games, code: EDGE0414
+[09:00:13] Pick cards generated
+[09:00:15] Git push complete — Vercel deploy triggered
+[09:00:16] Discord picks posted: 3 edge picks
+[09:00:16] ============================================================
+[09:00:16] Pipeline complete!
+[09:00:16] ============================================================
+
+⭐ TODAY'S EDGE PICKS:
+  NBA | Miami Heat @ Charlotte Hornets | Charlotte Hornets -5.5 @ -112 | Conf: 74.7%
+  NBA | Portland Trail Blazers @ Phoenix Suns | Over 217.5 @ -110 | Conf: 76.4%
+  NHL | Anaheim Ducks @ Minnesota Wild | Anaheim Ducks -1.5 @ -225 | Conf: 75.8%
+
+📊 Season: 8-6 | ROI: 4.8% | Units: +0.7
+[main 0e987d0] chore: daily slate 2026-04-16
+ 2 files changed, 211 insertions(+), 185 deletions(-)
+To https://github.com/wheelz27/edgeintel-dashboard.git
+   407c101..0e987d0  main -> main
+[09:00:02] ============================================================
+[09:00:02] EdgeIntel Daily Pipeline — 2026-04-16
+[09:00:02] ============================================================
+[09:00:02] Archived slate → slate_2026-04-15.json
+[09:00:02] Grading picks for 2026-04-15...
+[09:00:03]   Orlando Magic @ Philadelphia 76ers: Under 228.0 → W (+0.91u) [non-edge]
+[09:00:03]   Golden State Warriors @ LA Clippers: Under 230.2 → L (-1.00u) [non-edge]
+[09:00:03]   Dallas Stars @ Buffalo Sabres: Under 7.6 → W (+0.91u) [non-edge]
+[09:00:03]   New York Rangers @ Tampa Bay Lightning: Under 8.0 → W (+0.91u) [non-edge]
+[09:00:03]   Detroit Red Wings @ Florida Panthers: Under 7.9 → L (-1.00u) [non-edge]
+[09:00:03]   Toronto Maple Leafs @ Ottawa Senators: Under 7.9 → W (+0.91u) [non-edge]
+[09:00:03]   San Jose Sharks @ Chicago Blackhawks: Under 8.0 → W (+0.91u) [non-edge]
+[09:00:03]   Seattle Kraken @ Vegas Golden Knights: Under 8.1 → W (+0.91u) [non-edge]
+[09:00:03] Grading complete: +0W -0L 0P
+[09:00:03] Wrote results.json
+[09:00:03] No DISCORD_WEBHOOK_DOSSIERS — skipping results post
+[09:00:03] ESPN NBA: 0 games found
+[09:00:04] Odds API NBA: 8 games priced
+[09:00:04] ESPN NHL: 6 games found
+[09:00:05] Odds API NHL: 6 games priced
+[09:00:05] Processing 6 total games...
+[09:00:05] Flagged 0 Edge Picks from 6 games
+[09:00:05] Wrote slate.json — 6 games, code: EDGE0416
+[09:00:07] Pick cards generated
+[09:00:10] Git push complete — Vercel deploy triggered
+[09:00:10] No edge picks to post
+[09:00:10] ============================================================
+[09:00:10] Pipeline complete!
+[09:00:10] ============================================================
+
+⭐ TODAY'S EDGE PICKS:
+
+📊 Season: 9-8 | ROI: -2.5% | Units: -0.4
+[main c582969] chore: daily slate 2026-04-18
+ 2 files changed, 272 insertions(+), 77 deletions(-)
+To https://github.com/wheelz27/edgeintel-dashboard.git
+   9541b22..c582969  main -> main
+[09:00:08] ============================================================
+[09:00:08] EdgeIntel Daily Pipeline — 2026-04-18
+[09:00:08] ============================================================
+[09:00:08] Archived slate → slate_2026-04-17.json
+[09:00:08] Grading picks for 2026-04-17...
+[09:00:10]   Charlotte Hornets @ Orlando Magic: Under 227.7 → W (+0.91u) [non-edge]
+[09:00:10]   Golden State Warriors @ Phoenix Suns: Over 204.5 → W (+0.83u) [EDGE]
+[09:00:10] Grading complete: +1W -0L 0P
+[09:00:10] Wrote results.json
+[09:00:10] No DISCORD_WEBHOOK_DOSSIERS — skipping results post
+[09:00:10] ESPN NBA: 4 games found
+[09:00:11] Odds API NBA: 8 games priced
+[09:00:12] ESPN NHL: 3 games found
+[09:00:12] Odds API NHL error: 503 Server Error: Service Unavailable for url: https://api.the-odds-api.com/v4/sports/icehockey_nhl/odds?apiKey=4425048d22ba771cd1436fd396a31788&regions=us&markets=spreads%2Ctotals%2Ch2h&oddsFormat=american&dateFormat=iso
+[09:00:12] Processing 7 total games...
+[09:00:12] Flagged 3 Edge Picks from 7 games
+[09:00:12] Wrote slate.json — 7 games, code: EDGE0418
+[09:00:14] Pick cards generated
+[09:00:21] Git push complete — Vercel deploy triggered
+[09:00:21] Discord picks posted: 3 edge picks
+[09:00:21] ============================================================
+[09:00:21] Pipeline complete!
+[09:00:21] ============================================================
+
+⭐ TODAY'S EDGE PICKS:
+  NBA | Toronto Raptors @ Cleveland Cavaliers | Over 219.5 @ -114 | Conf: 76.7%
+  NBA | Atlanta Hawks @ New York Knicks | Over 216.5 @ -108 | Conf: 77.4%
+  NBA | Houston Rockets @ Los Angeles Lakers | Over 207.5 @ -105 | Conf: 82.8%
+
+📊 Season: 10-8 | ROI: -2.7% | Units: -0.5
+[main 9ffb7f6] chore: daily slate 2026-04-20
+ 2 files changed, 96 insertions(+), 96 deletions(-)
+To https://github.com/wheelz27/edgeintel-dashboard.git
+   1f652fa..9ffb7f6  main -> main
+[09:00:03] ============================================================
+[09:00:03] EdgeIntel Daily Pipeline — 2026-04-20
+[09:00:03] ============================================================
+[09:00:03] Archived slate → slate_2026-04-19.json
+[09:00:03] Grading picks for 2026-04-19...
+[09:00:06]   No final score found for Toronto Raptors @ Cleveland Cavaliers
+[09:00:06]   No final score found for Minnesota Timberwolves @ Denver Nuggets
+[09:00:06]   No final score found for Atlanta Hawks @ New York Knicks
+[09:00:06]   No final score found for Houston Rockets @ Los Angeles Lakers
+[09:00:06]   No final score found for Ottawa Senators @ Carolina Hurricanes
+[09:00:06]   No final score found for Minnesota Wild @ Dallas Stars
+[09:00:06]   No final score found for Philadelphia Flyers @ Pittsburgh Penguins
+[09:00:06] Grading complete: +0W -0L 0P
+[09:00:06] Wrote results.json
+[09:00:06] No DISCORD_WEBHOOK_DOSSIERS — skipping results post
+[09:00:06] ESPN NBA: 3 games found
+[09:00:07] Odds API NBA: 8 games priced
+[09:00:07] ESPN NHL: 4 games found
+[09:00:08] Odds API NHL: 8 games priced
+[09:00:08] Processing 7 total games...
+[09:00:08] Flagged 3 Edge Picks from 7 games
+[09:00:08] Wrote slate.json — 7 games, code: EDGE0420
+[09:00:09] Pick cards generated
+[09:00:13] Git push complete — Vercel deploy triggered
+[09:00:14] Discord picks posted: 3 edge picks
+[09:00:14] ============================================================
+[09:00:14] Pipeline complete!
+[09:00:14] ============================================================
+
+⭐ TODAY'S EDGE PICKS:
+  NBA | Toronto Raptors @ Cleveland Cavaliers | Over 222.5 @ -115 | Conf: 73.3%
+  NBA | Atlanta Hawks @ New York Knicks | Over 217.5 @ -110 | Conf: 76.5%
+  NHL | Ottawa Senators @ Carolina Hurricanes | Carolina Hurricanes -1.5 @ 170 | Conf: 72.3%
+
+📊 Season: 10-8 | ROI: -2.7% | Units: -0.5
+[main 4c2800d] chore: daily slate 2026-04-21
+ 2 files changed, 223 insertions(+), 223 deletions(-)
+To https://github.com/wheelz27/edgeintel-dashboard.git
+   9ffb7f6..4c2800d  main -> main
+[09:00:02] ============================================================
+[09:00:02] EdgeIntel Daily Pipeline — 2026-04-21
+[09:00:02] ============================================================
+[09:00:02] Archived slate → slate_2026-04-20.json
+[09:00:02] Grading picks for 2026-04-20...
+[09:00:05]   Toronto Raptors @ Cleveland Cavaliers: Over 222.5 → L (-1.00u) [EDGE]
+[09:00:05]   Atlanta Hawks @ New York Knicks: Over 217.5 → L (-1.00u) [EDGE]
+[09:00:05]   Minnesota Timberwolves @ Denver Nuggets: Denver Nuggets -6.5 → L (-1.00u) [non-edge]
+[09:00:05]   Philadelphia Flyers @ Pittsburgh Penguins: Pittsburgh Penguins -1.5 → L (-1.00u) [non-edge]
+[09:00:05]   Ottawa Senators @ Carolina Hurricanes: Carolina Hurricanes -1.5 → L (-1.00u) [EDGE]
+[09:00:05]   Minnesota Wild @ Dallas Stars: Dallas Stars -1.5 → W (+1.95u) [non-edge]
+[09:00:05]   Anaheim Ducks @ Edmonton Oilers: Edmonton Oilers -1.5 → L (-1.00u) [non-edge]
+[09:00:05] Grading complete: +0W -3L 0P
+[09:00:05] Wrote results.json
+[09:00:05] No DISCORD_WEBHOOK_DOSSIERS — skipping results post
+[09:00:06] ESPN NBA: 3 games found
+[09:00:07] Odds API NBA: 8 games priced
+[09:00:08] ESPN NHL: 4 games found
+[09:00:09] Odds API NHL: 8 games priced
+[09:00:09] Processing 7 total games...
+[09:00:09] Flagged 3 Edge Picks from 7 games
+[09:00:09] Wrote slate.json — 7 games, code: EDGE0421
+[09:00:10] Pick cards generated
+[09:00:15] Git push complete — Vercel deploy triggered
+[09:00:17] Discord picks posted: 3 edge picks
+[09:00:17] ============================================================
+[09:00:17] Pipeline complete!
+[09:00:17] ============================================================
+
+⭐ TODAY'S EDGE PICKS:
+  NBA | Philadelphia 76ers @ Boston Celtics | Boston Celtics -14.5 @ -110 | Conf: 78.2%
+  NBA | Portland Trail Blazers @ San Antonio Spurs | Over 219.5 @ -108 | Conf: 77.3%
+  NBA | Houston Rockets @ Los Angeles Lakers | Over 206.5 @ -114 | Conf: 83.1%
+
+📊 Season: 10-11 | ROI: -17.3% | Units: -3.5
+[main 424cbe6] chore: daily slate 2026-04-22
+ 2 files changed, 192 insertions(+), 270 deletions(-)
+To https://github.com/wheelz27/edgeintel-dashboard.git
+   4c2800d..424cbe6  main -> main
+[09:00:05] ============================================================
+[09:00:05] EdgeIntel Daily Pipeline — 2026-04-22
+[09:00:05] ============================================================
+[09:00:05] Archived slate → slate_2026-04-21.json
+[09:00:05] Grading picks for 2026-04-21...
+[09:00:07]   Philadelphia 76ers @ Boston Celtics: Boston Celtics -14.5 → L (-1.00u) [EDGE]
+[09:00:07]   Portland Trail Blazers @ San Antonio Spurs: Over 219.5 → L (-1.00u) [EDGE]
+[09:00:07]   Houston Rockets @ Los Angeles Lakers: Over 206.5 → L (-1.00u) [EDGE]
+[09:00:07]   Montreal Canadiens @ Tampa Bay Lightning: Under 8.2 → W (+0.91u) [non-edge]
+[09:00:07]   Boston Bruins @ Buffalo Sabres: Buffalo Sabres -1.5 → L (-1.00u) [non-edge]
+[09:00:07]   Utah Mammoth @ Vegas Golden Knights: Vegas Golden Knights -1.5 → L (-1.00u) [non-edge]
+[09:00:07]   Los Angeles Kings @ Colorado Avalanche: Colorado Avalanche -1.5 → L (-1.00u) [non-edge]
+[09:00:07] Grading complete: +0W -3L 0P
+[09:00:07] Wrote results.json
+[09:00:07] No DISCORD_WEBHOOK_DOSSIERS — skipping results post
+[09:00:07] ESPN NBA: 2 games found
+[09:00:08] Odds API NBA: 8 games priced
+[09:00:09] ESPN NHL: 3 games found
+[09:00:09] Odds API NHL: 8 games priced
+[09:00:10] Processing 5 total games...
+[09:00:10] Flagged 2 Edge Picks from 5 games
+[09:00:10] Wrote slate.json — 5 games, code: EDGE0422
+[09:00:11] Pick cards generated
+[09:00:14] Git push complete — Vercel deploy triggered
+[09:00:15] Discord picks posted: 2 edge picks
+[09:00:15] ============================================================
+[09:00:15] Pipeline complete!
+[09:00:15] ============================================================
+
+⭐ TODAY'S EDGE PICKS:
+  NBA | Orlando Magic @ Detroit Pistons | Over 218.5 @ -106 | Conf: 76.6%
+  NBA | Phoenix Suns @ Oklahoma City Thunder | Over 215.5 @ -108 | Conf: 77.6%
+
+📊 Season: 10-14 | ROI: -32.1% | Units: -7.1

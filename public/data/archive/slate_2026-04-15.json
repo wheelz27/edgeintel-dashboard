@@ -1,0 +1,322 @@
+{
+  "updated": "2026-04-16T02:53:11.679165-04:00",
+  "date": "April 15, 2026",
+  "daily_code": "EDGE0415",
+  "discord_invite": "",
+  "paypal_link": "https://paypal.me/Wheelz27",
+  "price": "$29/month",
+  "games": [
+    {
+      "id": 1,
+      "sport": "NBA",
+      "game": "Orlando Magic @ Philadelphia 76ers",
+      "time": "7:30 PM ET",
+      "confidence": 58.4,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Under 228.0",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 228.0",
+          "Orlando Magic ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": 0.5,
+        "market_spread": 0.0,
+        "model_total": 226.5,
+        "market_total": 228.0,
+        "edge": 1.5,
+        "edge_signed": -1.5,
+        "home_proj": 113.0,
+        "away_proj": 113.5
+      },
+      "why": "Model spread: +0.5. Market: +0.0. Orlando Magic has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Under 228.0 up to Under 228.5. Standard sizing."
+    },
+    {
+      "id": 2,
+      "sport": "NBA",
+      "game": "Golden State Warriors @ LA Clippers",
+      "time": "10:00 PM ET",
+      "confidence": 58.4,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Under 230.2",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 230.2",
+          "Golden State Warriors ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": 6.9,
+        "market_spread": 6.4,
+        "model_total": 228.7,
+        "market_total": 230.2,
+        "edge": 1.5,
+        "edge_signed": -1.5,
+        "home_proj": 110.9,
+        "away_proj": 117.8
+      },
+      "why": "Model spread: +6.9. Market: +6.4. Golden State Warriors has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Under 230.2 up to Under 230.7. Standard sizing."
+    },
+    {
+      "id": 3,
+      "sport": "NHL",
+      "game": "Dallas Stars @ Buffalo Sabres",
+      "time": "7:00 PM ET",
+      "confidence": 71.0,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Under 7.6",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 7.6",
+          "Dallas Stars ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": 0.1,
+        "market_spread": -0.4,
+        "model_total": 6.1,
+        "market_total": 7.6,
+        "edge": 1.5,
+        "edge_signed": -1.5,
+        "home_proj": 3.0,
+        "away_proj": 3.1
+      },
+      "why": "Model spread: +0.1. Market: -0.4. Dallas Stars has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Under 7.6 up to Under 8.1. Standard sizing."
+    },
+    {
+      "id": 4,
+      "sport": "NHL",
+      "game": "New York Rangers @ Tampa Bay Lightning",
+      "time": "7:00 PM ET",
+      "confidence": 71.0,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Under 8.0",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 8.0",
+          "New York Rangers ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.3,
+        "market_spread": 0.2,
+        "model_total": 6.5,
+        "market_total": 8.0,
+        "edge": 1.5,
+        "edge_signed": -1.5,
+        "home_proj": 3.4,
+        "away_proj": 3.1
+      },
+      "why": "Model spread: -0.3. Market: +0.2. Tampa Bay Lightning has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Under 8.0 up to Under 8.5. Standard sizing."
+    },
+    {
+      "id": 5,
+      "sport": "NHL",
+      "game": "Detroit Red Wings @ Florida Panthers",
+      "time": "7:00 PM ET",
+      "confidence": 71.0,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Under 7.9",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 7.9",
+          "Detroit Red Wings ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.4,
+        "market_spread": 0.09999999999999998,
+        "model_total": 6.4,
+        "market_total": 7.9,
+        "edge": 1.5,
+        "edge_signed": -1.5,
+        "home_proj": 3.4,
+        "away_proj": 3.0
+      },
+      "why": "Model spread: -0.4. Market: +0.1. Florida Panthers has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Under 7.9 up to Under 8.4. Standard sizing."
+    },
+    {
+      "id": 6,
+      "sport": "NHL",
+      "game": "Toronto Maple Leafs @ Ottawa Senators",
+      "time": "7:30 PM ET",
+      "confidence": 71.0,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Under 7.9",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 7.9",
+          "Toronto Maple Leafs ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.4,
+        "market_spread": 0.09999999999999998,
+        "model_total": 6.4,
+        "market_total": 7.9,
+        "edge": 1.5,
+        "edge_signed": -1.5,
+        "home_proj": 3.4,
+        "away_proj": 3.0
+      },
+      "why": "Model spread: -0.4. Market: +0.1. Ottawa Senators has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Under 7.9 up to Under 8.4. Standard sizing."
+    },
+    {
+      "id": 7,
+      "sport": "NHL",
+      "game": "San Jose Sharks @ Chicago Blackhawks",
+      "time": "8:30 PM ET",
+      "confidence": 71.0,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Under 8.0",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 8.0",
+          "San Jose Sharks ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.3,
+        "market_spread": 0.2,
+        "model_total": 6.5,
+        "market_total": 8.0,
+        "edge": 1.5,
+        "edge_signed": -1.5,
+        "home_proj": 3.4,
+        "away_proj": 3.1
+      },
+      "why": "Model spread: -0.3. Market: +0.2. Chicago Blackhawks has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Under 8.0 up to Under 8.5. Standard sizing."
+    },
+    {
+      "id": 8,
+      "sport": "NHL",
+      "game": "Seattle Kraken @ Vegas Golden Knights",
+      "time": "10:00 PM ET",
+      "confidence": 71.0,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Under 8.1",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 8.1",
+          "Seattle Kraken ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.6,
+        "market_spread": -0.09999999999999998,
+        "model_total": 6.6,
+        "market_total": 8.1,
+        "edge": 1.5,
+        "edge_signed": -1.5,
+        "home_proj": 3.6,
+        "away_proj": 3.0
+      },
+      "why": "Model spread: -0.6. Market: -0.1. Vegas Golden Knights has a 1.5-point edge. Confidence based on time-weighted power ratings (L1/L5/L15/Season).",
+      "risk": "Moderate edge \u2014 size down slightly.",
+      "execution": "Play Under 8.1 up to Under 8.6. Standard sizing."
+    }
+  ]
+}
