@@ -8,16 +8,81 @@
   },
   "picks": [],
   "allTime": {
-    "wins": 10,
-    "losses": 14,
+    "wins": 11,
+    "losses": 15,
     "pushes": 0,
-    "winPct": 41.7,
-    "units": "-7.1",
-    "roi": -32.1,
-    "streak": "L6",
-    "streakCount": 6
+    "winPct": 42.3,
+    "units": "-7.8",
+    "roi": -34.0,
+    "streak": "P2",
+    "streakCount": 2
   },
   "history": [
+    {
+      "date": "2026-04-22",
+      "sport": "NHL",
+      "game": "Anaheim Ducks @ Edmonton Oilers",
+      "pick": "Edmonton Oilers -1.5",
+      "odds": "130",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.0",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 62.0
+    },
+    {
+      "date": "2026-04-22",
+      "sport": "NHL",
+      "game": "Dallas Stars @ Minnesota Wild",
+      "pick": "Minnesota Wild -1.5",
+      "odds": "186",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 66.8
+    },
+    {
+      "date": "2026-04-22",
+      "sport": "NHL",
+      "game": "Pittsburgh Penguins @ Philadelphia Flyers",
+      "pick": "Philadelphia Flyers -1.5",
+      "odds": "210",
+      "result": "W",
+      "units": "+2.10",
+      "clv": "+0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 66.8
+    },
+    {
+      "date": "2026-04-22",
+      "sport": "NBA",
+      "game": "Phoenix Suns @ Oklahoma City Thunder",
+      "pick": "Over 215.5",
+      "odds": "-108",
+      "result": "W",
+      "units": "+0.93",
+      "clv": "+1.2",
+      "wasEdgePick": true,
+      "countsToRecord": true,
+      "confidence": 77.6
+    },
+    {
+      "date": "2026-04-22",
+      "sport": "NBA",
+      "game": "Orlando Magic @ Detroit Pistons",
+      "pick": "Over 218.5",
+      "odds": "-106",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.5",
+      "wasEdgePick": true,
+      "countsToRecord": true,
+      "confidence": 76.6
+    },
     {
       "date": "2026-04-21",
       "sport": "NHL",
@@ -1252,80 +1317,15 @@
       "wasEdgePick": false,
       "countsToRecord": false,
       "confidence": 58.4
-    },
-    {
-      "date": "2026-04-10",
-      "sport": "NBA",
-      "game": "Orlando Magic @ Chicago Bulls",
-      "pick": "Under 229.0",
-      "odds": "-110",
-      "result": "L",
-      "units": "-1.00",
-      "clv": "-0.1",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 58.4
-    },
-    {
-      "date": "2026-04-10",
-      "sport": "NBA",
-      "game": "Toronto Raptors @ New York Knicks",
-      "pick": "Under 231.0",
-      "odds": "-110",
-      "result": "W",
-      "units": "+0.91",
-      "clv": "+0.2",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 58.4
-    },
-    {
-      "date": "2026-04-10",
-      "sport": "NBA",
-      "game": "Philadelphia 76ers @ Indiana Pacers",
-      "pick": "Under 230.1",
-      "odds": "-110",
-      "result": "W",
-      "units": "+0.91",
-      "clv": "+0.2",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 58.4
-    },
-    {
-      "date": "2026-04-10",
-      "sport": "NBA",
-      "game": "New Orleans Pelicans @ Boston Celtics",
-      "pick": "Under 229.2",
-      "odds": "-110",
-      "result": "L",
-      "units": "-1.00",
-      "clv": "-0.1",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 58.4
-    },
-    {
-      "date": "2026-04-10",
-      "sport": "NBA",
-      "game": "Cleveland Cavaliers @ Atlanta Hawks",
-      "pick": "Under 229.6",
-      "odds": "-110",
-      "result": "W",
-      "units": "+0.91",
-      "clv": "+0.2",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 58.4
     }
   ],
-  "updated": "2026-04-22",
+  "updated": "2026-04-23",
   "bySport": {
     "NBA": {
-      "wins": 6,
-      "losses": 7,
-      "roi": -11.2,
-      "units": "-1.4"
+      "wins": 7,
+      "losses": 8,
+      "roi": -10.1,
+      "units": "-1.5"
     },
     "NCAAB": {
       "wins": 0,
@@ -1334,10 +1334,10 @@
       "units": "+0.0"
     },
     "NHL": {
-      "wins": 2,
+      "wins": 1,
       "losses": 7,
-      "roi": -62.4,
-      "units": "-5.6"
+      "roi": -78.8,
+      "units": "-6.3"
     }
   },
   "byConfidence": {
@@ -1350,8 +1350,8 @@
     "mid": {
       "label": "65-79%",
       "wins": 3,
-      "losses": 12,
-      "winPct": 20.0
+      "losses": 13,
+      "winPct": 18.8
     },
     "low": {
       "label": "50-64%",
