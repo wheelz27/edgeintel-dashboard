@@ -8,16 +8,94 @@
   },
   "picks": [],
   "allTime": {
-    "wins": 11,
+    "wins": 14,
     "losses": 15,
     "pushes": 0,
-    "winPct": 42.3,
-    "units": "-7.8",
-    "roi": -34.0,
-    "streak": "P2",
-    "streakCount": 2
+    "winPct": 48.3,
+    "units": "-5.4",
+    "roi": -20.8,
+    "streak": "W3",
+    "streakCount": 3
   },
   "history": [
+    {
+      "date": "2026-04-23",
+      "sport": "NHL",
+      "game": "Colorado Avalanche @ Los Angeles Kings",
+      "pick": "Colorado Avalanche -1.5",
+      "odds": "-188",
+      "result": "W",
+      "units": "+0.53",
+      "clv": "+0.2",
+      "wasEdgePick": true,
+      "countsToRecord": true,
+      "confidence": 74.0
+    },
+    {
+      "date": "2026-04-23",
+      "sport": "NHL",
+      "game": "Carolina Hurricanes @ Ottawa Senators",
+      "pick": "Over 5.5",
+      "odds": "-122",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.1",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 67.8
+    },
+    {
+      "date": "2026-04-23",
+      "sport": "NHL",
+      "game": "Buffalo Sabres @ Boston Bruins",
+      "pick": "Boston Bruins -1.5",
+      "odds": "205",
+      "result": "L",
+      "units": "-1.00",
+      "clv": "-0.0",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 62.0
+    },
+    {
+      "date": "2026-04-23",
+      "sport": "NBA",
+      "game": "Denver Nuggets @ Minnesota Timberwolves",
+      "pick": "Under 234.5",
+      "odds": "-105",
+      "result": "W",
+      "units": "+0.95",
+      "clv": "+0.4",
+      "wasEdgePick": false,
+      "countsToRecord": false,
+      "confidence": 65.7
+    },
+    {
+      "date": "2026-04-23",
+      "sport": "NBA",
+      "game": "Cleveland Cavaliers @ Toronto Raptors",
+      "pick": "Over 222.5",
+      "odds": "-105",
+      "result": "W",
+      "units": "+0.95",
+      "clv": "+0.7",
+      "wasEdgePick": true,
+      "countsToRecord": true,
+      "confidence": 73.2
+    },
+    {
+      "date": "2026-04-23",
+      "sport": "NBA",
+      "game": "New York Knicks @ Atlanta Hawks",
+      "pick": "Over 216.5",
+      "odds": "-108",
+      "result": "W",
+      "units": "+0.93",
+      "clv": "+1.1",
+      "wasEdgePick": true,
+      "countsToRecord": true,
+      "confidence": 77.4
+    },
     {
       "date": "2026-04-22",
       "sport": "NHL",
@@ -1239,93 +1317,15 @@
       "wasEdgePick": false,
       "countsToRecord": false,
       "confidence": 65.7
-    },
-    {
-      "date": "2026-04-10",
-      "sport": "NBA",
-      "game": "LA Clippers @ Portland Trail Blazers",
-      "pick": "Under 229.6",
-      "odds": "-110",
-      "result": "W",
-      "units": "+0.91",
-      "clv": "+0.2",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 58.4
-    },
-    {
-      "date": "2026-04-10",
-      "sport": "NBA",
-      "game": "Memphis Grizzlies @ Utah Jazz",
-      "pick": "Under 227.5",
-      "odds": "-110",
-      "result": "L",
-      "units": "-1.00",
-      "clv": "-0.1",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 58.4
-    },
-    {
-      "date": "2026-04-10",
-      "sport": "NBA",
-      "game": "Minnesota Timberwolves @ Houston Rockets",
-      "pick": "Under 269.5",
-      "odds": "108",
-      "result": "W",
-      "units": "+1.08",
-      "clv": "+3.9",
-      "wasEdgePick": true,
-      "countsToRecord": true,
-      "confidence": 86.3
-    },
-    {
-      "date": "2026-04-10",
-      "sport": "NBA",
-      "game": "Oklahoma City Thunder @ Denver Nuggets",
-      "pick": "Under 231.8",
-      "odds": "-110",
-      "result": "L",
-      "units": "-1.00",
-      "clv": "-0.1",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 58.4
-    },
-    {
-      "date": "2026-04-10",
-      "sport": "NBA",
-      "game": "Dallas Mavericks @ San Antonio Spurs",
-      "pick": "Under 230.7",
-      "odds": "-110",
-      "result": "L",
-      "units": "-1.00",
-      "clv": "-0.1",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 58.4
-    },
-    {
-      "date": "2026-04-10",
-      "sport": "NBA",
-      "game": "Brooklyn Nets @ Milwaukee Bucks",
-      "pick": "Under 230.8",
-      "odds": "-110",
-      "result": "L",
-      "units": "-1.00",
-      "clv": "-0.1",
-      "wasEdgePick": false,
-      "countsToRecord": false,
-      "confidence": 58.4
     }
   ],
-  "updated": "2026-04-23",
+  "updated": "2026-04-24",
   "bySport": {
     "NBA": {
-      "wins": 7,
+      "wins": 9,
       "losses": 8,
-      "roi": -10.1,
-      "units": "-1.5"
+      "roi": 2.1,
+      "units": "+0.4"
     },
     "NCAAB": {
       "wins": 0,
@@ -1334,10 +1334,10 @@
       "units": "+0.0"
     },
     "NHL": {
-      "wins": 1,
+      "wins": 2,
       "losses": 7,
-      "roi": -78.8,
-      "units": "-6.3"
+      "roi": -64.1,
+      "units": "-5.8"
     }
   },
   "byConfidence": {
@@ -1349,9 +1349,9 @@
     },
     "mid": {
       "label": "65-79%",
-      "wins": 3,
+      "wins": 6,
       "losses": 13,
-      "winPct": 18.8
+      "winPct": 31.6
     },
     "low": {
       "label": "50-64%",
