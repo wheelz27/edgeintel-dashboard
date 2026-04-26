@@ -12,10 +12,10 @@
     "losses": 15,
     "pushes": 0,
     "winPct": 48.3,
-    "units": "-5.4",
-    "roi": -20.8,
-    "streak": "W3",
-    "streakCount": 3
+    "units": "-6.5",
+    "roi": -26.0,
+    "streak": "P0",
+    "streakCount": 0
   },
   "history": [
     {
@@ -1319,13 +1319,13 @@
       "confidence": 65.7
     }
   ],
-  "updated": "2026-04-24",
+  "updated": "2026-04-26",
   "bySport": {
     "NBA": {
-      "wins": 9,
+      "wins": 8,
       "losses": 8,
-      "roi": 2.1,
-      "units": "+0.4"
+      "roi": -4.5,
+      "units": "-0.7"
     },
     "NCAAB": {
       "wins": 0,
@@ -1343,9 +1343,9 @@
   "byConfidence": {
     "high": {
       "label": "80-100%",
-      "wins": 5,
+      "wins": 4,
       "losses": 2,
-      "winPct": 71.4
+      "winPct": 66.7
     },
     "mid": {
       "label": "65-79%",

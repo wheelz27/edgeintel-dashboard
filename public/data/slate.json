@@ -1,7 +1,7 @@
 {
-  "updated": "2026-04-24T09:00:13.179105-04:00",
-  "date": "April 24, 2026",
-  "daily_code": "EDGE0424",
+  "updated": "2026-04-26T09:00:07.123094-04:00",
+  "date": "April 26, 2026",
+  "daily_code": "EDGE0426",
   "discord_invite": "",
   "paypal_link": "https://paypal.me/Wheelz27",
   "price": "$29/month",
@@ -9,14 +9,14 @@
     {
       "id": 1,
       "sport": "NBA",
-      "game": "Boston Celtics @ Philadelphia 76ers",
-      "time": "7:00 PM ET",
-      "confidence": 76.5,
-      "isEdgePick": true,
+      "game": "Cleveland Cavaliers @ Toronto Raptors",
+      "time": "1:00 PM ET",
+      "confidence": 75.6,
+      "isEdgePick": false,
       "best_bet": {
-        "pick": "Boston Celtics -7.5",
+        "pick": "Over 220.5",
         "odds": "-112",
-        "book": "DraftKings"
+        "book": "FanDuel"
       },
       "best_prop": {
         "pick": "No prop identified",
@@ -25,40 +25,40 @@
       },
       "best_parlay": {
         "legs": [
-          "Boston Celtics -7.5",
-          "Over 215.5"
+          "Over 220.5",
+          "Cleveland Cavaliers ML"
         ],
         "odds": "+220",
         "correlation": "Correlated same-game parlay"
       },
       "model_vs_market": {
-        "model_spread": -2.8,
-        "market_spread": 7.5,
-        "model_total": 225.4,
-        "market_total": 215.5,
-        "edge": 10.3,
-        "edge_signed": -10.3,
-        "home_proj": 114.1,
-        "away_proj": 111.3
+        "model_spread": 3.5,
+        "market_spread": 3.5,
+        "model_total": 229.9,
+        "market_total": 220.5,
+        "edge": 9.4,
+        "edge_signed": 9.4,
+        "home_proj": 113.2,
+        "away_proj": 116.7
       },
       "why": [
-        "Model spread: -2.8. Market: +7.5. Philadelphia 76ers has a 10.3-point edge.",
+        "Model spread: +3.5. Market: +3.5. Cleveland Cavaliers has a 9.4-point edge.",
         "Confidence based on time-weighted power ratings (L1/L5/L15/Season)."
       ],
       "risk": [
         "Standard model variance."
       ],
-      "execution": "Play Boston Celtics -7.5 up to Boston Celtics -8.0. Standard sizing."
+      "execution": "Play Over 220.5 up to Over 221.0. Standard sizing."
     },
     {
       "id": 2,
       "sport": "NBA",
-      "game": "Los Angeles Lakers @ Houston Rockets",
-      "time": "8:00 PM ET",
-      "confidence": 83.1,
+      "game": "San Antonio Spurs @ Portland Trail Blazers",
+      "time": "3:30 PM ET",
+      "confidence": 78.2,
       "isEdgePick": true,
       "best_bet": {
-        "pick": "Over 206.5",
+        "pick": "Over 218.5",
         "odds": "-110",
         "book": "FanDuel"
       },
@@ -69,40 +69,40 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 206.5",
-          "Houston Rockets ML"
+          "Over 218.5",
+          "Portland Trail Blazers ML"
         ],
         "odds": "+220",
         "correlation": "Correlated same-game parlay"
       },
       "model_vs_market": {
-        "model_spread": -11.8,
-        "market_spread": -8.5,
-        "model_total": 228.8,
-        "market_total": 206.5,
-        "edge": 22.3,
-        "edge_signed": 22.3,
-        "home_proj": 120.3,
-        "away_proj": 108.5
+        "model_spread": -1.9,
+        "market_spread": 5.5,
+        "model_total": 230.7,
+        "market_total": 218.5,
+        "edge": 12.2,
+        "edge_signed": 12.2,
+        "home_proj": 116.3,
+        "away_proj": 114.4
       },
       "why": [
-        "Model spread: -11.8. Market: -8.5. Houston Rockets has a 22.3-point edge.",
+        "Model spread: -1.9. Market: +5.5. Portland Trail Blazers has a 12.2-point edge.",
         "Confidence based on time-weighted power ratings (L1/L5/L15/Season)."
       ],
       "risk": [
         "Standard model variance."
       ],
-      "execution": "Play Over 206.5 up to Over 207.0. Standard sizing."
+      "execution": "Play Over 218.5 up to Over 219.0. Standard sizing."
     },
     {
       "id": 3,
       "sport": "NBA",
-      "game": "San Antonio Spurs @ Portland Trail Blazers",
-      "time": "10:30 PM ET",
-      "confidence": 77.3,
+      "game": "Boston Celtics @ Philadelphia 76ers",
+      "time": "7:00 PM ET",
+      "confidence": 77.9,
       "isEdgePick": true,
       "best_bet": {
-        "pick": "Over 219.5",
+        "pick": "Over 213.5",
         "odds": "-114",
         "book": "FanDuel"
       },
@@ -113,33 +113,165 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 219.5",
-          "Portland Trail Blazers ML"
+          "Over 213.5",
+          "Philadelphia 76ers ML"
         ],
         "odds": "+220",
         "correlation": "Correlated same-game parlay"
       },
       "model_vs_market": {
-        "model_spread": -1.9,
-        "market_spread": 2.5,
-        "model_total": 230.7,
-        "market_total": 219.5,
-        "edge": 11.2,
-        "edge_signed": 11.2,
-        "home_proj": 116.3,
-        "away_proj": 114.4
+        "model_spread": -2.8,
+        "market_spread": 7.5,
+        "model_total": 225.4,
+        "market_total": 213.5,
+        "edge": 11.9,
+        "edge_signed": 11.9,
+        "home_proj": 114.1,
+        "away_proj": 111.3
       },
       "why": [
-        "Model spread: -1.9. Market: +2.5. Portland Trail Blazers has a 11.2-point edge.",
+        "Model spread: -2.8. Market: +7.5. Philadelphia 76ers has a 11.9-point edge.",
         "Confidence based on time-weighted power ratings (L1/L5/L15/Season)."
       ],
       "risk": [
         "Standard model variance."
       ],
-      "execution": "Play Over 219.5 up to Over 220.0. Standard sizing."
+      "execution": "Play Over 213.5 up to Over 214.0. Standard sizing."
     },
     {
       "id": 4,
+      "sport": "NBA",
+      "game": "Los Angeles Lakers @ Houston Rockets",
+      "time": "9:30 PM ET",
+      "confidence": 82.8,
+      "isEdgePick": true,
+      "best_bet": {
+        "pick": "Over 207.5",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 207.5",
+          "Houston Rockets ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -11.8,
+        "market_spread": -4.5,
+        "model_total": 228.8,
+        "market_total": 207.5,
+        "edge": 21.3,
+        "edge_signed": 21.3,
+        "home_proj": 120.3,
+        "away_proj": 108.5
+      },
+      "why": [
+        "Model spread: -11.8. Market: -4.5. Houston Rockets has a 21.3-point edge.",
+        "Confidence based on time-weighted power ratings (L1/L5/L15/Season)."
+      ],
+      "risk": [
+        "Standard model variance."
+      ],
+      "execution": "Play Over 207.5 up to Over 208.0. Standard sizing."
+    },
+    {
+      "id": 5,
+      "sport": "NHL",
+      "game": "Buffalo Sabres @ Boston Bruins",
+      "time": "2:00 PM ET",
+      "confidence": 64.6,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Over 5.5",
+        "odds": "-130",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 5.5",
+          "Buffalo Sabres ML"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.9,
+        "market_spread": -1.5,
+        "model_total": 6.3,
+        "market_total": 5.5,
+        "edge": 0.8,
+        "edge_signed": 0.8,
+        "home_proj": 3.6,
+        "away_proj": 2.7
+      },
+      "why": [
+        "Model spread: -0.9. Market: -1.5. Boston Bruins has a 0.8-point edge.",
+        "Confidence based on time-weighted power ratings (L1/L5/L15/Season)."
+      ],
+      "risk": [
+        "Moderate edge \u2014 size down slightly."
+      ],
+      "execution": "Play Over 5.5 up to Over 6.0. Standard sizing."
+    },
+    {
+      "id": 6,
+      "sport": "NHL",
+      "game": "Colorado Avalanche @ Los Angeles Kings",
+      "time": "4:30 PM ET",
+      "confidence": 74.0,
+      "isEdgePick": false,
+      "best_bet": {
+        "pick": "Colorado Avalanche -1.5",
+        "odds": "-180",
+        "book": "DraftKings"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Colorado Avalanche -1.5",
+          "Over 5.5"
+        ],
+        "odds": "+220",
+        "correlation": "Correlated same-game parlay"
+      },
+      "model_vs_market": {
+        "model_spread": -0.5,
+        "market_spread": 1.5,
+        "model_total": 6.5,
+        "market_total": 5.5,
+        "edge": 2.0,
+        "edge_signed": -2.0,
+        "home_proj": 3.5,
+        "away_proj": 3.0
+      },
+      "why": [
+        "Model spread: -0.5. Market: +1.5. Los Angeles Kings has a 2.0-point edge.",
+        "Confidence based on time-weighted power ratings (L1/L5/L15/Season)."
+      ],
+      "risk": [
+        "Moderate edge \u2014 size down slightly."
+      ],
+      "execution": "Play Colorado Avalanche -1.5 up to Colorado Avalanche -2.0. Standard sizing."
+    },
+    {
+      "id": 7,
       "sport": "NHL",
       "game": "Tampa Bay Lightning @ Montreal Canadiens",
       "time": "7:00 PM ET",
@@ -183,59 +315,15 @@
       "execution": "Play Under 8.1 up to Under 8.6. Standard sizing."
     },
     {
-      "id": 5,
-      "sport": "NHL",
-      "game": "Vegas Golden Knights @ Utah Mammoth",
-      "time": "9:30 PM ET",
-      "confidence": 72.3,
-      "isEdgePick": false,
-      "best_bet": {
-        "pick": "Vegas Golden Knights -1.5",
-        "odds": "-270",
-        "book": "DraftKings"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Vegas Golden Knights -1.5",
-          "Over 5.5"
-        ],
-        "odds": "+220",
-        "correlation": "Correlated same-game parlay"
-      },
-      "model_vs_market": {
-        "model_spread": -0.2,
-        "market_spread": 1.5,
-        "model_total": 6.6,
-        "market_total": 5.5,
-        "edge": 1.7,
-        "edge_signed": -1.7,
-        "home_proj": 3.4,
-        "away_proj": 3.2
-      },
-      "why": [
-        "Model spread: -0.2. Market: +1.5. Utah Mammoth has a 1.7-point edge.",
-        "Confidence based on time-weighted power ratings (L1/L5/L15/Season)."
-      ],
-      "risk": [
-        "Moderate edge \u2014 size down slightly."
-      ],
-      "execution": "Play Vegas Golden Knights -1.5 up to Vegas Golden Knights -2.0. Standard sizing."
-    },
-    {
-      "id": 6,
+      "id": 8,
       "sport": "NHL",
       "game": "Edmonton Oilers @ Anaheim Ducks",
-      "time": "10:00 PM ET",
+      "time": "9:30 PM ET",
       "confidence": 68.7,
       "isEdgePick": false,
       "best_bet": {
         "pick": "Edmonton Oilers -1.5",
-        "odds": "-218",
+        "odds": "-205",
         "book": "DraftKings"
       },
       "best_prop": {
@@ -246,7 +334,7 @@
       "best_parlay": {
         "legs": [
           "Edmonton Oilers -1.5",
-          "Over 6.5"
+          "Over 7.5"
         ],
         "odds": "+220",
         "correlation": "Correlated same-game parlay"
@@ -255,7 +343,7 @@
         "model_spread": 0.3,
         "market_spread": 1.5,
         "model_total": 6.5,
-        "market_total": 6.5,
+        "market_total": 7.5,
         "edge": 1.2,
         "edge_signed": -1.2,
         "home_proj": 3.1,
